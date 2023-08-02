@@ -1,6 +1,6 @@
 const youtubeContent = [
   {
-    id: "m1",
+    id: "y1",
     title: "YouTube Video Ideas",
     content:
       "Unlock a treasure trove of creative video concepts to captivate and grow your YouTube audience.",
@@ -8,7 +8,7 @@ const youtubeContent = [
     comp: "video",
   },
   {
-    id: "m1",
+    id: "y2",
     title: "YouTube Shorts Ideas",
     content:
       "Dive into bite-sized content creation with compelling ideas for YouTube Shorts that leave a lasting impact.",
@@ -16,7 +16,7 @@ const youtubeContent = [
     comp: "video",
   },
   {
-    id: "m1",
+    id: "y3",
     title: "YouTube Titles",
     content:
       "Optimize your video titles to attract more viewers and enhance engagement.",
@@ -24,7 +24,7 @@ const youtubeContent = [
     comp: "caption",
   },
   {
-    id: "m1",
+    id: "y4",
     title: "YouTube Descriptions",
     content:
       "Write compelling descriptions that entice viewers to click and watch your videos.",
@@ -32,7 +32,7 @@ const youtubeContent = [
     comp: "desc",
   },
   {
-    id: "m1",
+    id: "y5",
     title: "YouTube Tags",
     content:
       "Discover relevant tags to optimize your videos for better search rankings.",
@@ -40,7 +40,7 @@ const youtubeContent = [
     comp: "hashtag",
   },
   {
-    id: "m1",
+    id: "y6",
     title: "YouTube Thumbnail Ideas",
     content:
       "Grab viewers' attention and increase click-through rates with eye-catching thumbnail ideas that make your YouTube videos stand out.",

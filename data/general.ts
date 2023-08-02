@@ -1,13 +1,13 @@
 const generalContent = [
     {
-      id: "m2",
+      id: "g1",
       title: "Rewrite",
       content: "Rewrite your content based on your tone.",
       platform: 'rewrite',
       comp: 'rewrite'
     },
     {
-      id: "m2",
+      id: "g2",
       title: "Repurpose",
       content: "Repurpose your posts to use in different platforms.",
       platform: 'repurpose',
