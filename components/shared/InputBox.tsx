@@ -17,12 +17,12 @@ const InputBox: FC<InputBoxInterFace> = (props) => {
     }
 
     return (
-        <div className="p-2 bg-blue-100">
+        <div className="p-2 ">
             <div className="flex justify-between">
                 <p className="text-lg font-bold">{props.title} {props.required && <span className="text-red-600">*</span>} </p>
                 {props.maxLength && <p className="al">{inputLength}/{props.maxLength}</p>}
             </div>
-            <input {...props} className="w-full text-lg p-2 placeholder:text-gray-500 border-r" onChange={updateInputLength} {...props}/>
+            <input {...props} className="w-full text-lg p-2 rounded border-stone-500 border-2" onChange={updateInputLength} {...props}/>
         </div>
     )
 }

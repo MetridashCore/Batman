@@ -31,9 +31,6 @@ const ShortForm: FC<ShortFormProps> = (props) =>{
             <div className="pb-4"/>
             <button className="w-full p-3 text-lg font-bold bg-blue-400 rounded-lg text-white">{`Generate`}</button>
 
-            <p>{about}</p>
-            <p>{targetAudience}</p>
-            <p>{tone}</p>
         </div>
     )
 }

@@ -31,11 +31,11 @@ const KeywordsInput: FC<KeywordsInputInterFace> = (props) =>{
     }
 
     return (
-        <div className="p-2 bg-blue-100 border ">
+        <div className="p-2 ">
             <p className="text-lg font-bold">{props.title} {props.required && <span className="text-red-600">*</span>} </p>
             <div className="pt-1">
-                <input className="w-[80%] p-2 " ref={keywordRef} placeholder={props.placeholder} {...props} />
-                <button className="ml-1 pl-2 w-[10%] bg-red-400 p-2 rounded-lg" title="Add" onClick={onAddKeyword} >Add </button>
+                <input className="w-[80%] p-2 border-stone-500 border-2 rounded-lg" ref={keywordRef} placeholder={props.placeholder} {...props} />
+                <button className="ml-1 w-[10%] border-stone-500 border-2 p-2 rounded-lg" title="Add" onClick={onAddKeyword} >Add </button>
             </div>
 
             { keywords?.length > 0 &&
