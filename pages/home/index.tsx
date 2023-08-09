@@ -12,12 +12,12 @@ import Grid from "@mui/material/Grid";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { auth } from "@/firebase";
-import youtubeContent from "@/data/youtube";
-import tiktokContent from "@/data/tiktok";
-import InstagramContent from "@/data/instagram";
-import linkedInContent from "@/data/linkedin";
-import twitterContent from "@/data/twitter";
-import facebookContent from "@/data/facebook";
+import YoutubeOptions from "@/data/youtube";
+import TiktokOptions from "@/data/tiktok";
+import InstagramOptions from "@/data/instagram";
+import LinkedInOptions from "@/data/linkedin";
+import TwitterOption from "@/data/twitter";
+import FacebookOptions from "@/data/facebook";
 import generalContent from "@/data/general";
 import { useState, useEffect } from "react";
 
@@ -133,7 +133,7 @@ const Home: NextPage = () => {
             <h3>YouTube</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {youtubeContent.slice(0, 4).map((content) => {
+            {YoutubeOptions.slice(0, 4).map((content) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -174,7 +174,7 @@ const Home: NextPage = () => {
             })}
           </DescriptionCard>
           <DescriptionCard>
-            {youtubeContent.slice(4, 6).map((content, index) => {
+            {YoutubeOptions.slice(4, 6).map((content, index) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -237,7 +237,7 @@ const Home: NextPage = () => {
             <h3>Twitter</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {twitterContent.map((content) => {
+            {TwitterOption.map((content) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -300,7 +300,7 @@ const Home: NextPage = () => {
             <h3>LinkedIn</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {linkedInContent.map((content) => {
+            {LinkedInOptions.map((content) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -355,7 +355,7 @@ const Home: NextPage = () => {
             <h3>TikTok</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {tiktokContent.map((content) => {
+            {TiktokOptions.map((content) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -410,7 +410,7 @@ const Home: NextPage = () => {
             <h3>Facebook</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {facebookContent.map((content) => {
+            {FacebookOptions.map((content) => {
               return (
                 <CardContents
                   onClick={() => {
@@ -473,7 +473,7 @@ const Home: NextPage = () => {
             <h3>Instagram</h3>
           </CardItemTitle>
           <DescriptionCard>
-            {InstagramContent.map((content) => {
+            {InstagramOptions.map((content) => {
               return (
                 <CardContents
                   onClick={() => {

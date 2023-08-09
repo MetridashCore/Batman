@@ -11,14 +11,15 @@ import platforms from '@/data/sideBarPlatforms';
 import SearchIcon from '@mui/icons-material/Search';
 import { Input } from '@mui/material';
 import MainSelector from '../ContentForm/mainSelector';
-// import InstagramIcon from '../../public/platformIcons/InstagramIcon.svg'
-export default function SideBar() {
+import { FormOption, SelectedOption } from '@/types/types';
 
+
+export default function SideBar() {
 
     const [focusedItem, setFocusedItem] = useState<string | null>(null);
     const [focusedButton, setFocusedButton] = useState(null);
     const [openStates, setOpenStates] = React.useState(platforms.map(() => false));
-    const [option, setOption] = useState("Youtube Video");
+    const [option, setOption] = useState<SelectedOption>();
     const [searchText, setSearchText] = useState('');
     const [form , setForm] = useState("");
     const handleSearchChange = (event: any) => {
@@ -29,7 +30,7 @@ export default function SideBar() {
 
     const filteredPlatforms = platforms.filter((platform) =>
         platform.items.some((item) =>
-            item.toLowerCase().includes(searchText.toLowerCase())
+            item.title.toLowerCase().includes(searchText.toLowerCase())
         )
     );
 
@@ -38,9 +39,9 @@ export default function SideBar() {
         newOpenStates[index] = !newOpenStates[index];
         setOpenStates(newOpenStates);
     };
-    const handleItemClick = (item: string) => {
-        setOption(item);
-        setFocusedItem(item);
+    const handleItemClick = (item: FormOption, platform: string) => {
+        setOption({...item,platform});
+        setFocusedItem(item.title);
       };
     return (
         <div className='flex w-full bg-black h-full '>
@@ -67,16 +68,16 @@ export default function SideBar() {
         <List key={i}>
           {platform.items.map((item, j) => (
             <button
-              onClick={() => handleItemClick(item)}
+              onClick={() => handleItemClick(item, platform.name)}
               className={`flex w-full  pl-14 ${
-                focusedItem === item ? 'bg-[#232529] border-r-4 dark:border-gray-50 border-[#3247CF] dark:bg-[#232529]' : 'hover:bg-[#F2F2F2] hover:border-r-4 dark:border-gray-50 border-[#3247CF] dark:hover:bg-[#232529]'
+                focusedItem === item.title ? 'bg-[#232529] border-r-4 dark:border-gray-50 border-[#3247CF] dark:bg-[#232529]' : 'hover:bg-[#F2F2F2] hover:border-r-4 dark:border-gray-50 border-[#3247CF] dark:hover:bg-[#232529]'
               }`}
               key={j}
             >
               <Image className='object-contain mt-1' alt={platform.name} width={26} height={22} src={platform.icon} />
               <h1 className={`dark:text-white text-black py-2 pl-4 flex-row flex w-full text-left mb-4 text-sm ${
-                focusedItem === item ? 'text-black' : ''
-              }`} >{item}</h1>
+                focusedItem === item.title ? 'text-black' : ''
+              }`} >{item.title}</h1>
             </button>
           ))}
         </List>
@@ -100,16 +101,16 @@ export default function SideBar() {
                             <List  component="div" disablePadding>
                                 {platform.items.map((item, j) => (
                                    <button
-                                   onClick={() => handleItemClick(item)}
+                                   onClick={() => handleItemClick(item, platform.name)}
                                    className={`flex  w-full  pl-20 ${
-                                     focusedItem === item ? 'bg-[#F2F2F2] border-r-4 dark:border-gray-50 border-[#3247CF] dark:bg-[#232529]' : 'hover:bg-[#F2F2F2] hover:border-r-4 dark:border-gray-50 border-[#3247CF] dark:hover:bg-[#232529]'
+                                     focusedItem === item.title ? 'bg-[#F2F2F2] border-r-4 dark:border-gray-50 border-[#3247CF] dark:bg-[#232529]' : 'hover:bg-[#F2F2F2] hover:border-r-4 dark:border-gray-50 border-[#3247CF] dark:hover:bg-[#232529]'
                                    }`}
                                    key={j}
                                  >
                                   
                                    <h1 className={`dark:text-white text-black py-1 pl-4 flex-row flex w-full text-left my-4 text-sm ${
-                                     focusedItem === item ? 'text-black' : ''
-                                   }`} >{item}</h1>
+                                     focusedItem === item.title ? 'text-black' : ''
+                                   }`} >{item.title}</h1>
                                  </button>
                                 ))}
                             </List>
@@ -118,7 +119,9 @@ export default function SideBar() {
                 ))}
             </div>
             <div className='flex w-2/3 dark:bg-[#232529] bg-[#F2F2F2]'>
-                        <MainSelector platform={option}/>           
+                {option && 
+                        <MainSelector selectedOption={option}/>           
+                }
             </div>
         </div>
     )

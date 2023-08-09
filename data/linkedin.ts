@@ -1,25 +1,21 @@
-const linkedInContent = [
+import {FormOption} from '../types/types'
+
+const LinkedInOptions:FormOption[] = [
     {
-      id: "l1",
-      title: "LinkedIn Post Ideas",
-      content: "Generate professional post ideas to share industry insights and build connections.",
-      platform: 'linkedIn',
-      comp: 'LinkedInPost'
+      title: "LinkedIn Post",
+      description: "Generate professional post ideas to share industry insights and build connections.",
+      formType:"Description"
     },
     {
-      id: "l2",
       title: "LinkedIn Profile Optimization",
-      content: "Optimize your profile to impress potential employers or clients and stand out.",
-      platform: 'linkedIn',
-      comp: 'bio'
+      description: "Optimize your profile to impress potential employers or clients and stand out.",
+      formType:"Description"
     },
     {
-      id: "l3",
       title: "LinkedIn Articles",
-      content: "Craft well-written articles that establish you as an authoritative voice in your field.",
-      platform: 'linkedIn',
-      comp: 'LinkedInPost'
+      description: "Craft well-written articles that establish you as an authoritative voice in your field.",
+      formType:"Description"
     },
   ];
 
-  export default linkedInContent;
+  export default LinkedInOptions;

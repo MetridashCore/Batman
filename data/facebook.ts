@@ -1,25 +1,21 @@
-const facebookContent = [
+import {FormOption} from '../types/types'
+
+const FacebookOptions:FormOption[] = [
     {
-      id: "f1",
-      title: "Facebook Post Ideas",
-      content: "Generate engaging post ideas that spark conversations and drive interactions.",
-      platform: 'facebook',
-      comp: 'post'
+      title: "Facebook Post",
+      description: "Generate engaging post ideas that spark conversations and drive interactions.",
+      formType:"Description"
     },
     {
-      id: "f2",
       title: "Facebook Ad Copy",
-      content: "Create compelling ad copy that compels your target audience to take action.",
-      platform: 'facebook',
-      comp: 'adCopy'
+      description: "Create compelling ad copy that compels your target audience to take action.",
+      formType:"Description"
     },
     {
-      id: "f3",
       title: "Facebook Page Description",
-      content: "Craft an enticing page description that accurately represents your brand.",
-      platform: 'facebook',
-      comp: 'desc'
+      description: "Craft an enticing page description that accurately represents your brand.",
+      formType:"Description"
     },
   ];
 
-  export default facebookContent
+  export default FacebookOptions

@@ -4,11 +4,9 @@ import SelectBox from "../shared/SelectBox";
 import KeywordsInput from "../shared/KeywordsInput";
 
 interface TagsFormProps{
-    selected:{
-        platform:string;
-        title:string;
-        description:string;
-    }
+    platform:string;
+    title:string;
+    description:string;
 }
 
 const TagsForm: FC<TagsFormProps> = (props) =>{

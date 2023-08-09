@@ -4,11 +4,9 @@ import SelectBox from "../shared/SelectBox";
 import KeywordsInput from "../shared/KeywordsInput";
 
 interface LongFormProps{
-    selected:{
-        platform:string;
-        title:string;
-        description:string;
-    }
+    platform:string;
+    title:string;
+    description:string;
 }
 
 const LongForm: FC<LongFormProps> = (props) =>{
@@ -21,8 +19,8 @@ const LongForm: FC<LongFormProps> = (props) =>{
 
     return(
         <div className="h-screen p-4">
-            <p className="text-3xl" >{props.selected.title}</p>
-            <p className="text-sm">{props.selected.description}</p>
+            <p className="text-3xl" >{props.title}</p>
+            <p className="text-sm">{props.description}</p>
             <div className="pb-4"/>
             <InputBox title="What's your post about?" required={true} maxLength={800} currentValue={setAbout}/>
             <KeywordsInput title="Keywords"required={true} selectedKeywords={setKeywords} />

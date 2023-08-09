@@ -1,26 +1,20 @@
-
-const twitterContent = [
+import {FormOption} from '../types/types'
+const TwitterOptions:FormOption[] = [
     {
-      id: "t1",
       title: "Twitter Tweets",
-      content: "Compose attention-grabbing tweets that resonate with your followers and gain retweets.",
-      platform: 'twitter',
-      comp: 'tweet'
+      description: "Compose attention-grabbing tweets that resonate with your followers and gain retweets.",
+      formType:"Description"
     },
     {
-      id: "t2",
       title: "Twitter Hashtags",
-      content: "Discover popular hashtags to increase your tweets' visibility and reach.",
-      platform: 'twitter',
-      comp: 'hashtag'
+      description: "Discover popular hashtags to increase your tweets' visibility and reach.",
+      formType:"Description"
     },
     {
-      id: "t3",
       title: "Twitter Bio",
-      content: "Create a compelling bio that showcases your uniqueness and attracts followers.",
-      platform: 'twitter',
-      comp: 'bio'
+      description: "Create a compelling bio that showcases your uniqueness and attracts followers.",
+      formType:"Description"
     },
   ];
 
-  export default twitterContent
+  export default TwitterOptions

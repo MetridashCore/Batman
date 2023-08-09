@@ -1,35 +1,29 @@
-const InstagramContent = [
+import {FormOption} from '../types/types'
+
+const InstagramOptions:FormOption[] = [
     {
-      id: "i1",
-      title: "Instagram Reels Ideas",
-      content: "Ignite your creativity and engage your audience with captivating Instagram Reel Ideas",
-      platform: 'instagram',
-      comp: 'video'
+      title: "Instagram Reels",
+      description: "Ignite your creativity and engage your audience with captivating Instagram Reel Ideas",
+      formType:"Description"
     },
     {
-      id: "i2",
       title: "Instagram Captions",
-      content:
+      description:
         "Write scroll-stopping captions that encourage people to stop, look, and like.",
-        platform: 'instagram',
-        comp: 'caption'
+      formType:"Description"
     },
     {
-      id: "i3",
       title: "Instagram Hashtags",
-      content:
+      description:
         "Discover the perfect hashtags to boost your posts' reach and engagement.",
-        platform: 'instagram',
-        comp: 'hashtag'
+      formType:"Description"
     },
     {
-      id: "i4",
       title: "Instagram Bio",
-      content:
+      description:
         "Create an impressive bio that showcases your personality and attracts followers.",
-        platform: 'instagram',
-        comp: 'bio'
+      formType:"Description"
     },
   ];
 
-  export default InstagramContent
+  export default InstagramOptions

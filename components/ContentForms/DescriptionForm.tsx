@@ -4,11 +4,11 @@ import SelectBox from "../shared/SelectBox";
 import KeywordsInput from "../shared/KeywordsInput";
 
 interface DescriptionFormProps{
-    selected:{
+    // selected:{
         platform:string;
         title:string;
         description:string;
-    }
+    // }
 }
 
 const DescriptionForm: FC<DescriptionFormProps> = (props) =>{
@@ -21,8 +21,8 @@ const DescriptionForm: FC<DescriptionFormProps> = (props) =>{
 
     return(
         <div className="h-screen p-4">
-            <p className="text-3xl" >{props.selected.title}</p>
-            <p className="text-sm">{props.selected.description}</p>
+            <p className="text-3xl" >{props.title}</p>
+            <p className="text-sm">{props.description}</p>
             <div className="pb-4"/>
             <InputBox title="What's your post about?" required={true} maxLength={800} currentValue={setAbout}/>
             <SelectBox title="Industry" defaultValue={"Selected Industry"} required={true} options={["Happy","Sad"]} selectedValue={setIndustry} />

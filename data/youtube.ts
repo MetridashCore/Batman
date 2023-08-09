@@ -1,52 +1,41 @@
-const youtubeContent = [
+import {FormOption} from '../types/types'
+
+const YoutubeOptions:FormOption[] = [
   {
-    id: "y1",
-    title: "YouTube Video Ideas",
-    content:
-      "Unlock a treasure trove of creative video concepts to captivate and grow your YouTube audience.",
-    platform: "youtube",
-    comp: "video",
+    title: "YouTube Video",
+    description:"Unlock a treasure trove of creative video concepts to captivate and grow your YouTube audience.",
+    formType:"Description"
   },
   {
-    id: "y2",
-    title: "YouTube Shorts Ideas",
-    content:
+    title: "YouTube Shorts",
+    description:
       "Dive into bite-sized content creation with compelling ideas for YouTube Shorts that leave a lasting impact.",
-    platform: "youtube",
-    comp: "video",
+    formType: "Description",
   },
   {
-    id: "y3",
     title: "YouTube Titles",
-    content:
+    description:
       "Optimize your video titles to attract more viewers and enhance engagement.",
-    platform: "youtube",
-    comp: "caption",
+    formType: "Description",
   },
   {
-    id: "y4",
     title: "YouTube Descriptions",
-    content:
+    description:
       "Write compelling descriptions that entice viewers to click and watch your videos.",
-    platform: "youtube",
-    comp: "desc",
+    formType: "Description",
   },
   {
-    id: "y5",
     title: "YouTube Tags",
-    content:
+    description:
       "Discover relevant tags to optimize your videos for better search rankings.",
-    platform: "youtube",
-    comp: "hashtag",
+    formType: "Description",
   },
   {
-    id: "y6",
-    title: "YouTube Thumbnail Ideas",
-    content:
+    title: "YouTube Thumbnail",
+    description:
       "Grab viewers' attention and increase click-through rates with eye-catching thumbnail ideas that make your YouTube videos stand out.",
-    platform: "youtube",
-    comp: "thumbnail",
+    formType:"Description"
   },
 ];
 
-export default youtubeContent;
+export default YoutubeOptions;

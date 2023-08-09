@@ -4,11 +4,9 @@ import SelectBox from "../shared/SelectBox";
 import KeywordsInput from "../shared/KeywordsInput";
 
 interface ShortFormProps{
-    selected:{
-        platform:string;
-        title:string;
-        description:string;
-    }
+    platform:string;
+    title:string;
+    description:string;
 }
 
 const ShortForm: FC<ShortFormProps> = (props) =>{

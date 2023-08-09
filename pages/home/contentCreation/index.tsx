@@ -18,7 +18,7 @@ const ContentCreation: NextPage = () => {
         <div className="flex flex-col md:flex-row justify-center items-center">
             <div className="w-1/2 p-4">
                 {/* <DescriptionForm selected={SELECTED_OPTION}/> */}
-                <LongForm selected={SELECTED_OPTION}/>
+                {/* <LongForm selected={SELECTED_OPTION}/> */}
                 {/* <ShortForm selected={SELECTED_OPTION} /> */}
 
             </div>

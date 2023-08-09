@@ -1,25 +1,21 @@
-const tiktokContent = [
+import {FormOption} from '../types/types'
+
+const TiktokOptions:FormOption[] = [
     {
-      id: "tt1",
-      title: "TikTok Video Ideas",
-      content: "Unleash your creativity with trending video ideas that captivate your audience.",
-      platform: 'tiktok',
-      comp: 'video'
+      title: "TikTok Video",
+      description: "Unleash your creativity with trending video ideas that captivate your audience.",
+      formType:"Description"
   
     },
     {
-      id: "tt2",
       title: "TikTok Hashtags",
-      content: "Find the right hashtags to amplify your content and gain more visibility.",
-      platform: 'tiktok',
-      comp: 'hashtag'
+      description: "Find the right hashtags to amplify your content and gain more visibility.",
+      formType:"Description"
     },
     {
-      id: "tt3",
       title: "TikTok Captions",
-      content: "Craft catchy captions that complement your TikTok videos and boost engagement.",
-      platform: 'tiktok',
-      comp: 'caption'
+      description: "Craft catchy captions that complement your TikTok videos and boost engagement.",
+      formType:"Description"
     },
   ];
-export default tiktokContent;
+export default TiktokOptions;

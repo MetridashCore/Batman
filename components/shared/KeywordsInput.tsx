@@ -21,6 +21,7 @@ const KeywordsInput: FC<KeywordsInputInterFace> = (props) =>{
         if(keywordRef.current){
             const value = keywordRef.current.value;
             setKeywords([...keywords, value])
+            keywordRef.current.value = ""
         }
     }
 
