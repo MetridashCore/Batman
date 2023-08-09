@@ -10,25 +10,25 @@ const YoutubeOptions:FormOption[] = [
     title: "YouTube Shorts",
     description:
       "Dive into bite-sized content creation with compelling ideas for YouTube Shorts that leave a lasting impact.",
-    formType: "Description",
+    formType: "Long",
   },
   {
     title: "YouTube Titles",
     description:
       "Optimize your video titles to attract more viewers and enhance engagement.",
-    formType: "Description",
+    formType: "Long",
   },
   {
     title: "YouTube Descriptions",
     description:
       "Write compelling descriptions that entice viewers to click and watch your videos.",
-    formType: "Description",
+    formType: "Short",
   },
   {
     title: "YouTube Tags",
     description:
       "Discover relevant tags to optimize your videos for better search rankings.",
-    formType: "Description",
+    formType: "Tags",
   },
   {
     title: "YouTube Thumbnail",

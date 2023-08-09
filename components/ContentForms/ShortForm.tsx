@@ -19,8 +19,8 @@ const ShortForm: FC<ShortFormProps> = (props) =>{
 
     return(
         <div className="h-screen p-4">
-            <p className="text-3xl" >{props.selected.title}</p>
-            <p className="text-sm">{props.selected.description}</p>
+            <p className="text-3xl" >{props.title}</p>
+            <p className="text-sm">{props.description}</p>
             <div className="pb-4"/>
             <InputBox title="What's your post about?" required={true} maxLength={800} currentValue={setAbout}/>
             <SelectBox title="Tone" defaultValue={"Selected Tone"}required={true}  options={["Happy","Sad"]} selectedValue={setTone} />
