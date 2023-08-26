@@ -16,7 +16,14 @@ import InstaTime from "public/bestTimes/insta.webp";
 import YoutubeTime from "public/bestTimes/youtube.webp";
 import SaveIcon from "@mui/icons-material/Save"; // Import SaveIcon from Material-UI
 import GPTResponseVideo from "./GPTResponseVideo";
-
+import { getUserToken } from "../auth";
+import SaveTwoToneIcon from "@mui/icons-material/SaveTwoTone";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { updateTokens } from "../auth";
+import { addDraft } from "../auth";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 type StaticImport = StaticImageData | string;
 
 export default function GPTResponse({
@@ -25,12 +32,19 @@ export default function GPTResponse({
   platform?: string | string[] | undefined;
 }) {
   const [response] = useAtom(responseAtom);
-  const [platformAt] = useAtom(platformAtom)
+  const [platformAt] = useAtom(platformAtom);
   const [token, setToken] = useState(0);
   const [color, setColor] = useState("gray-400");
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState<null | any>(null);
   const [openModal, setOpenModal] = useState(false);
+  const [Pdata, setData] = useState<String>("");
+  const [index, setIndex] = useState<Number>(0);
+  const [_response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [fullData, setFullData] = useState("");
+  const currentUser = auth.currentUser;
+  let finalToken = 20;
   const handleOpen = () => {
     setOpenModal(true);
     handleImageSelection();
@@ -51,14 +65,18 @@ export default function GPTResponse({
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
-      handleBestTime();
     });
   }, [user]);
+
+  useEffect(() => {
+    handleBestTime();
+  }, []);
 
   useEffect(() => {
     (async () => {
       const tk = await generateRealTimeToken(user);
       setToken(Number(tk));
+      setFullData(response);
     })();
   }, [response, user]);
 
@@ -70,8 +88,70 @@ export default function GPTResponse({
     }, 2000);
   }
 
+  const generateResponse = async (value: String) => {
+    setLoading(true);
+    const tk = await getUserToken(user);
+    if (Number(tk) < finalToken) {
+      setLoading(false);
+      return;
+    } else {
+      let usertk: number = Number(tk) - Number(finalToken);
+      // e.preventDefault();
+      setResponse("");
+
+      await updateTokens(user, usertk);
+      const res = await fetch("/api/promptChatGPT", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: `generate script for video ${value} `,
+        }),
+      });
+
+      if (!res.ok) throw new Error(res.statusText);
+
+      const data = res.body;
+
+      if (!data) return;
+
+      const reader = data.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value);
+        setResponse((prev) => prev + chunkValue);
+      }
+      setLoading(false);
+    }
+  };
+
+  interface AlertData {
+    severity: "success" | "error";
+    message: string;
+  }
+  interface AlertCopyData {
+    severity: "info";
+    message: string;
+  }
+  const [alert, setAlert] = useState<AlertData | null>(null);
+  const [Copyalert, setCopyAlert] = useState<AlertCopyData | null>(null);
+
+  const handleAddDraft = async (data: any) => {
+    try {
+      await addDraft(currentUser, data);
+      setAlert({ severity: "success", message: "Draft added successfully" });
+    } catch (error) {
+      setAlert({ severity: "error", message: "Error adding draft" });
+    }
+  };
+
   const handleBestTime = async () => {
-    (await platform) ? setSocialPlatform(platform) : setSocialPlatform("");
+    platform ? setSocialPlatform(platform) : setSocialPlatform("");
   };
 
   const handleImageSelection = () => {
@@ -88,67 +168,9 @@ export default function GPTResponse({
     }
   };
 
-  return(
-   
-    <div className="dark:bg-[#1B1D21] bg-white py-6 px-2 md:px-4 w-full max-w-screen h-screen">
-     
-      <div className="flex flex-row justify-between items-center">
-        <h1 className="dark:text-white text-[#3247CF] text-2xl px-5 font-sans font-medium">
-          Output
-          
-        </h1>
-        <Button
-          variant="contained"
-          startIcon={
-            <div
-              style={{
-                backgroundImage: `url('/images/draft.png')`, // Assuming 'draft.png' is in the 'public/images' folder
-                width: "24px",
-                height: "24px",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-              }}
-            />
-          }
-          sx={{
-            textTransform: "none",
-            backgroundColor: "#D0D8F5",
-            color: "#1E388B",
-            "&:hover": {
-              backgroundColor: "#D0D8F5",
-            },
-          }}
-        >
-          Save as Draft
-        </Button>
-      </div>
-      <hr className="my-4 #DBD7D7" />
-
-      <div className="flex flex-row justify-end space-x-2 mx-5 mb-4">
-        <Button
-          variant="text"
-          style={{
-            textDecoration: "underline",
-            textTransform: "none",
-            color: "grey",
-          }}
-        >
-          Edit
-        </Button>
-        <Button
-          variant="text"
-          style={{
-            textDecoration: "underline",
-            textTransform: "none",
-            color: "grey",
-          }}
-        >
-          Repurpose
-        </Button>
-      </div>
-
-      <div className="flex flex-col items-center mt-10">
+  return (
+    <div className="dark:bg-[#232529] bg-[#F2F2F2] px-4  w-full h-screen overflow-scroll items-center pt-14 flex flex-col">
+      <div className="flex flex-col items-center w-full dark:bg-[#1B1D21] pb-6 bg-white h-4/5 rounded-md overflow-scroll">
         {response ? (
           response
             .split("\n")
@@ -158,11 +180,11 @@ export default function GPTResponse({
                 return (
                   <div
                     key={i}
-                    className={`flex mx-5 ${
-                      e.match(/[0-9]\./) ? "mb-2" : "mb-10"
+                    className={`flex flex-col justify-between h-full w-full mx-5 ${
+                      e.match(/[0-9]\./) ? "mb-2" : "mb-4"
                     } ${
                       i == 0 ? "mt-10" : "mt-0"
-                    } bg-gray-200 px-4 py-5 rounded-md justify-between `}
+                    }  px-4 py-0 rounded-md justify-between w-full  `}
                   >
                     <p className="dark:text-white text-black">
                       {e.replace(/"/g, "")}
@@ -191,12 +213,39 @@ export default function GPTResponse({
                             disableFocusListener
                             disableHoverListener
                             disableTouchListener
-                            title="Copied!"
+                            title="Saved To Drafts!"
                           >
-                            <Button onClick={() => copyText(e)}>Copy</Button>
+                            <Button
+                              onClick={() => handleAddDraft(e)}
+                              className="mr-2"
+                            >
+                              <SaveTwoToneIcon></SaveTwoToneIcon>
+                            </Button>
                           </Tooltip>
+
+                          <Snackbar
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "right",
+                            }}
+                            open={!!alert}
+                            autoHideDuration={3000}
+                            onClose={() => setAlert(null)}
+                          >
+                            <Alert
+                              onClose={() => setAlert(null)}
+                              severity={alert?.severity}
+                            >
+                              {alert?.message}
+                            </Alert>
+                          </Snackbar>
                         </div>
                       </ClickAwayListener>
+                      <div>
+                        <Button onClick={() => copyText(e)}>
+                          <ContentCopyIcon></ContentCopyIcon>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 );
@@ -233,6 +282,5 @@ export default function GPTResponse({
         </Box>
       </Modal>
     </div>
-        
-    );}
-
+  );
+}
