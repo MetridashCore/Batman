@@ -41,13 +41,11 @@ const Prompts = () => {
           animate={controls}
         >
           <div className="md:hidden flex justify-center  ">
-          <Image
-            className=" w-[678px] h-[180px] "
-            src={RImage1}
-            alt="Preview"
-          />
-          
-
+            <Image
+              className=" w-[678px] h-[180px] "
+              src={RImage1}
+              alt="Preview"
+            />
           </div>
           <h1 className="text-[#1E1E1E] font-semibold text-[48px] leading-[48px] w-[300px]">
             No more bad prompts.
@@ -96,7 +94,7 @@ const Prompts = () => {
             alt="Preview"
           />
         </motion.div>
-       
+
         <motion.div
           ref={ref2}
           variants={textScrollVariants}
