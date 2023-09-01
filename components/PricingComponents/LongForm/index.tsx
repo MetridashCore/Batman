@@ -1,64 +1,44 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { AiFillAlert } from "react-icons/ai";
-import { set } from "firebase/database";
-import {loadStripe, Stripe} from '@stripe/stripe-js';
 import { auth } from "@/firebase";
-import { useRouter } from "next/router";
 
 function LongForm() {
   const [value, setValue] = useState<number[]>([10000]);
   const [price, setPrice] = useState<number>(19);
   const [words, setWords] = useState<number>(10000);
   const [token, setToken] = useState<number>(100);
-  const router = useRouter()
+
   const handleSliderChange = (value: number | number[]) => {
     handlePriceChange(value);
     if (Array.isArray(value)) {
       setValue(value);
     }
   };
-
-  const makePayment = async () => {
-    try{
-
-      const stripe = await loadStripe("pk_test_51JmCDKSG74X9iofA5TPFlDLSImjimmiWFC8m2BKFjaNQxRt8GkTes5n8o99JgGKohkjgkpgOlKdD7VouKr9pks9400gBrxpcM9"); //This key is just for testing and not for final product//
-      const data={tokens: token, prices: price, words: words}
-      const body = {
-        products: data,
-      }
-      const headers = {
+  
+  const checkout = (plan:number) => {
+    fetch("http://localhost:8000/api/stripe/payment/subscribe", {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
-      }
-      const response = await fetch("http://localhost:8000/stripe-payment", {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
+      },
+      mode: "cors",
+      body: JSON.stringify({ plan: plan, customerId: auth.currentUser?.uid }),
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.ok) return res.json();
+        console.log(res);
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then(({ session }) => {
+        window.location = session.url;
+      })
+      .catch((e) => {
+        console.log(e.error);
       });
-  
-      const session = await response.json();
-  
-      if (stripe) {
-        const result = await stripe.redirectToCheckout({
-          sessionId: session.id,
-        });
-  
-        if (result.error) {
-          console.log(result.error);
-        }
-      }
-    }
-    catch(e){
-      alert(e)
-      console.log(e)
-    }
-  }
-
-  const PaymentHandler=()=>{
-      auth.currentUser? makePayment(): router.push('/auth/signup')
-  }
+  };
 
   const handlePriceChange = (value: number | number[]) => {
     if (value == 10000) {
@@ -165,9 +145,12 @@ function LongForm() {
           </div>
         </div>
       </div>
-      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#705cf6] text-white p-5 px-10 rounded-[10px] relative top-10 ">
+      <button 
+        // onClick={PaymentHandler} 
+        onClick={() => checkout(price)}
+        className=" cursor-pointer text-[20px] font-bold bg-[#705cf6] text-white p-5 px-10 rounded-[10px] relative top-10 ">
         Upgrade
-      </div>
+      </button>
     </div>
   );
 }
