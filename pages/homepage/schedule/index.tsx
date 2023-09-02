@@ -14,19 +14,6 @@ const Schedule: React.FC = () => {
     fontSize: "5rem",
   };
 
-  const emailContainerStyle: React.CSSProperties = {
-    marginTop: "1rem",
-    display: "flex", // Use flex to align items in a row
-    flexDirection: "row", // Align items in a row
-    alignItems: "center",
-  };
-
-  const inputStyle: React.CSSProperties = {
-    padding: "0.5rem",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-  };
-
   const buttonStyle: React.CSSProperties = {
     padding: "0.5rem 1rem",
     backgroundColor: "#007bff",
@@ -43,10 +30,6 @@ const Schedule: React.FC = () => {
       <p>
         In the meantime, sign up for our monthly newsletter to stay up to date.
       </p>
-      <div style={emailContainerStyle}>
-        <input type="email" style={inputStyle} placeholder="Enter your email" />
-        <button style={buttonStyle}>Sign Up</button>
-      </div>
     </div>
   );
 };
