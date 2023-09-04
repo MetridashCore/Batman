@@ -14,7 +14,6 @@ import { StyleModal } from "@/components/modalStyle";
 import PopUpCard from "@/components/PopUpCard";
 import { disabled } from "../VideoGen";
 import { set } from "firebase/database";
-
 const options = [
   "Conversational",
   "Enthusiastic",

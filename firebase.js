@@ -22,6 +22,5 @@ if (!getApps().length) {
 
 const auth = getAuth(app);
 const database = getDatabase(app);
-
 const db = getFirestore(app);
 export { auth, database, db, firebaseConfig };

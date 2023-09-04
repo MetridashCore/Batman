@@ -3,12 +3,15 @@ import React, { useState, useEffect } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { auth } from "@/firebase";
+import { useRouter } from 'next/router';
 
 function LongForm() {
+  const router = useRouter();
   const [value, setValue] = useState<number[]>([10000]);
   const [price, setPrice] = useState<number>(19);
   const [words, setWords] = useState<number>(10000);
   const [token, setToken] = useState<number>(100);
+  const [sessionId, setSessionId] = useState('');
 
   const handleSliderChange = (value: number | number[]) => {
     handlePriceChange(value);
@@ -33,6 +36,8 @@ function LongForm() {
         return res.json().then((json) => Promise.reject(json));
       })
       .then(({ session }) => {
+        console.log(session.id)
+        setSessionId(session.id); 
         window.location = session.url;
       })
       .catch((e) => {

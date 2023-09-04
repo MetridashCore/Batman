@@ -16,8 +16,8 @@ if (typeof window !== "undefined") {
 }
 const remoteConfig = remoteConfigVar;
 
-const auth = getAuth(app);
-const database = getDatabase(app);
+const auth = getAuth(app)
+const database = getDatabase(app)
 const db = getFirestore(app);
 
 export { auth, database, app, remoteConfig, db };
