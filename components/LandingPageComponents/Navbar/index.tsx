@@ -4,7 +4,7 @@ interface Props {
   children: JSX.Element;
 }
 
-const Navbar = (props:Props) => {
+const Navbar = (props: Props) => {
   const [active, setActive] = useState<string>("0");
 
   const handleClick = (index: number) => {
