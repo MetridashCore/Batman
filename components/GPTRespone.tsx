@@ -180,7 +180,7 @@ export default function GPTResponse({
                 return (
                   <div
                     key={i}
-                    className={`flex flex-col justify-between h-full w-full mx-5 ${
+                    className={`flex flex-row justify-between h-full w-full mx-5 ${
                       e.match(/[0-9]\./) ? "mb-2" : "mb-4"
                     } ${
                       i == 0 ? "mt-10" : "mt-0"
@@ -189,19 +189,8 @@ export default function GPTResponse({
                     <p className="dark:text-white text-black">
                       {e.replace(/"/g, "")}
                     </p>
-                    <div className="flex flex-col">
-                      {Socialplatform === "rewrite" ||
-                      Socialplatform === "repurpose" ? null : (
-                        <Button
-                          color="error"
-                          onClick={() => {
-                            handleOpen();
-                          }}
-                          className="mr-2"
-                        >
-                          Post
-                        </Button>
-                      )}
+                    <div className="flex flex-row">
+                     
                       <ClickAwayListener onClickAway={handleTooltipClose}>
                         <div>
                           <Tooltip
