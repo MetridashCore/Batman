@@ -1,4 +1,5 @@
 import React from "react";
+import dasboard from "../../../../public/Images/dasboard.png";
 
 const Dashboard: React.FC = () => {
   const containerStyle: React.CSSProperties = {
