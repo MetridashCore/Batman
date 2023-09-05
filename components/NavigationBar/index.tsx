@@ -5,10 +5,10 @@ import SideBar from "./SideBar";
 
 
 
-interface Props {
-  children: JSX.Element;
-}
-const NavigationBar = ({ children }: Props): JSX.Element => {
+// interface Props {
+//   children: JSX.Element;
+// }
+const NavigationBar = (): JSX.Element => {
   const { data, status } = useSession();
 
   if (status === "loading") return (
@@ -22,14 +22,14 @@ const NavigationBar = ({ children }: Props): JSX.Element => {
   if (status === "unauthenticated") {
     return (
       <HeaderMenu>
-        <main className="flex-1">{children}</main>
+        <main className="flex-1"></main>
       </HeaderMenu>
     );
   }
   
   return (
     <SideBar>
-      <main className="flex-1">{children}</main>
+      <main className="flex-1"></main>
     </SideBar>
   );
 };
