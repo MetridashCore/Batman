@@ -110,13 +110,13 @@ export default function Form1({ title }: MainSelectorProps) {
     if (disabled(input)) return;
     setLoading(true);
     const tk = await getUserToken(user);
-    if (Number(tk) < token) {
+    if (Number(tk) < Number(tokensRequired)) {
       handleOpen();
       setLoading(false);
       return;
     } else {
       // const prompt = setPrompt(title, input )
-      let usertk: number = Number(tk) - Number(token);
+      let usertk: number = Number(tk) - Number(tokensRequired);
       // e.preventDefault();
       setResponse("");
 
@@ -186,7 +186,7 @@ export default function Form1({ title }: MainSelectorProps) {
           >
             <h1 className="text-white">
               {" "}
-              {loading ? "Genarating..." : "Generate (20 tokens)"}
+              {loading ? "Genarating..." : "Generate"}
             </h1>
           </button>
           <div className="flex w-full h-4 items-center justify-center my-2">

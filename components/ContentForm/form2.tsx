@@ -137,12 +137,12 @@ export default function Form2({ title }: MainSelectorProps) {
     setLoading(true);
     setResponse("");
     const tk = await getUserToken(user);
-    if (Number(tk) < token) {
+    if (Number(tk) < Number(tokensRequired)) {
       handleOpen();
       setLoading(false);
       return;
     } else {
-      let usertk: number = Number(tk) - Number(token);
+      let usertk: number = Number(tk) - Number(tokensRequired);
       const prompt = setPrompt(
         title,
         input,
@@ -182,16 +182,7 @@ export default function Form2({ title }: MainSelectorProps) {
     }
   };
 
-  useBeforeunload(
-    value !== "" ||
-      value1 !== "" ||
-      value2 !== "" ||
-      postType !== "" ||
-      industry !== "" ||
-      targetAudience !== ""
-      ? (event) => event.preventDefault()
-      : undefined
-  );
+
 
   return (
     <div className="flex justify-center items-cente h-screen w-screen">
