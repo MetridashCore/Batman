@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import menu from "../../../public/Images/menu.png";
 import { useRouter } from "next/router";
+import jwt from "jsonwebtoken";
 import { Logout } from "../../../auth";
-import { Auth } from "firebase/auth";
+
 import { auth } from "@/firebase";
-// import { firestore } from "firebase-admin";
-import classes from "./index.module.css";
-import { firestore } from "firebase-admin";
+
 import { useState, useEffect } from "react";
 import LoginNavBar from "@/components/LoginNavBar";
+
 interface Props {
   children: JSX.Element;
 }
@@ -53,14 +53,20 @@ const HeaderMenu = (props: Props) => {
     return () => unsubscribe();
   }, [user]);
 
-  console.log(auth.currentUser);
+  if (auth.currentUser?.uid) {
+    const token = jwt.sign(
+      { uid: auth.currentUser?.uid! },
+      process.env.NEXT_PUBLIC_JWT_SECRET!
+    );
+    localStorage.setItem("token", token);
+  }
 
   return (
     <>
       {auth.currentUser ? (
         <LoginNavBar></LoginNavBar>
       ) : (
-        <div className="bg-[#3247CF] flex justify-between px-[7%] items-center h-10 py-10 w-12/12">
+        <div className="bg-[#3247CF] flex justify-between px-[7%] items-center h-10 py-10 w-full">
           <h1 className="font-semibold text-[20px] leading-[23px] text-black">
             <Link href={"/"}>Metridash</Link>
           </h1>
@@ -101,15 +107,6 @@ const HeaderMenu = (props: Props) => {
               <Link href="/contact">Contact Us</Link>
             </li>
 
-            {/* <li
-              className={`cursor-pointer mr-4 ${
-                active === "4" ? "text-[#fff]" : "text-[#8E9CF3]"
-              }`}
-              onClick={() => handleClick(4)}
-            >
-              <Link href="/home">Dashboard</Link>
-            </li> */}
-
             <li
               className={`cursor-pointer mr-4 ${
                 active === "4" ? "text-[#fff]" : "text-[#8E9CF3]"
@@ -118,17 +115,6 @@ const HeaderMenu = (props: Props) => {
             >
               <Link href="/auth/signin">Sign in</Link>
             </li>
-
-            {/* <li
-              className={`cursor-pointer mr-4 ${
-                active === "0" ? "text-[#fff]" : "text-[#8E9CF3]"
-              }`}
-              onClick={() => {
-                handleClick(0), handleLogout();
-              }}
-            >
-              <Link href="/">Log out</Link>
-            </li> */}
           </ul>
 
           <div className="md:hidden flex relative">

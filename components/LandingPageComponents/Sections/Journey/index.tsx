@@ -23,8 +23,8 @@ const Journey = () => {
     }
   }, [controls, inView]);
   return (
-    <>
-      <div className="bg-[#3247CF] h-[587px] flex flex-col gap-y-10 justify-center items-center">
+    <div className="flex w-screen  flex-col">
+      <div className="bg-[#3247CF] w-screen  h-[587px] flex flex-col gap-y-10 justify-center items-center">
         <motion.h1
           ref={ref}
           variants={textScrollVariants}
@@ -34,24 +34,24 @@ const Journey = () => {
         >
           CREATED FOR YOU, WITH YOU!
         </motion.h1>
-        <div className="flex mr-[5%]">
+        <div className="flex items-center justify-center gap-x-8 ">
           <Image
             className="w-[36px] h-[36px] absolute"
             src={Image7}
             alt="JourneyImg"
           />
           <Image
-            className="w-[36px] h-[36px] absolute ml-[22px]"
+            className="w-[36px] h-[36px] absolute ml-[32px]"
             src={Image8}
             alt="JourneyImg"
           />
           <Image
-            className="w-[36px] h-[36px] absolute ml-[45px]"
+            className="w-[36px] h-[36px] absolute ml-[55px]"
             src={Image9}
             alt="JourneyImg"
           />
           <Image
-            className="w-[36px] h-[36px] absolute ml-[70px]"
+            className="w-[36px] h-[36px] absolute ml-[80px]"
             src={Image10}
             alt="JourneyImg"
           />
@@ -66,30 +66,14 @@ const Journey = () => {
           Join us on our journey of simplifying social media and get early
           access to new, game-changing features.
         </motion.p>
-        <motion.div
-          ref={ref}
-          variants={textScrollVariants}
-          initial="hidden"
-          className="flex gap-x-5 relative right-[-200px] transition-all duration-1000 ease-in-out md:flex-row flex-col"
-          animate={controls}
-        >
-          <input
-            placeholder="Enter your Email here"
-            className="bg-[#3247CF] border-white border-[1px] border-t-0 border-r-0 w-[400px] text-white border-l-0 h-12 focus:outline-none"
-          />
-          <button className="bg-[#fff] w-[151px] h-[51px] flex justify-center items-center self-center md:mt-0 mt-10  rounded-lg">
-            <p className="text-black underline underline-offset-auto font-medium">
-              Join the Waitlist
-            </p>
-          </button>
-        </motion.div>
+       
       </div>
       <div className="h-10 bg-blue-800 flex justify-center items-center">
         <p className="text-[#FFFFFF7B] text-[16px] font-normal ">
           Copyright {year} Metridash
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

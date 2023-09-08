@@ -1,35 +1,13 @@
 import React from "react";
 
-const Schedule: React.FC = () => {
-  const containerStyle: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
-    textAlign: "center",
-  };
-
-  const bigTextStyle: React.CSSProperties = {
-    fontSize: "5rem",
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#007bff",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    marginLeft: "0.5rem", // Add spacing between input and button
-  };
-
+const Schedule = () => {
   return (
-    <div style={containerStyle}>
-      <h1 style={bigTextStyle}>Coming Soon</h1>
-      <p>
-        In the meantime, sign up for our monthly newsletter to stay up to date.
-      </p>
+    <div>
+      <div className="flex flex-col gap-6 w-screen h-screen items-center justify-center ">
+        <h1 className="font-extrabold text-transparent text-6xl  pb-4 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          Coming Soon!
+        </h1>
+      </div>
     </div>
   );
 };

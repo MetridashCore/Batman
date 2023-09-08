@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 import { db } from "@/firebase"
 import DashBoard from "../../../../public/Images/1.png"
+import Link from "next/link"
 const Blocks = () => {
   const textScrollVariants = {
     visible: { opacity: 1, top: 0 },
@@ -21,31 +22,9 @@ const Blocks = () => {
       controls.start("visible")
     }
   }, [controls, inView])
-  const joinTheWaitList = async (e: any) => {
-    e.preventDefault()
-    if (email.length === 0) return
-    try {
-      setDisabled(true)
-      await addDoc(collection(db, "waitList"), {
-        email,
-        createdAt: serverTimestamp(),
-      })
-      setDisabled(false)
-      setEmail("")
-      setResponse("Thank you! You have successfully submitted your email.")
-      setTimeout(() => {
-        setResponse("")
-      }, 5000)
-    } catch (ex) {
-      setEmail("")
-      setResponse("Sorry, something went wrong.")
-      setTimeout(() => {
-        setResponse("")
-      }, 5000)
-    }
-  }
+  
   return (
-    <div className="bg-[#3247CF] flex pl-[7%] pb-5 w-full md:flex-row flex-col items-center">
+    <div className="bg-[#3247CF] flex pl-[7%] pb-5 w-full md:flex-row flex-col items-center  ">
       <motion.div
         ref={ref}
         variants={textScrollVariants}
@@ -53,35 +32,17 @@ const Blocks = () => {
         className="flex flex-col gap-y-5 justify-center relative top-[-50px] transition-all duration-1000 ease-in-out"
         animate={controls}
       >
-        <h1 className="font-semibold text-[60px] leading-[92%] w-[408px] text-white mt-4">
-          Say BYE-BYE to creative blocks!
+        <h1 className="font-semibold text-6xl leading-[92%] w-[408px] text-white mt-4">
+        Never Face Creative Blocks Again!
         </h1>
-        <p className="text-white w-[447px] font-normal text-[24px] leading-[28px]">
-          Generate personalized content ideas for your social media, blogs,
-          websites and more.
+        <p className="text-white self-center text-left font-normal text-md leading-[28px] mt-4">
+        Are you tired of staring at a blank screen, struggling to come up with content ideas for your social media?<br/>  Look no further! Metridash is here to revolutionize your creative process.
         </p>
         {response && <p>{response}</p>}
 
-        <form onSubmit={joinTheWaitList}>
-          <input
-            placeholder="Enter your Email here"
-            className="bg-[#3247CF] border-white border-[1px] border-t-0 border-r-0 w-[400px] text-white border-l-0 h-12 focus:outline-none"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.currentTarget.value)}
-          />
-          <button
-            disabled={disabled}
-            className={`bg-[#1E1E1E] w-[151px] h-[51px] flex justify-center items-center  rounded-lg mt-5 ${
-              disabled && "cursor-not-allowed"
-            } `}
-            type="submit"
-          >
-            <p className="text-white underline underline-offset-auto">
-              Join the Waitlist
-            </p>
-          </button>
-        </form>
+       <Link href={'/auth/signup'} className="flex w-40 px-2 py-2 mt-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center">
+              <h1>Sign up</h1>
+       </Link>
       </motion.div>
       <motion.div
         ref={ref}
