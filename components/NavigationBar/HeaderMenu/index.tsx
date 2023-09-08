@@ -132,7 +132,7 @@ const HeaderMenu = (props: Props) => {
                 <div className="dropdown">
                   <Link
                     href="/"
-                    className="dropdown_link"
+                    className="dropdown_link text-white"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(0);
@@ -141,8 +141,8 @@ const HeaderMenu = (props: Props) => {
                     Home
                   </Link>
                   <Link
-                    href="/profile"
-                    className="dropdown_link"
+                    href="/features"
+                    className="dropdown_link text-white"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(1);
@@ -152,7 +152,7 @@ const HeaderMenu = (props: Props) => {
                   </Link>
                   <Link
                     href="/pricing"
-                    className="dropdown_link"
+                    className="dropdown_link text-white"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(2);
@@ -161,7 +161,7 @@ const HeaderMenu = (props: Props) => {
                     Pricing
                   </Link>
                   <Link
-                    href="/profile"
+                    href="/contact"
                     className="dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false);
@@ -172,7 +172,7 @@ const HeaderMenu = (props: Props) => {
                   </Link>
                   <Link
                     href="/auth/signin"
-                    className="dropdown_link"
+                    className="dropdown_link text-white"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(4);
