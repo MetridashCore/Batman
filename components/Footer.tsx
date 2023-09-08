@@ -10,6 +10,10 @@ const Footer = () => {
       className={`${
         router.pathname === "/features"
           ? "bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-[1200px] md:mt-5"
+          : router.pathname === "/"
+          ? "hidden"
+          : router.pathname === "/homepage/ContentCreation"
+          ? "bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-[500px] md:mt-5"
           : "bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-[200px] md:mt-5"
       }  `}
     >
