@@ -88,12 +88,12 @@ const Prompts = () => {
           animate={controls2}
         >
           <Image
-            className="absolute w-full md:w-[329px] h-auto md:h-[333px] object-contain"
+            className="w-full md:w-[329px] h-auto md:h-[333px] object-contain mx-auto"
             src={Image3}
             alt="Preview"
           />
           <Image
-            className="absolute w-full md:w-[238px] h-auto md:h-[209px] ml-[10.5%] md:mt-[11.8%] object-contain"
+            className="w-full md:w-[238px] h-auto md:h-[209px] mt-4 md:mt-0 object-contain mx-auto"
             src={Image4}
             alt="Preview"
           />
