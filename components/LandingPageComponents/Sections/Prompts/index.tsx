@@ -7,7 +7,6 @@ import RImage1 from "../../../../public/Images/3(1).png";
 import Image2 from "../../../../public/Images/4.png";
 import Image3 from "../../../../public/Images/5.png";
 import Image4 from "../../../../public/Images/6.png";
-import RImage5 from "../../../../public/Images/5(1).png";
 
 const Prompts = () => {
   const textScrollVariants = {
@@ -107,11 +106,6 @@ const Prompts = () => {
           className="w-full md:w-[50%] py-4 flex flex-col gap-y-5 justify-center relative md:right-0 right-[-50px] transition-all duration-1000 ease-in-out"
           animate={controls2}
         >
-          <Image
-            className="w-full md:w-[278px] h-auto md:h-[209px] ml-[10.5%] md:mt-[11.8%] md:flex hidden"
-            src={RImage5}
-            alt="Preview"
-          />
           <h1 className="text-[#3247CF] font-semibold md:text-[48px] text-4xl leading-[48px]">
             Focus on Your Growth, We Handle the Rest
           </h1>
