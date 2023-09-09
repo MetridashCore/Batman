@@ -1,35 +1,35 @@
-import Image from "next/image"
-import React, { useState, useEffect } from "react"
-import { useAnimation, motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
-import { db } from "@/firebase"
-import DashBoard from "../../../../public/Images/1.png"
-import DashboardNew from "../../../../public/Images/DashboardNew.png"
-import Link from "next/link"
-import checkUser from "@/utils/checkUser"
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/firebase";
+import DashBoard from "../../../../public/Images/1.png";
+import DashboardNew from "../../../../public/Images/DashboardNew.png";
+import Link from "next/link";
+import checkUser from "@/utils/checkUser";
 
 const Blocks = () => {
   const textScrollVariants = {
     visible: { opacity: 1, top: 0 },
     hidden: { opacity: 0 },
-  }
-  const [email, setEmail] = useState("")
-  const [disabled, setDisabled] = useState(false)
-  const [response, setResponse] = useState("")
-  const controls = useAnimation()
-  const [ref, inView] = useInView()
+  };
+  const [email, setEmail] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const [response, setResponse] = useState("");
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible")
+      controls.start("visible");
     }
-  }, [controls, inView])
+  }, [controls, inView]);
 
-  const user: any = checkUser()
+  const user: any = checkUser();
 
   return (
-    <div className="bg-[#3247CF] flex pl-[7%] pb-5 w-full md:flex-row gap-x-4 flex-col items-center  ">
+    <div className="bg-[#3247CF] flex pl-4 md:pl-7 pb-5 w-full md:flex-row flex-col items-center">
       <motion.div
         ref={ref}
         variants={textScrollVariants}
@@ -37,7 +37,7 @@ const Blocks = () => {
         className="flex flex-col gap-y-5 justify-center relative top-[-50px] transition-all duration-1000 ease-in-out"
         animate={controls}
       >
-        <h1 className="font-semibold text-5xl md:text-6xl leading-[92%] text-white mt-4">
+        <h1 className="font-semibold text-4xl md:text-5xl leading-[92%] text-white mt-4 md:mt-0">
           Never Face Creative Blocks Again!
         </h1>
         <p className="text-white self-center text-left font-normal text-md leading-[28px] mt-4">
@@ -71,7 +71,7 @@ const Blocks = () => {
         />
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Blocks
+export default Blocks;

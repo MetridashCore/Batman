@@ -16,16 +16,18 @@ const Growing = () => {
       controls.start("visible");
     }
   }, [controls, inView]);
+
   return (
-    <div
-     
-      className="flex flex-col right-0 w-screen justify-center items-center gap-y-20 py-10  top-[100px] bg-black"
-     
-    >
-      <h1 className="font-semibold text-[48px] leading-[54px] text-center text-transparent bg-clip-text bg-gradient-to-r from-[#009FFD] to-[#2A2A72] pb-2">
+    <div className="flex flex-col w-screen justify-center items-center gap-y-10 py-10 bg-black">
+      <motion.h1
+        ref={ref}
+        variants={textScrollVariants}
+        initial="hidden"
+        className="font-semibold text-4xl md:text-5xl leading-[54px] text-center text-transparent bg-clip-text bg-gradient-to-r from-[#009FFD] to-[#2A2A72] pb-2"
+        animate={controls}
+      >
         Never stop growing!
-      </h1>
-      
+      </motion.h1>
     </div>
   );
 };
