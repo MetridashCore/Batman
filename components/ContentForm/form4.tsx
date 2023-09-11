@@ -150,6 +150,8 @@ export default function Form4({ title }: MainSelectorProps) {
         }),
       })
 
+      console.log(res)
+
       if (!res.ok) throw new Error(res.statusText)
 
       const data = res.body
