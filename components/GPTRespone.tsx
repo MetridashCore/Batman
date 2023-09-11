@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
-import { responseAtom, platformAtom } from "@/utils/store";
+import { responseAtom, platformAtom, draftTitle } from "@/utils/store";
 import { auth } from "@/firebase";
 import { generateRealTimeToken } from "../auth";
 import tokens from "../public/icons/coins.png";
@@ -24,6 +24,8 @@ import { addDraft } from "../auth";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { draftAtom } from "@/utils/store";
+
 type StaticImport = StaticImageData | string;
 
 export default function GPTResponse({
@@ -180,17 +182,14 @@ export default function GPTResponse({
                 return (
                   <div
                     key={i}
-                    className={`flex flex-row justify-between h-full w-full mx-5 ${
+                    className={`flex flex-col justify-between h-full w-full mx-5 ${
                       e.match(/[0-9]\./) ? "mb-2" : "mb-4"
                     } ${
                       i == 0 ? "mt-10" : "mt-0"
                     }  px-4 py-0 rounded-md justify-between w-full  `}
                   >
-                    <p className="dark:text-white text-black">
-                      {e.replace(/"/g, "")}
-                    </p>
-                    <div className="flex flex-row">
-                     
+                    <p className="">{e.replace(/"/g, "")}</p>
+                    <div className="flex flex-row justify-end">
                       <ClickAwayListener onClickAway={handleTooltipClose}>
                         <div>
                           <Tooltip
