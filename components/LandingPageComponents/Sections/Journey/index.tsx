@@ -1,17 +1,17 @@
-import Image from "next/image"
-import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import { useAnimation, motion } from "framer-motion"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
-import { db } from "@/firebase"
-import { useInView } from "react-intersection-observer"
-import Image7 from "../../../../public/Images/7.png"
-import Image8 from "../../../../public/Images/8.png"
-import Image9 from "../../../../public/Images/9.png"
-import Image10 from "../../../../public/Images/10.png"
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useAnimation, motion } from "framer-motion";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/firebase";
+import { useInView } from "react-intersection-observer";
+import Image7 from "../../../../public/Images/7.png";
+import Image8 from "../../../../public/Images/8.png";
+import Image9 from "../../../../public/Images/9.png";
+import Image10 from "../../../../public/Images/10.png";
 const Journey = () => {
-  const [email, setEmail] = useState("")
-  const [response, setResponse] = useState("")
+  const [email, setEmail] = useState("");
+  const [response, setResponse] = useState("");
 
   const year = new Date().getFullYear();
 
@@ -33,13 +33,13 @@ const Journey = () => {
     e.preventDefault();
     if (email.length === 0) return;
     try {
-      setDisabled(true)
+      setDisabled(true);
       await addDoc(collection(db, "waitList"), {
         email,
         createdAt: serverTimestamp(),
-      })
-      setEmail("")
-      setResponse("Thank you! You have successfully submitted your email.")
+      });
+      setEmail("");
+      setResponse("Thank you! You have successfully submitted your email.");
       setTimeout(() => {
         setResponse("");
       }, 5000);
@@ -50,7 +50,7 @@ const Journey = () => {
         setResponse("");
       }, 5000);
     }
-  }
+  };
 
   return (
     <div className="flex w-screen  flex-col">
@@ -62,7 +62,7 @@ const Journey = () => {
           className="font-semibold text-[48px] leading-[48px] text-center md:w-[425px] relative md:right-[-50px] transition-all duration-1000 ease-in-out"
           animate={controls}
         >
-        Ready to Get Started?
+          Ready to Get Started?
         </motion.h1>
         <div className="flex items-center justify-center gap-x-8 ">
           <Image
@@ -85,7 +85,7 @@ const Journey = () => {
             src={Image10}
             alt="JourneyImg"
           />
-        </div> */}
+        </div>
         <motion.p
           ref={ref}
           variants={textScrollVariants}
@@ -93,7 +93,8 @@ const Journey = () => {
           className="text-[16px] leading-[18.75px] font-normal text-white mt-10 text-center relative md:right-[-50px] transition-all duration-1000 ease-in-out"
           animate={controls}
         >
-         Join thousands of creators who have already unlocked their potential with Metridash.
+          Join thousands of creators who have already unlocked their potential
+          with Metridash.
         </motion.p>
         {response && <p className="text-center">{response}</p>}
         <motion.div
@@ -149,7 +150,7 @@ const Journey = () => {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
 export default Journey;
