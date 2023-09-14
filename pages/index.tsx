@@ -4,19 +4,23 @@ import {
   Journey,
   Preview,
   Prompts,
+  Questions,
+  Testimonials
 } from "@/components/LandingPageComponents/Sections"
 
 import React from "react"
 
 const Home = () => {
   return (
-    <div className="w-full h-screen flex flex-col">
+    <>
       <Blocks />
       <Growing />
       <Preview />
       <Prompts />
+      <Testimonials/>
+      <Questions/>
       <Journey />
-    </div>
+    </>
   )
 }
 

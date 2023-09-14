@@ -2,8 +2,8 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import PreviewImg from "../../../../public/Images/2.png";
-import RPreviewImg from "../../../../public/Images/2(1).png";
+import PreviewImg from "../../../../public/Images/idea.png";
+import RPreviewImg from "../../../../public/Images/idea.png";
 const Preview = () => {
   const textScrollVariants = {
     visible: { opacity: 1, right: 0 },
@@ -19,12 +19,12 @@ const Preview = () => {
     }
   }, [controls, inView]);
   return (
-    <div className="bg-white flex md:px-10 px-16 items-center justify-center py-20 mr-[3%]">
+    <div className="bg-white md:flex md:px-10 px-4 md:px-16 items-center justify-center py-20 mr-[3%] md:gap-x-5">
       <motion.div
         ref={ref}
         variants={textScrollVariants}
         initial="hidden"
-        className="w-[50%] flex flex-col gap-y-5 justify-center relative right-[-50px] transition-all duration-1000 ease-in-out"
+        className="flex flex-col gap-y-5 justify-center relative md:right-[-50px] transition-all duration-1000 ease-in-out"
         animate={controls}
       >
         <motion.div
@@ -37,15 +37,15 @@ const Preview = () => {
           <Image
             src={RPreviewImg}
             alt="Preview"
-            className="w-full sm:hidden flex object-contain"
+            className="sm:hidden flex object-contain"
             width={800}
             height={450}
           />
         </motion.div>
-        <h1 className="text-[#3247CF]  text-[48px] font-semibold leading-[48px] w-[300px] ">
+        <h1 className="text-[#3247CF] font-semibold md:text-[48px] text-4xl leading-[48px] md:w-[380px]">
           Tailored Content Ideas to Fuel Your Creativity!
         </h1>
-        <p className="font-normal text-[16px] leading-[18.75px] text-justify text-[#494949] w-[387px]">
+        <p className="font-normal text-[16px] leading-[18.75px] text-justify text-[#494949] md:w-[387px]">
           Our advanced AI-driven platform is{" "}
           <br className="sm:hidden flex"></br>
           designed to provide you with content
@@ -57,14 +57,10 @@ const Preview = () => {
         ref={ref}
         variants={textScrollVariants}
         initial="hidden"
-        className="w-full mt-0 md:mt-[5%] relative transition-all duration-1000 ease-in-out"
+        className="w-screen mt-[5%] relative  transition-all duration-1000 ease-in-out"
         animate={controls}
       >
-        <Image
-          src={PreviewImg}
-          alt="Preview"
-          className="w-full sm:flex hidden"
-        />
+        <Image src={PreviewImg} alt="Preview" className="sm:flex hidden" />
       </motion.div>
     </div>
   );

@@ -2,16 +2,15 @@ import { FirebaseParameters } from "@/constants/firebaseParameters";
 import { getConfigValue } from "@/services/firebase/remoteConfig";
 import Image from "next/image";
 import Link from "next/link";
+import jwt from "jsonwebtoken";
 import menu from "../../../public/Images/menu.png";
 import { useRouter } from "next/router";
-import jwt from "jsonwebtoken";
 import { Logout } from "../../../auth";
-
+import { Auth } from "firebase/auth";
 import { auth } from "@/firebase";
-
+import { firestore } from "firebase-admin";
 import { useState, useEffect } from "react";
 import LoginNavBar from "@/components/LoginNavBar";
-
 interface Props {
   children: JSX.Element;
 }
@@ -66,7 +65,7 @@ const HeaderMenu = (props: Props) => {
       {auth.currentUser ? (
         <LoginNavBar></LoginNavBar>
       ) : (
-        <div className="bg-[#3247CF] flex justify-between px-[7%] items-center h-10 py-10 w-screen">
+        <div className="bg-[#3247CF] flex justify-between px-[7%] items-center h-10 py-10 w-12/12">
           <h1 className="font-semibold text-[20px] leading-[23px] text-black">
             <Link href={"/"}>Metridash</Link>
           </h1>
@@ -132,7 +131,7 @@ const HeaderMenu = (props: Props) => {
                 <div className="dropdown">
                   <Link
                     href="/"
-                    className="dropdown_link text-white"
+                    className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(0);
@@ -141,8 +140,8 @@ const HeaderMenu = (props: Props) => {
                     Home
                   </Link>
                   <Link
-                    href="/features"
-                    className="dropdown_link text-white"
+                    href="/profile"
+                    className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(1);
@@ -152,7 +151,7 @@ const HeaderMenu = (props: Props) => {
                   </Link>
                   <Link
                     href="/pricing"
-                    className="dropdown_link text-white"
+                    className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(2);
@@ -162,7 +161,7 @@ const HeaderMenu = (props: Props) => {
                   </Link>
                   <Link
                     href="/contact"
-                    className="dropdown_link"
+                    className="dropdown_link text-white"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(3);
@@ -172,23 +171,13 @@ const HeaderMenu = (props: Props) => {
                   </Link>
                   <Link
                     href="/auth/signin"
-                    className="dropdown_link text-white"
+                    className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false);
                       handleClick(4);
                     }}
                   >
                     Sign in
-                  </Link>
-                  <Link
-                    href="/auth/signup"
-                    className="dropdown_link"
-                    onClick={() => {
-                      setToggleDropdown(false);
-                      handleClick(4);
-                    }}
-                  >
-                    Sign up
                   </Link>
                 </div>
               )}

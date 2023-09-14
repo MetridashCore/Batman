@@ -1,6 +1,7 @@
 import React from "react";
+import checkUser from "@/utils/checkUser";
 
-const Schedule = () => {
+export default function Schedule() {
   return (
     <div>
       <div className="flex flex-col gap-6 w-screen h-screen items-center justify-center ">
@@ -10,6 +11,4 @@ const Schedule = () => {
       </div>
     </div>
   );
-};
-
-export default Schedule;
+}
