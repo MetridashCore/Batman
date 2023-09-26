@@ -9,7 +9,8 @@
     "cleanup": "rimraf --glob node_modules",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest"
   },
   "engines": {
     "node": ">=16"
@@ -37,6 +38,7 @@
     "firebase": "^9.21.0",
     "firebase-admin": "^11.10.1",
     "framer-motion": "^10.12.12",
+    "jest": "^29.7.0",
     "jotai": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",

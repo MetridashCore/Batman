@@ -50,7 +50,9 @@ function LongForm() {
       if (countryCode != "USD") {
         const re = await convertFromUsd(countryCode, price);
         const symbol = getSymbolFromCurrency(countryCode);
-        setSymbol(symbol);
+        if (symbol) {
+          setSymbol(symbol);
+        }
       }
     };
     x();
@@ -59,7 +61,11 @@ function LongForm() {
   const makePayment = async () => {
     try {
       if (auth.currentUser) {
-        const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+        const stripe = await loadStripe(
+          process.env.NEXT_PUBLIC_STRIPE_KEY
+            ? process.env.NEXT_PUBLIC_STRIPE_KEY
+            : ""
+        );
         const data = {
           tokens: token,
           prices: country == "INR" ? price * multiplyer : price,

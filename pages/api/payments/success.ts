@@ -10,7 +10,6 @@ import {
   updateUserTokens,
 } from "@/services/firebase-admin/models";
 import { Iorder } from "@/interface/OrderInterface";
-import { eventNames } from "process";
 const webhook_secret = process.env.WEEBHOOK_SECRET;
 
 export const config = {
