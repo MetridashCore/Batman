@@ -31,7 +31,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const object = event.data.object.metadata;
       const userTokens = await getUserTokens(object.userId);
       const newTokens = Number(userTokens) + Number(object.tokens);
-      await updateUserTokens(object.userId, newTokens);
+      // await updateUserTokens(object.userId, newTokens);
+      console.log(event.data.object);
       break;
     case "payment_method.attached":
       res.status(200).json({ message: "ok" });
