@@ -10,6 +10,11 @@ import { useInView } from "react-intersection-observer"
 import classes from "./features.module.css"
 import featues from '../../public/icons/features.png'
 import YoutubeComp from "@/components/featuresPageComponents/youtube"
+import FbLinkedIn from "@/components/featuresPageComponents/FbLinkedIn"
+import InstaTiktok from "@/components/featuresPageComponents/InstaTikTok"
+import Contents from "@/components/featuresPageComponents/Content"
+import Copy from "@/components/featuresPageComponents/Copy"
+import Bottom from "@/components/featuresPageComponents/Bottom"
 const Features = () => {
   const textScrollVariants = {
     visible: { opacity: 1, top: 0 },
@@ -36,6 +41,11 @@ const Features = () => {
         <h1 className="mt-4 text-white font-thin text-center">Welcome to the future of content creation.<br></br> Metridash is your all-in-one toolkit designed to fuel your creativity and revolutionize your content strategy.<br></br> Let's dive into the world of possibilities:</h1>
         </div>
         <YoutubeComp></YoutubeComp>
+        <FbLinkedIn></FbLinkedIn>
+        <InstaTiktok></InstaTiktok>
+        <Contents></Contents>
+        <Copy></Copy>
+        <Bottom></Bottom>
     </div>
   )
 }
