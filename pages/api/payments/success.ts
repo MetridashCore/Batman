@@ -4,9 +4,13 @@ import { buffer } from "micro";
 import Stripe from "stripe";
 import { NextApiRequest, NextApiResponse } from "next";
 import {
+  addInvoiceToExistingOrder,
+  createOrderDetails,
   getUserTokens,
   updateUserTokens,
 } from "@/services/firebase-admin/models";
+import { Iorder } from "@/interface/OrderInterface";
+import { eventNames } from "process";
 const webhook_secret = process.env.WEEBHOOK_SECRET;
 
 export const config = {
@@ -31,11 +35,30 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const object = event.data.object.metadata;
       const userTokens = await getUserTokens(object.userId);
       const newTokens = Number(userTokens) + Number(object.tokens);
-      // await updateUserTokens(object.userId, newTokens);
-      console.log(event.data.object);
+      const date = new Date();
+      const orderDetails: Iorder = {
+        userId: object.userId,
+        paymentIntent: event.data.object.payment_intent,
+        tokens: object.tokens,
+        amount: event.data.object.amount,
+        invoice: "",
+        name: event.data.object.billing_details.name,
+        email: event.data.object.billing_details.email,
+        id: event.data.object.id,
+        timestamp: date.toLocaleString(),
+      };
+
+      console.log(event.data.object, event.id);
+      await updateUserTokens(object.userId, newTokens);
+      await createOrderDetails(orderDetails);
       break;
-    case "payment_method.attached":
+    case "invoice.paid":
+      console.log(event.data.object, event.id);
       res.status(200).json({ message: "ok" });
+      await addInvoiceToExistingOrder(
+        event.data.object.payment_intent,
+        event.data.object.number
+      );
       break;
     default:
       res.status(200).json({ message: "ok" });
