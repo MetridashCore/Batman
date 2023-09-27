@@ -4,7 +4,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { AiFillAlert } from "react-icons/ai";
 import { set } from "firebase/database";
-import {loadStripe, Stripe} from '@stripe/stripe-js';
+import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { auth } from "@/firebase";
 import { useRouter } from "next/router";
 
@@ -13,7 +13,7 @@ function LongForm() {
   const [price, setPrice] = useState<number>(19);
   const [words, setWords] = useState<number>(10000);
   const [token, setToken] = useState<number>(100);
-  const router = useRouter()
+  const router = useRouter();
   const handleSliderChange = (value: number | number[]) => {
     handlePriceChange(value);
     if (Array.isArray(value)) {
@@ -22,43 +22,43 @@ function LongForm() {
   };
 
   const makePayment = async () => {
-    try{
-
-      const stripe = await loadStripe("pk_test_51JmCDKSG74X9iofA5TPFlDLSImjimmiWFC8m2BKFjaNQxRt8GkTes5n8o99JgGKohkjgkpgOlKdD7VouKr9pks9400gBrxpcM9"); //This key is just for testing and not for final product//
-      const data={tokens: token, prices: price, words: words}
+    try {
+      const stripe = await loadStripe(
+        "pk_test_51JmCDKSG74X9iofA5TPFlDLSImjimmiWFC8m2BKFjaNQxRt8GkTes5n8o99JgGKohkjgkpgOlKdD7VouKr9pks9400gBrxpcM9"
+      ); //This key is just for testing and not for final product//
+      const data = { tokens: token, prices: price, words: words };
       const body = {
         products: data,
-      }
+      };
       const headers = {
         "Content-Type": "application/json",
-      }
+      };
       const response = await fetch("http://localhost:8000/stripe-payment", {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
       });
-  
+
       const session = await response.json();
-  
+
       if (stripe) {
         const result = await stripe.redirectToCheckout({
           sessionId: session.id,
         });
-  
+
         if (result.error) {
           console.log(result.error);
         }
       }
+    } catch (e) {
+      alert(e);
+      console.log(e);
     }
-    catch(e){
-      alert(e)
-      console.log(e)
-    }
-  }
+  };
 
-  const PaymentHandler=()=>{
-      auth.currentUser? makePayment(): router.push('/auth/signup')
-  }
+  const PaymentHandler = () => {
+    auth.currentUser ? makePayment() : router.push("/auth/signup");
+  };
 
   const handlePriceChange = (value: number | number[]) => {
     if (value == 10000) {
@@ -165,7 +165,10 @@ function LongForm() {
           </div>
         </div>
       </div>
-      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#705cf6] text-white p-5 px-10 rounded-[10px] relative top-10 ">
+      <div
+        onClick={PaymentHandler}
+        className=" cursor-pointer text-[20px] font-bold bg-[#705cf6] text-white p-5 px-10 rounded-[10px] relative top-10 "
+      >
         Upgrade
       </div>
     </div>
