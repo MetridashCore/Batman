@@ -48,23 +48,33 @@ export default function GPTResponse({
   const [loading, setLoading] = useState(false);
   const [fullData, setFullData] = useState("");
 
-  useEffect(() => {
+  // const words = ["apple", "banana", "cherry", "date", "fig", "grape"];
+  // const getRandomWord = () => {
+  //   const randomIndex = Math.floor(Math.random() * words.length);
+  //   return words[randomIndex];
+  // };
+  // const [word, setWord] = useState(getRandomWord());
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("tweetText", response);
+  };
+  const postTweetToTwitter = (response: any) => {
+    const tweetToBePosted = localStorage.getItem("tweetText");
+    console.log(
+      "🚀 ~ file: GPTRespone.tsx:63 ~ postTweetToTwitter ~ tweetToBePosted:",
+      tweetToBePosted
+    );
     axios
-      .get("http://localhost:3000/api/twitter/usertoken")
+      .post("http://localhost:3000/api/twitter/usertoken", {
+        word: tweetToBePosted,
+      })
       .then((response: any) => {
-        localStorage.setItem(
-          "twitter_oauth_token",
-          response?.data?.token?.token?.account?.oauth_token
-        );
-        localStorage.setItem(
-          "twitter_oauth_token_secret",
-          response?.data?.token?.token?.account?.oauth_token_secret
-        );
+        console.log(response, "response");
       })
       .catch((error: any) => {
         console.log(error);
       });
-  }, []);
+  };
 
   const currentUser = auth.currentUser;
   let finalToken = 20;
@@ -271,10 +281,22 @@ export default function GPTResponse({
           </div>
         ) : null}
         <button
+          onClick={saveToLocalStorage}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          save tweet to storage
+        </button>
+        <button
           onClick={() => signIn("twitter")}
           className="bg-blue-500 text-white px-4 py-2 rounded-md"
         >
-          Post tweet to twitter
+          tweeet login
+        </button>
+        <button
+          onClick={() => postTweetToTwitter(response)}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          post tweet to twitter
         </button>
       </div>
 
