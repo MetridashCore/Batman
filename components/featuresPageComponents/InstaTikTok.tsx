@@ -1,6 +1,6 @@
 import React from 'react'
 import TikTokIcon from '../../public/platformIcons/tiktokHQ.png'
-import TwitterIcon from '../../public/platformIcons/twitterX2.png'
+import TwitterIcon from '../../public/platformIcons/twitterx2.png'
 import Image from 'next/image'
 export default function InstaTiktok() {
   return (
