@@ -8,7 +8,6 @@ export const config = {
 
 const handler = async (req: Request) => {
   const { data } = (await req.json()) as { data: string };
-
   if (!data) return new Response("Missing prompt", { status: 400 });
 
   const payload: OpenAIStreamPayload = {

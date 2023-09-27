@@ -2,7 +2,12 @@ import axios from "axios";
 
 const handler = async (req: Request, res: Response) => {
   const apiKey = process.env.EXCHANGEKEY;
-  const { price, to } = (await req.json()) as { price: string; to: string };
+  // const { price, to } = (await req.json()) as { price: string; to: string };
+  // const { price, to } = (await req.json()) as {
+  //   price: string;
+  //   to: string;
+  // };
+  const { price, to } = req.body;
   const response = await axios.get(
     `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}`,
     {

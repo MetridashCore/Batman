@@ -12,9 +12,6 @@ import axios from "axios";
 import Image from "next/image";
 
 function LongForm() {
-  if (!process.env.NEXT_PUBLIC_STRIPE_KEY)
-    throw new Error("Missing missing stripe publishable key");
-
   const [value, setValue] = useState<number[]>([10000]);
   const [price, setPrice] = useState<number>(19);
   const [multiplyer, setMultiplyer] = useState<number>(1);
@@ -26,15 +23,12 @@ function LongForm() {
   const router = useRouter();
   async function convertFromUsd(to: string, price: number) {
     try {
-      const body = JSON.stringify({ price: price, to: to });
-      const res = await fetch("/api/convertFromUsd", {
-        method: "POST",
-        body: body,
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const res = await axios.post("/api/convertFromUsd", {
+        price: price,
+        to: to,
       });
-      const multiplyer = await res.json();
+      const multiplyer = await res.data.rate;
+      console.log(multiplyer);
       setMultiplyer(multiplyer);
       setLoadin(false);
     } catch (error) {
