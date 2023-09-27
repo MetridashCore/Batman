@@ -1,0 +1,30 @@
+
+# Node.js dependencies and modules
+node_modules
+
+# Build and development artifacts
+.next
+.npm
+.env
+
+# Editor and IDE files
+.vscode
+.idea
+
+# Version control files
+.git
+.gitignore
+
+# Logs and temporary files
+logs
+*.log
+*.log.*
+*.pid
+
+# Configuration files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
