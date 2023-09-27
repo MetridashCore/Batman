@@ -24,5 +24,15 @@ async function getUserCountry() {
     console.error("Error fetching IP data:", error);
   }
 }
+const getIP = async () => {
+  try {
+    const res = await fetch("https://api-bdc.net/data/client-ip");
+    const ip = await res.json();
+    console.log(ip);
+    return ip.ipString;
+  } catch (error) {
+    console.log("error fetching ip", error);
+  }
+};
 
-export { resultStringToArray, getUserCountry };
+export { resultStringToArray, getUserCountry, getIP };

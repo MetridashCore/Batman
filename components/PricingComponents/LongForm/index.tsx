@@ -8,7 +8,7 @@ import "rc-slider/assets/index.css";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { auth } from "@/firebase";
 import { useRouter } from "next/router";
-import { getUserCountry } from "@/utils/utils";
+import { getIP, getUserCountry } from "@/utils/utils";
 import axios from "axios";
 import Image from "next/image";
 
@@ -24,10 +24,12 @@ function LongForm() {
   const router = useRouter();
   async function convertFromUsd() {
     try {
-      const response = await axios.post("/api/convertFromUsd", {});
-      const rate = repponse.data.rate;
-      const countryCode = repponse.data.countryCode;
-      console.log(rate, countryCode);
+      const ip = await getIP();
+      const response = await axios.post("/api/convertFromUsd", {
+        ip: ip,
+      });
+      const rate = response.data.rate;
+      const countryCode = response.data.countryCode;
       setMultiplyer(rate);
       setLoadin(false);
       return countryCode;
