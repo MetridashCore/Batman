@@ -22,22 +22,15 @@ function LongForm() {
   const [symbol, setSymbol] = useState<string>("$");
   const [token, setToken] = useState<number>(100);
   const router = useRouter();
-  async function convertFromUsd(to: string, price: number) {
+  async function convertFromUsd() {
     try {
-      const apiKey = process.env.NEXT_PUBLIC_EXCHANGEKEY;
-      const response = await axios.get(
-        `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}`,
-        {
-          params: {
-            base_currency: "USD",
-            currencies: to,
-          },
-        }
-      );
-      const rate = Math.ceil(Object.values(response.data.data)[0]);
-      console.log(rate);
+      const response = await axios.post("/api/convertFromUsd", {});
+      const rate = repponse.data.rate;
+      const countryCode = repponse.data.countryCode;
+      console.log(rate, countryCode);
       setMultiplyer(rate);
       setLoadin(false);
+      return countryCode;
     } catch (error) {
       console.log(error);
     }
@@ -51,15 +44,10 @@ function LongForm() {
 
   useEffect(() => {
     let x = async () => {
-      const countryCode = await getUserCountry();
-      setCountry(countryCode);
-      console.log(countryCode);
-      if (countryCode != "USD") {
-        const re = await convertFromUsd(countryCode, price);
-        const symbol = getSymbolFromCurrency(countryCode);
-        if (symbol) {
-          setSymbol(symbol);
-        }
+      const countryCode = await convertFromUsd();
+      const symbol = getSymbolFromCurrency(countryCode);
+      if (symbol) {
+        setSymbol(symbol);
       }
     };
     x();
