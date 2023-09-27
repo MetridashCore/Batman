@@ -7,4 +7,5 @@ export interface Iorder {
   email: string;
   name: string;
   paymentIntent: string;
+  invoice: string;
 }

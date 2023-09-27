@@ -257,7 +257,7 @@ export default function LoginNavBar() {
         >
           <Image src={coins} alt="coins" width={20} height={20} />
           <span className="ms-1 text-sm  text-white">
-            {token.toLocaleString()} Tokens
+            {token?.toLocaleString()} Tokens
           </span>
         </Link>
         <div className="relative bg-slate-300  w-10 rounded-full items-center justify-center flex">

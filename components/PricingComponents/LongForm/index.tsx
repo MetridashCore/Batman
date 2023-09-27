@@ -26,11 +26,16 @@ function LongForm() {
   const router = useRouter();
   async function convertFromUsd(to: string, price: number) {
     try {
-      const res = await axios.post("/api/convertFromUsd", {
-        price: price,
-        to: to,
+      const body = JSON.stringify({ price: price, to: to });
+      const res = await fetch("/api/convertFromUsd", {
+        method: "POST",
+        body: body,
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      setMultiplyer(res.data.rate);
+      const multiplyer = await res.json();
+      setMultiplyer(multiplyer);
       setLoadin(false);
     } catch (error) {
       console.log(error);
