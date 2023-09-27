@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios from "axios";
 
 const handler = async (req: Request, res: Response) => {

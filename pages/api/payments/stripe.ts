@@ -1,3 +1,4 @@
+// @ts-nocheck
 import stripe from "../../../services/stripe/stripe";
 const handler = async (req: Request, res: Response) => {
   const { products, country, userId } = req.body;

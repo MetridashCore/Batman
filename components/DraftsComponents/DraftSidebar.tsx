@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { IoSearch } from 'react-icons/io5';
-import { fetchUserDrafts } from '@/auth';
-import { auth } from '@/firebase';
-import { useAtom } from 'jotai';
-import Image from 'next/image';
-import { draftAtom } from '@/utils/store';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import { IoSearch } from "react-icons/io5";
+import { fetchUserDrafts } from "@/auth";
+import { auth } from "@/firebase";
+import { useAtom } from "jotai";
+import Image from "next/image";
+import { draftAtom } from "@/utils/store";
+import Link from "next/link";
 
 interface Draft {
   draft: string;
@@ -17,16 +17,16 @@ export default function DraftSidebar() {
   const [drafts, setDrafts] = useState<Draft[]>([]);
   const user = auth.currentUser;
   const [_draft, setDraft] = useAtom(draftAtom);
-  const [searchText, setSearchText] = useState<string>('');
+  const [searchText, setSearchText] = useState<string>("");
 
   useEffect(() => {
     fetchUserDrafts(user)
       .then((userDrafts) => {
         setDrafts(userDrafts);
-        console.log('These are the drafts', drafts);
+        console.log("These are the drafts", drafts);
       })
       .catch((error) => {
-        console.log('Cannot get Drafts', error);
+        console.log("Cannot get Drafts", error);
       });
   }, [drafts, user]);
 
@@ -43,15 +43,15 @@ export default function DraftSidebar() {
   };
 
   const extractFirstFourWords = (text: string) => {
-    const words = text.split(' ');
-    const firstFourWords = words.slice(0, 4).join(' ');
+    const words = text.split(" ");
+    const firstFourWords = words.slice(0, 4).join(" ");
     return firstFourWords;
   };
 
   const renderDrafts = () => {
     const rows: JSX.Element[] = [];
     let currentRow: JSX.Element[] = [];
-    
+
     drafts.forEach((draft, index) => {
       const shortenedDraft = extractFirstFourWords(draft.draft);
 
@@ -66,7 +66,7 @@ export default function DraftSidebar() {
               className="object-contain mt-1"
               width={36}
               height={32}
-              src={'/icons/document.png'}
+              src={"/icons/document.png"}
               alt="document"
             />
           </div>
@@ -75,7 +75,6 @@ export default function DraftSidebar() {
               {shortenedDraft}
             </li>
             <h1 className="text-xs pt-1 px-2">{draft.platform}</h1>
-           
           </div>
         </div>
       );
@@ -111,7 +110,7 @@ export default function DraftSidebar() {
               className="object-contain mt-1"
               width={36}
               height={32}
-              src={'/icons/document.png'}
+              src={"/icons/document.png"}
               alt="document"
             />
           </div>
@@ -146,19 +145,24 @@ export default function DraftSidebar() {
         />
       </div>
 
-      {searchText !== '' ? searchDrafts() : null}
-      {searchText === '' ? (
+      {searchText !== "" ? searchDrafts() : null}
+      {searchText === "" ? (
         <div className="flex w-full h-full flex-col overflow-scroll mt-4">
-          {drafts.length>=1? 
+          {drafts.length >= 1 ? (
             renderDrafts()
-           : 
-           <div className='flex w-full h-full items-center justify-center flex-col gap-y-2'>
-             <h1 className="flex self-center text-lg font-thin">The draft is currently empty.</h1>
-              <Link href={'/homepage'} className='flex bg-gradient-to-r from-cyan-500 to-blue-500  rounded-xl px-4 py-2'>
-                  <h1 className='font-semibold text-white'>Create content</h1>
+          ) : (
+            <div className="flex w-full h-full items-center justify-center flex-col gap-y-2">
+              <h1 className="flex self-center text-lg font-thin">
+                The draft is currently empty.
+              </h1>
+              <Link
+                href={"/homepage"}
+                className="flex bg-gradient-to-r from-cyan-500 to-blue-500  rounded-xl px-4 py-2"
+              >
+                <h1 className="font-semibold text-white">Create content</h1>
               </Link>
-           </div>
-          }
+            </div>
+          )}
         </div>
       ) : null}
     </div>

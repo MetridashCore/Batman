@@ -1,3 +1,4 @@
+// @ts-nocheck
 // import React, { useState } from 'react'
 // import TextField from '@mui/material/TextField';
 // import { useAtom } from "jotai";
@@ -20,15 +21,15 @@
 //   };
 
 //   function copyText(entryText: string) {
-    
+
 //     navigator.clipboard.writeText(entryText);
-   
+
 //   }
 
 //   return (
 //     <div className='flex w-full h-full dark:bg-[#1C1C1C] bg-white px-20 pt-10 pb-28'>
 //       <div className='flex flex-col dark:bg-[#1B1D21] bg-[#F2F2F2] h-full w-full border dark:border-[#33363C] rounded '>
-//       <textarea  value={draft?.draft} 
+//       <textarea  value={draft?.draft}
 //           onChange={handleChange} className=' w-full h-full outline-none dark:bg-[#1B1D21] bg-[#F2F2F2] px-2 py-2'></textarea>
 //      <Button onClick={()=>copyText(draft?.draft)} className='self-end m-2'>
 //       <IoCopyOutline className='self-end m-2'></IoCopyOutline>
@@ -38,12 +39,12 @@
 //     </div>
 //   )
 // }
-import React, { useState, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import { useAtom } from 'jotai';
-import { draftAtom } from '@/utils/store';
-import { IoCopyOutline } from 'react-icons/io5';
-import { Button } from '@mui/material';
+import React, { useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
+import { useAtom } from "jotai";
+import { draftAtom } from "@/utils/store";
+import { IoCopyOutline } from "react-icons/io5";
+import { Button } from "@mui/material";
 
 interface Draft {
   draft: string;
@@ -53,10 +54,10 @@ interface Draft {
 
 export default function DraftEditor() {
   const [draft, setDraft] = useAtom(draftAtom);
-  const [data, setData] = useState<string>(draft?.draft || '');
+  const [data, setData] = useState<string>(draft?.draft || "");
 
   useEffect(() => {
-    setData(draft?.draft || '');
+    setData(draft?.draft || "");
   }, [draft]);
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

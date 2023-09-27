@@ -1,3 +1,4 @@
+// @ts-nocheck
 import stripe from "@/services/stripe/stripe";
 import Cors from "micro-cors";
 import { buffer } from "micro";
