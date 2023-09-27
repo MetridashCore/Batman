@@ -46,7 +46,7 @@ const Features = () => {
         <h1 className="text-center font-normal text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 tracking-widest ">FEATURES</h1>
         <h1 className=" mt-2 text-center font-bold text-4xl text-white ">Elevate Your Content Creation with<br></br> Metridash</h1>
         <h1 className="text-center font-semibold text-3xl text-white"> Where Imagination Meets Strategy</h1>
-        <h1 className="mt-4 text-white font-thin text-center">Welcome to the future of content creation.<br></br> Metridash is your all-in-one toolkit designed to fuel your creativity and revolutionize your content strategy.<br></br> Let's dive into the world of possibilities:</h1>
+        <h1 className="mt-4 text-white font-thin text-center">Welcome to the future of content creation.<br></br> Metridash is your all-in-one toolkit designed to fuel your creativity and revolutionize your content strategy.<br></br> Let&apos;s dive into the world of possibilities</h1>
       </motion.div>
       <YoutubeComp></YoutubeComp>
       <FbLinkedIn></FbLinkedIn>

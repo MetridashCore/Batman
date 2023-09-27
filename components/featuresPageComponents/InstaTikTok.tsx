@@ -24,8 +24,8 @@ export default function InstaTiktok() {
                     </div>
                         <h1 className='text-center mb-4 text-xl font-light text-white'>Craft Tweets That Spark Conversations</h1>
                     <div className='flex w-full  flex-col backdrop-blur-md bg-white/10 rounded-sm'>
-                        <h1 className='text-left mt-12 px-10 text-white'>🐦 Twitter(X) Tweets: Whether it's 280 characters or less, you'll tweet like a pro.</h1>
-                        <h1 className='text-left mt-8 px-10 text-white'>📣 Twitter(X) Hashtags: Join trending topics and boost your tweet's visibility.</h1>
+                        <h1 className='text-left mt-12 px-10 text-white'>🐦 Twitter(X) Tweets: Whether it's 280 characters or less, you&apos;ll tweet like a pro.</h1>
+                        <h1 className='text-left mt-8 px-10 text-white'>📣 Twitter(X) Hashtags: Join trending topics and boost your tweet&apos;s visibility.</h1>
                         <h1 className='text-left mt-8 mb-12 px-10 text-white'>🧑‍💼 Twitter(X) Bio: Your Twitter bio is your introduction; make it unforgettable.</h1>
                        
 

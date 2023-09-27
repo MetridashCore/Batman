@@ -14,7 +14,7 @@ export default function FbLinkedIn() {
                     <div className='flex w-full  flex-col backdrop-blur-md bg-white/10 rounded-sm'> 
                         <h1 className='text-left mt-10 px-10 text-white'>📰 Facebook Posts: Your message, your way. Engage your audience like never before.</h1>
                         <h1 className='text-left mt-8 px-10 text-white'>💬 Facebook Ad Copy: Turn browsers into buyers with persuasive ad copy.</h1>
-                        <h1 className='text-left mt-8 mb-12 px-10 text-white'>📢 Facebook Page Descriptions: Your page's story starts here. Make it memorable.</h1>
+                        <h1 className='text-left mt-8 mb-12 px-10 text-white'>📢 Facebook Page Descriptions: Your page&apos;s story starts here. Make it memorable.</h1>
                        
                     </div>
                 </div>
