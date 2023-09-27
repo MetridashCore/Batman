@@ -11,6 +11,7 @@ import { Modal, Box } from "@mui/material"
 import { StyleModal } from "@/components/modalStyle"
 import { setPrompt, TokensNeeded , InputTitle, Descriptions} from "@/hooks/function"
 import PopUpCard from "@/components/PopUpCard"
+import { useTheme } from "next-themes"
 type MainSelectorProps = {
   title: string // Adjust the type according to your use case
 }
@@ -32,6 +33,7 @@ export const disabled = (...args: any[]) => {
 }
 
 export default function Form1({ title }: MainSelectorProps) {
+  const { theme, setTheme } = useTheme()
   const [value, setValue] = useState<string | null>()
   const [keywords, setKeywords] = useState<string>()
   const [word, setWord] = useState("")

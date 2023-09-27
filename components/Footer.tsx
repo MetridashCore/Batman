@@ -1,15 +1,16 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useTheme } from "next-themes"
 
 const Footer = () => {
   const year = new Date().getFullYear()
   const router = useRouter()
-
+  const { theme, setTheme } = useTheme()
   return (
     <footer
       className={`${
         router.pathname === "/features"
-          ? "bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-[1400px] md:mt-5"
+          ? "bg-white rounded-lg shadow m-4 dark:bg-gray-800  md:mt-5"
           : router.pathname === "/"
           ? "hidden"
           : router.pathname === "/homepage"
