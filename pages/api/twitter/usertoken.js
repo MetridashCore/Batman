@@ -4,14 +4,14 @@ export default async (req, res) => {
   const session = await getSession({ req });
   const token = await getToken({
     req,
-    secret: "mySecretValue",
+    secret: process.env.NEXT_TWITTER_JWT_SECRET,
   });
   console.log("session", session);
   console.log("token", token);
   try {
     return res.status(200).json({
-      status: "Ok",
-      data: [],
+      status: 200,
+      token,
     });
   } catch (e) {
     return res.status(400).json({

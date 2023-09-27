@@ -26,6 +26,7 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { signIn } from "next-auth/react";
 import { useSession, getSession } from "next-auth/react";
+import axios from "axios";
 
 type StaticImport = StaticImageData | string;
 
@@ -46,8 +47,24 @@ export default function GPTResponse({
   const [_response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [fullData, setFullData] = useState("");
-  const session = useSession();
-  console.log("session", session);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/twitter/usertoken")
+      .then((response: any) => {
+        localStorage.setItem(
+          "twitter_oauth_token",
+          response?.data?.token?.token?.account?.oauth_token
+        );
+        localStorage.setItem(
+          "twitter_oauth_token_secret",
+          response?.data?.token?.token?.account?.oauth_token_secret
+        );
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  }, []);
 
   const currentUser = auth.currentUser;
   let finalToken = 20;
