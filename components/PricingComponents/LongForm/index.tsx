@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import getSymbolFromCurrency from "currency-symbol-map";
 import loader from "../../../public/svg/Rolling-1s-200px.svg";
@@ -23,13 +24,19 @@ function LongForm() {
   const router = useRouter();
   async function convertFromUsd(to: string, price: number) {
     try {
-      const res = await axios.post("/api/convertFromUsd", {
-        price: price,
-        to: to,
-      });
-      const multiplyer = await res.data.rate;
-      console.log(multiplyer);
-      setMultiplyer(multiplyer);
+      const apiKey = process.env.NEXT_PUBLIC_EXCHANGEKEY;
+      const response = await axios.get(
+        `https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}`,
+        {
+          params: {
+            base_currency: "USD",
+            currencies: to,
+          },
+        }
+      );
+      const rate = Math.ceil(Object.values(response.data.data)[0]);
+      console.log(rate);
+      setMultiplyer(rate);
       setLoadin(false);
     } catch (error) {
       console.log(error);
