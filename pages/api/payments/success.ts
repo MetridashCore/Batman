@@ -48,12 +48,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         timestamp: date.toLocaleString(),
       };
 
-      console.log(event.data.object, event.id);
       await updateUserTokens(object.userId, newTokens);
       await createOrderDetails(orderDetails);
+      console.log("success");
       break;
     case "invoice.paid":
-      console.log(event.data.object, event.id);
       res.status(200).json({ message: "ok" });
       await addInvoiceToExistingOrder(
         event.data.object.payment_intent,
@@ -62,7 +61,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       break;
     default:
       res.status(200).json({ message: "ok" });
-      console.log(`Unhandled event type ${event.type}`);
   }
 }
 

@@ -29,8 +29,9 @@ const handler = async (req: Request, res: Response) => {
       },
     },
 
-    success_url: "http://localhost:3000/pricing",
-    cancel_url: "http://localhost:3000/pricing",
+    success_url:
+      "https://batman-git-stripev2-socials-metridashco.vercel.app/pricing",
+    cancel_url: "https://batman-git-stripev2-socials-metridashco.vercel.app",
   });
   res.status(200).json({ id: session.id });
 };

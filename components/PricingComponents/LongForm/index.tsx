@@ -47,6 +47,7 @@ function LongForm() {
   useEffect(() => {
     let x = async () => {
       const countryCode = await convertFromUsd();
+      setCountry(countryCode);
       const symbol = getSymbolFromCurrency(countryCode);
       if (symbol) {
         setSymbol(symbol);
@@ -65,12 +66,12 @@ function LongForm() {
         );
         const data = {
           tokens: token,
-          prices: country == "INR" ? price * multiplyer : price,
+          prices: price * multiplyer,
           words: words,
         };
         const body = {
           products: data,
-          country: country == "INR" ? "INR" : "USD",
+          country: country,
           userId: auth.currentUser?.uid,
         };
         const headers = {
