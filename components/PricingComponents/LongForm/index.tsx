@@ -53,6 +53,7 @@ function LongForm() {
     let x = async () => {
       const countryCode = await getUserCountry();
       setCountry(countryCode);
+      console.log(countryCode);
       if (countryCode != "USD") {
         const re = await convertFromUsd(countryCode, price);
         const symbol = getSymbolFromCurrency(countryCode);
