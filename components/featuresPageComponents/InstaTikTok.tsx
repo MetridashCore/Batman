@@ -6,9 +6,9 @@ export default function InstaTiktok() {
   return (
     <div className="flex w-screen md:h-[450px]  md:flex-row flex-col   bg-[#00062A] ">
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2  flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={TikTokIcon} alt="youtube"></Image>    
-                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>TikTok Platform</h1>
+                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>TikTok</h1>
                     </div>
                     <h1 className='text-center text-xl mb-4 font-light text-white'> Short and Sweet Creativity</h1>
                     <div className='flex w-full  flex-col backdrop-blur-md bg-white/10 rounded-sm'> 
@@ -18,9 +18,9 @@ export default function InstaTiktok() {
                     </div>
                 </div>
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2  flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={TwitterIcon} alt="youtube"></Image>    
-                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>Twitter(X) Platform</h1>
+                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>Twitter(X)</h1>
                     </div>
                         <h1 className='text-center mb-4 text-xl font-light text-white'>Craft Tweets That Spark Conversations</h1>
                     <div className='flex w-full  flex-col backdrop-blur-md bg-white/10 rounded-sm'>

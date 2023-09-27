@@ -24,9 +24,9 @@ export default function YoutubeComp() {
     animate={controls}
      className="flex w-screen md:h-[650px]  md:flex-row flex-col   bg-[#00062A]  transition-all duration-1000 ease-in-out ">
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2 flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={Youtubeicon} alt="youtube"></Image>    
-                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>YouTube Platform</h1>
+                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>YouTube</h1>
                     </div>
                     <h1 className='text-center text-xl mb-4 font-light text-white'>Your Video Empire Starts Here</h1>
                     <motion.div
@@ -42,9 +42,9 @@ export default function YoutubeComp() {
                     </motion.div>
                 </div>
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2 flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={InstaIcon} alt="youtube"></Image>    
-                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>Instagram Platform</h1>
+                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>Instagram</h1>
                     </div>
                         <h1 className='text-center mb-4 text-xl font-light text-white'>Share Visual Stories That Shine</h1>
                     <div className='flex w-full h-full flex-col backdrop-blur-md bg-white/10 rounded-sm'>

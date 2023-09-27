@@ -6,9 +6,9 @@ export default function FbLinkedIn() {
   return (
     <div className="flex w-screen md:h-[500px]  md:flex-row flex-col   bg-[#00062A] ">
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2 flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={FacebookIcon} alt="youtube"></Image>    
-                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>Facebook Platform</h1>
+                        <h1 className='md:text-4xl text-2xl font-semibold text-white'>Facebook</h1>
                     </div>
                     <h1 className='text-center text-xl mb-4 font-light text-white'>Connect and Convert Your Audience</h1>
                     <div className='flex w-full  flex-col backdrop-blur-md bg-white/10 rounded-sm'> 
@@ -19,9 +19,9 @@ export default function FbLinkedIn() {
                     </div>
                 </div>
                 <div className='md:w-1/2 w-full h-full flex flex-col py-24 px-8'>
-                    <div className='flex flex-row self-center'>
+                    <div className='flex mb-2 flex-row self-center'>
                         <Image className='w-8 self-center mr-1 h-8' src={LinkedIn} alt="youtube"></Image>    
-                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>LinkedIn Platform</h1>
+                        <h1 className='text-center md:text-4xl text-2xl font-semibold text-white'>LinkedIn</h1>
                     </div>
                         <h1 className='text-center mb-4 text-xl font-light text-white'>Build Your Professional Brand</h1>
                     <div className='flex w-full flex-col backdrop-blur-md bg-white/10 rounded-sm'>
