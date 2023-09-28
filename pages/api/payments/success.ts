@@ -31,6 +31,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   );
   switch (event.type) {
     case "charge.succeeded":
+      console.log("stared...");
       res.status(200).json({ message: "ok" }); //its not a mistake we need to send the response back to strpe immediately.we update tokens after sending the response
       const object = event.data.object.metadata;
       const userTokens = await getUserTokens(object.userId);
@@ -47,7 +48,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         id: event.data.object.id,
         timestamp: date.toLocaleString(),
       };
-
       await updateUserTokens(object.userId, newTokens);
       await createOrderDetails(orderDetails);
       console.log("success");
