@@ -1,6 +1,5 @@
 // @ts-nocheck
 import axios from "axios";
-
 const handler = async (req: Request, res: Response) => {
   const positionstack_key = process.env.POSITIONSTACK_KEY;
   const apiKey = process.env.EXCHANGEKEY;
