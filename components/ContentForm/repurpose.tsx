@@ -164,7 +164,7 @@ export default function Repurpose({ title }: MainSelectorProps) {
               {postAboutCount}/800
             </p>
           </div>
-          <h3 className=" text-lg mt-3 mb-1 dark:text-[#D2D2D2]">Rephrase to </h3>
+          <h3 className=" text-lg mt-3 mb-1 dark:text-[#D2D2D2]">Repurpose to </h3>
           <Autocomplete
             value={value}
             onChange={(event: any, newValue: string | null) => {

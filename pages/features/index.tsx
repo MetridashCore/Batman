@@ -40,7 +40,7 @@ const Features = () => {
       animate={{ opacity: 1, y: 0 }} 
       exit={{ opacity: 0}} 
       transition={{ delay: 0.25 }} 
-      className="flex w-screen h-screen bg-gradient-to-t from-[#00062A] to-[#3247CF]  transition-all duration-1000 ease-in-out flex-col items-center  md:pt-24 pt-20 md:gap-y-0 gap-y-4">
+      className="flex w-full h-screen bg-gradient-to-t from-[#00062A] to-[#3247CF]  transition-all duration-1000 ease-in-out flex-col items-center  md:pt-24 pt-20 md:gap-y-0 gap-y-4">
 
         <Image className="w-[900px] object-contain mb-4" src={featuresbg} alt="features"></Image>
         <h1 className="text-center font-normal text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 tracking-widest ">FEATURES</h1>

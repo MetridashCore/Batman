@@ -8,9 +8,10 @@ import { auth } from "@/firebase"
 import { Modal, Box, OutlinedInput } from "@mui/material"
 import { StyleModal } from "@/components/modalStyle"
 import PopUpCard from "@/components/PopUpCard"
-import { useTheme } from "next-themes"
+
 import { setPrompt, TokensNeeded, InputTitle, Descriptions } from "@/hooks/function"
 import { useBeforeunload } from "react-beforeunload"
+import { useTheme } from "next-themes"
 
 import { useAtom } from "jotai"
 type MainSelectorProps = {
@@ -43,6 +44,7 @@ type MainSelectorProps = {
 
 export default function Repurpose({ title }: MainSelectorProps) {
     const [postAboutCount, setPostAboutCount] = useState(0)
+    const { theme, setTheme } = useTheme()
     const [value, setValue] = useState<any>("")
     const [value1, setValue1] = useState<any>("")
     const [input, setInput] = useState("")
@@ -203,7 +205,7 @@ export default function Repurpose({ title }: MainSelectorProps) {
                   style: {
                     fontSize: "15px",
                     outlineStyle: "none",
-                    color:  "white" ,
+                    color:  `${theme==="light"?"black":"white"}`,
                   },
                 }}
               />
@@ -239,7 +241,7 @@ export default function Repurpose({ title }: MainSelectorProps) {
                   style: {
                     fontSize: "15px",
                     outlineStyle: "none",
-                    color:  "white" ,
+                    color:  `${theme==="light"?"black":"white"}`,
                   },
                 }}
               />
