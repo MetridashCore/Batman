@@ -1,8 +1,11 @@
-/** @type {import('next').NextConfig} */
-const validateEnvVariables = require("./envValidator");
 const requiredEnvVars = require("./envConfig");
 
-validateEnvVariables(requiredEnvVars);
+// Check if the CI environment variable is set
+if (!process.env.CI) {
+  const validateEnvVariables = require("./envValidator");
+  validateEnvVariables(requiredEnvVars);
+}
+
 const nextConfig = {
   reactStrictMode: true,
 };
