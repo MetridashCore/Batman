@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import getSymbolFromCurrency from "currency-symbol-map";
 import loader from "../../../public/svg/Rolling-1s-200px.svg";
