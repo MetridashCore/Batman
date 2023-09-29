@@ -28,9 +28,8 @@ const handler = async (req: Request, res: Response) => {
         tokens: products.tokens,
       },
     },
-
     success_url: process.env.APP_URL + "/pricing/success",
-    cancle_url: process.env.APP_URL + "/pricing/failed",
+    cancel_url: process.env.APP_URL + "/pricing/failed",
   });
   res.status(200).json({ id: session.id });
 };
