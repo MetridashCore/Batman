@@ -14,7 +14,7 @@ export default function Failed() {
         <h1 className='mt-6 text-xl text-red-500 font-semibold'>Your Payment has failed. Please try again.</h1>
         <h3 className='text-gray-600'>Click on the button to be redirected to the Home Page.</h3>
         <Link href={'/homepage'} className='flex px-4 py-2 mt-4 rounded-md bg-blue-300'>
-            <h1 className='text-white'>Home page</h1>
+            <h1 className='text-white font-semibold'>Home page</h1>
         </Link>
         </div>
     </div>
