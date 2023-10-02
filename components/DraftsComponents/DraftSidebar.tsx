@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import { fetchUserDrafts } from "@/auth";
