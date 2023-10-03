@@ -1,59 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { IoSearch } from 'react-icons/io5';
-import { fetchUserDrafts } from '@/auth';
-import { auth } from '@/firebase';
-import { useAtom } from 'jotai';
-import Image from 'next/image';
-import { draftAtom } from '@/utils/store';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react'
+import { IoSearch } from 'react-icons/io5'
+import { fetchUserDrafts } from '@/auth'
+import { auth } from '@/firebase'
+import { useAtom } from 'jotai'
+import Image from 'next/image'
+import { draftAtom } from '@/utils/store'
+import Link from 'next/link'
 
 interface Draft {
-  draft: string;
-  time: string;
-  platform: string;
+  draft: string
+  time: string
+  platform: string
 }
 
 export default function DraftSidebar() {
-  const [drafts, setDrafts] = useState<Draft[]>([]);
-  const user = auth.currentUser;
-  const [_draft, setDraft] = useAtom(draftAtom);
-  const [searchText, setSearchText] = useState<string>('');
+  const [drafts, setDrafts] = useState<Draft[]>([])
+  const user = auth.currentUser
+  const [_draft, setDraft] = useAtom(draftAtom)
+  const [searchText, setSearchText] = useState<string>('')
 
   useEffect(() => {
     fetchUserDrafts(user)
       .then((userDrafts) => {
-        setDrafts(userDrafts);
-        console.log('These are the drafts', drafts);
+        setDrafts(userDrafts)
+        console.log('These are the drafts', drafts)
       })
       .catch((error) => {
-        console.log('Cannot get Drafts', error);
-      });
-  }, [drafts, user]);
+        console.log('Cannot get Drafts', error)
+      })
+  }, [drafts, user])
 
   const handleDraft = (data: Draft) => {
-    setDraft(data);
-  };
+    setDraft(data)
+  }
 
   const filteredDrafts = drafts.filter((draft) =>
     draft.draft?.toLowerCase().includes(searchText.toLowerCase())
-  );
+  )
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(event.target.value);
-  };
+    setSearchText(event.target.value)
+  }
 
   const extractFirstFourWords = (text: string) => {
-    const words = text.split(' ');
-    const firstFourWords = words.slice(0, 4).join(' ');
-    return firstFourWords;
-  };
+    if (text) {
+      const words = text.split(' ')
+      const firstFourWords = words.slice(0, 4).join(' ')
+      return firstFourWords
+    }
+  }
 
   const renderDrafts = () => {
-    const rows: JSX.Element[] = [];
-    let currentRow: JSX.Element[] = [];
-    
+    const rows: JSX.Element[] = []
+    let currentRow: JSX.Element[] = []
+
     drafts.forEach((draft, index) => {
-      const shortenedDraft = extractFirstFourWords(draft.draft);
+      const shortenedDraft = extractFirstFourWords(draft.draft)
 
       currentRow.push(
         <div
@@ -75,30 +77,29 @@ export default function DraftSidebar() {
               {shortenedDraft}
             </li>
             <h1 className="text-xs pt-1 px-2">{draft.platform}</h1>
-           
           </div>
         </div>
-      );
+      )
 
       if ((index + 1) % 3 === 0 || index === drafts.length - 1) {
         rows.push(
           <div className="flex w-full my-2  h-56 " key={index}>
             {currentRow}
           </div>
-        );
-        currentRow = [];
+        )
+        currentRow = []
       }
-    });
+    })
 
-    return rows;
-  };
+    return rows
+  }
 
   const searchDrafts = () => {
-    const rows: JSX.Element[] = [];
-    let currentRow: JSX.Element[] = [];
+    const rows: JSX.Element[] = []
+    let currentRow: JSX.Element[] = []
 
     filteredDrafts.forEach((draft, index) => {
-      const shortenedDraft = extractFirstFourWords(draft.draft);
+      const shortenedDraft = extractFirstFourWords(draft.draft)
 
       currentRow.push(
         <div
@@ -120,20 +121,20 @@ export default function DraftSidebar() {
             <li className="text-xs pt-1 px-2">{draft.platform}</li>
           </div>
         </div>
-      );
+      )
 
       if ((index + 1) % 3 === 0 || index === filteredDrafts.length - 1) {
         rows.push(
           <div className="flex w-full my-2  h-40  " key={index}>
             {currentRow}
           </div>
-        );
-        currentRow = [];
+        )
+        currentRow = []
       }
-    });
+    })
 
-    return rows;
-  };
+    return rows
+  }
 
   return (
     <div className="flex h-full w-full dark:bg-[#141414] bg-[#F2F2F2] px-4 py-4 flex-col">
@@ -149,18 +150,23 @@ export default function DraftSidebar() {
       {searchText !== '' ? searchDrafts() : null}
       {searchText === '' ? (
         <div className="flex w-full h-full flex-col overflow-scroll mt-4">
-          {drafts.length>=1? 
+          {drafts.length >= 1 ? (
             renderDrafts()
-           : 
-           <div className='flex w-full h-full items-center justify-center flex-col gap-y-2'>
-             <h1 className="flex self-center text-lg font-thin">The draft is currently empty.</h1>
-              <Link href={'/homepage'} className='flex bg-gradient-to-r from-cyan-500 to-blue-500  rounded-xl px-4 py-2'>
-                  <h1 className='font-semibold text-white'>Create content</h1>
+          ) : (
+            <div className="flex w-full h-full items-center justify-center flex-col gap-y-2">
+              <h1 className="flex self-center text-lg font-thin">
+                The draft is currently empty.
+              </h1>
+              <Link
+                href={'/homepage'}
+                className="flex bg-gradient-to-r from-cyan-500 to-blue-500  rounded-xl px-4 py-2"
+              >
+                <h1 className="font-semibold text-white">Create content</h1>
               </Link>
-           </div>
-          }
+            </div>
+          )}
         </div>
       ) : null}
     </div>
-  );
+  )
 }
