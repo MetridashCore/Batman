@@ -1,16 +1,18 @@
-import { useState, ChangeEvent, useEffect } from "react"
-import Link from "next/link"
-import { useRouter, redirect } from "next/navigation"
-import { auth } from "@/firebase"
-import { createUserWithEmail, signInWithGoogle } from "../../../auth"
-import checkUser from "../../../utils/checkUser"
-import Typewriter from "typewriter-effect"
-import classes from "./signup.module.css"
+import { useState, ChangeEvent, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter, redirect } from 'next/navigation'
+import { logEvent } from 'firebase/analytics'
+import { auth } from '@/firebase'
+import { analytics } from '@/firebase'
+import { createUserWithEmail, signInWithGoogle } from '../../../auth'
+import checkUser from '../../../utils/checkUser'
+import Typewriter from 'typewriter-effect'
+import classes from './signup.module.css'
 
 const SignUp = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [message, setMessage] = useState("")
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
   const router = useRouter()
 
@@ -26,9 +28,13 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     try {
-      await createUserWithEmail(email, password)
-
-      setMessage("User signed up successfully")
+      const user: any = await createUserWithEmail(email, password)
+      if (user.email && user.uid) {
+        logEvent(analytics!, 'sign_up', {
+          method: 'email',
+        })
+        setMessage('User signed up successfully')
+      }
       //window.location.href = "/homepage"
     } catch (error) {
       setMessage(`Error signing up: ${error}`)
@@ -37,16 +43,21 @@ const SignUp = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle()
-      setMessage("User signed in with Google successfully")
-      window.location.href = "/homepage"
+      const user: any = await signInWithGoogle()
+      if (user.email && user.uid) {
+        logEvent(analytics!, 'sign_up', {
+          method: 'Google',
+        })
+        setMessage('User signed in with Google successfully')
+        window.location.href = '/homepage'
+      }
     } catch (error) {
       setMessage(`Error signing in with Google: ${error}`)
     }
   }
 
   if (user && user.uid) {
-    window.location.href = "/homepage"
+    window.location.href = '/homepage'
   }
 
   return (
@@ -56,7 +67,7 @@ const SignUp = () => {
         style={{
           backgroundImage:
             "url('https://c4.wallpaperflare.com/wallpaper/448/699/737/abstract-digital-art-3d-abstract-lines-wallpaper-preview.jpg')",
-          backdropFilter: "blur(10px)",
+          backdropFilter: 'blur(10px)',
           zIndex: -1,
         }}
       ></div>
@@ -71,12 +82,12 @@ const SignUp = () => {
             <Typewriter
               options={{
                 strings: [
-                  "Fuel Your Creativity",
-                  "Metridash empowers creators with powerful content creation tools, igniting your creative spark like never before.",
-                  "Craft, Share, and Thrive",
+                  'Fuel Your Creativity',
+                  'Metridash empowers creators with powerful content creation tools, igniting your creative spark like never before.',
+                  'Craft, Share, and Thrive',
                   "Unleash your content potential effortlessly with Metridash – from creation to sharing, we've got you covered.",
-                  "Join the Creator Revolution",
-                  "Ready to revolutionize your content? Join the Metridash community today and watch your creative journey soar.",
+                  'Join the Creator Revolution',
+                  'Ready to revolutionize your content? Join the Metridash community today and watch your creative journey soar.',
                 ],
                 autoStart: true,
                 loop: true,
@@ -130,11 +141,11 @@ const SignUp = () => {
         </form>
         {message && <p className="text-white">{message}</p>}
         <p className="text-white">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <Link
             className="text-white"
             href="/auth/signin"
-            style={{ textDecoration: "underline" }}
+            style={{ textDecoration: 'underline' }}
           >
             Sign in
           </Link>
