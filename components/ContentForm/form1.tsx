@@ -1,34 +1,40 @@
-import React from "react"
+import React from 'react'
 
-import { useState, ChangeEvent, useEffect } from "react"
-import { useRouter } from "next/router"
-import { useAtom } from "jotai"
-import { useBeforeunload } from "react-beforeunload"
-import { updateTokens, readTokens, getUserToken } from "../../auth"
-import { responseAtom, platformAtom } from "@/utils/store"
-import { auth } from "@/firebase"
-import { Modal, Box } from "@mui/material"
-import { StyleModal } from "@/components/modalStyle"
-import { setPrompt, TokensNeeded , InputTitle, Descriptions} from "@/hooks/function"
-import PopUpCard from "@/components/PopUpCard"
-import { useTheme } from "next-themes"
+import { useState, ChangeEvent, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useAtom } from 'jotai'
+import { useBeforeunload } from 'react-beforeunload'
+import { logEvent } from 'firebase/analytics'
+import { updateTokens, readTokens, getUserToken } from '../../auth'
+import { responseAtom, platformAtom } from '@/utils/store'
+import { auth, analytics } from '@/firebase'
+import { Modal, Box } from '@mui/material'
+import { StyleModal } from '@/components/modalStyle'
+import {
+  setPrompt,
+  TokensNeeded,
+  InputTitle,
+  Descriptions,
+} from '@/hooks/function'
+import PopUpCard from '@/components/PopUpCard'
+import { useTheme } from 'next-themes'
 type MainSelectorProps = {
   title: string // Adjust the type according to your use case
 }
 
 const options = [
-  "Conversational",
-  "Enthusiastic",
-  "Funny",
-  "Professional",
-  "Describe a tone",
+  'Conversational',
+  'Enthusiastic',
+  'Funny',
+  'Professional',
+  'Describe a tone',
 ]
 
 export const disabled = (...args: any[]) => {
   return args.some(
     (arg) =>
-      (typeof arg === "string" && arg?.trim().length === 0) ||
-      (typeof arg === "object" && arg?.length === 0)
+      (typeof arg === 'string' && arg?.trim().length === 0) ||
+      (typeof arg === 'object' && arg?.length === 0)
   )
 }
 
@@ -36,32 +42,32 @@ export default function Form1({ title }: MainSelectorProps) {
   const { theme, setTheme } = useTheme()
   const [value, setValue] = useState<string | null>()
   const [keywords, setKeywords] = useState<string>()
-  const [word, setWord] = useState("")
-  const [inputValue, setInputValue] = useState("")
+  const [word, setWord] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const [postAboutCount, setPostAboutCount] = useState(0)
   const [targetAudienceCount, setTargetAudienceCount] = useState(0)
-  const [targetAudience, setTargetAudience] = useState("")
-  const [input, setInput] = useState("")
+  const [targetAudience, setTargetAudience] = useState('')
+  const [input, setInput] = useState('')
   const [_response, setResponse] = useAtom(responseAtom)
   const [loading, setLoading] = useState(false)
-  const [tokensRequired, setTokensRequired] = useState<string>("")
-  const [description , setDescription] = useState("")
+  const [tokensRequired, setTokensRequired] = useState<string>('')
+  const [description, setDescription] = useState('')
   let token: number = 20
   const [_platform, setPlatform] = useAtom(platformAtom)
   const user = auth.currentUser
   const router = useRouter()
-  const [getToken, setgetToken] = useState("")
+  const [getToken, setgetToken] = useState('')
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  const [titleInput, setTitleInput] = useState("")
-  const [word1, setWord1] = useState<string>("")
+  const [titleInput, setTitleInput] = useState('')
+  const [word1, setWord1] = useState<string>('')
   useEffect(() => {
     // Set the state to null on page load
-    setResponse("")
+    setResponse('')
   }, [setResponse])
   useEffect(() => {
-    const word = title.split(" ")
+    const word = title.split(' ')
     setWord1(word[1])
     const x = TokensNeeded(title)
     const y = InputTitle(title)
@@ -72,7 +78,7 @@ export default function Form1({ title }: MainSelectorProps) {
     setPlatform(title)
   }, [title])
 
-  useBeforeunload(input !== "" ? (event) => event.preventDefault() : undefined)
+  useBeforeunload(input !== '' ? (event) => event.preventDefault() : undefined)
 
   const TextInput = () => {
     return (
@@ -84,7 +90,6 @@ export default function Form1({ title }: MainSelectorProps) {
     )
   }
 
- 
   const handlePostAboutChange = (event: ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value
     const count = value.length
@@ -117,6 +122,7 @@ export default function Form1({ title }: MainSelectorProps) {
     e.preventDefault()
     if (disabled(input)) return
     setLoading(true)
+    logEvent(analytics!, 'share')
     const tk = await getUserToken(user)
     if (Number(tk) < Number(tokensRequired)) {
       handleOpen()
@@ -126,13 +132,13 @@ export default function Form1({ title }: MainSelectorProps) {
       const prompt = `Generate 30 hashtags about ${input} in one sentence`
       let usertk: number = Number(tk) - Number(tokensRequired)
       // e.preventDefault();
-      setResponse("")
+      setResponse('')
 
       await updateTokens(user, usertk)
-      const res = await fetch("/api/promptChatGPT", {
-        method: "POST",
+      const res = await fetch('/api/promptChatGPT', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           data: prompt,
@@ -163,9 +169,7 @@ export default function Form1({ title }: MainSelectorProps) {
     <div className="  flex flex-col md:flex-row	justify-center items-center w-full h-full">
       <div className="w-full h-screen flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 flex-col mt-3">
         <h1 className=" font-sans text-2xl font-bold">Generate {title}</h1>
-        <h3 className=" text-sm ">
-          {description}
-        </h3>
+        <h3 className=" text-sm ">{description}</h3>
         <form onSubmit={(e) => e.preventDefault()} className="my-4">
           <div className="relative">
             <h3 className=" text-lg my-3 dark:text-[#D2D2D2]">
@@ -190,12 +194,14 @@ export default function Form1({ title }: MainSelectorProps) {
             disabled={disabled(input)}
             onClick={generateResponse}
             className={`w-full h-10 bg-black mt-10 rounded-lg bg-gradient-to-l from-[#00C5D7] to-[#0077BE] ${
-              disabled(input) && "cursor-not-allowed"
+              disabled(input) && 'cursor-not-allowed'
             }`}
           >
             <h1 className="text-white">
-              {" "}
-              {loading ? "Genarating..." : `Generate (${tokensRequired} Tokens)`}
+              {' '}
+              {loading
+                ? 'Genarating...'
+                : `Generate (${tokensRequired} Tokens)`}
             </h1>
           </button>
           {/* <div className="flex w-full h-4 items-center justify-center my-2">

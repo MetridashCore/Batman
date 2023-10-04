@@ -1,72 +1,78 @@
-import React from "react"
-import { useState, ChangeEvent, useEffect } from "react"
-import { useRouter } from "next/router"
-import { useBeforeunload } from "react-beforeunload"
-import AddCircle from "@mui/icons-material/AddCircleOutlineTwoTone"
-import Cancel from "@mui/icons-material/Cancel"
-import TextField from "@mui/material/TextField"
-import Autocomplete from "@mui/material/Autocomplete"
-import GPTResponseVideo from "@/components/GPTResponseVideo"
-import { useAtom } from "jotai"
-import { updateTokens, readTokens, getUserToken } from "../../auth"
-import { platformAtom, responseAtom } from "@/utils/store"
-import { auth } from "@/firebase"
-import { Modal, Box, OutlinedInput } from "@mui/material"
-import { StyleModal } from "@/components/modalStyle"
-import PopUpCard from "@/components/PopUpCard"
-import { useTheme } from "next-themes"
-import { setPrompt, TokensNeeded, InputTitle, Descriptions } from "@/hooks/function"
+import React from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useBeforeunload } from 'react-beforeunload'
+import { logEvent } from 'firebase/analytics'
+import AddCircle from '@mui/icons-material/AddCircleOutlineTwoTone'
+import Cancel from '@mui/icons-material/Cancel'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
+import GPTResponseVideo from '@/components/GPTResponseVideo'
+import { useAtom } from 'jotai'
+import { updateTokens, readTokens, getUserToken } from '../../auth'
+import { platformAtom, responseAtom } from '@/utils/store'
+import { auth, analytics } from '@/firebase'
+import { Modal, Box, OutlinedInput } from '@mui/material'
+import { StyleModal } from '@/components/modalStyle'
+import PopUpCard from '@/components/PopUpCard'
+import { useTheme } from 'next-themes'
+import {
+  setPrompt,
+  TokensNeeded,
+  InputTitle,
+  Descriptions,
+} from '@/hooks/function'
 
 const options = [
-  "Conversational",
-  "Enthusiastic",
-  "Funny",
-  "Professional",
-  "Describe a tone",
+  'Conversational',
+  'Enthusiastic',
+  'Funny',
+  'Professional',
+  'Describe a tone',
 ]
 
 export const disabled = (...args: any[]) => {
   return args.some(
     (arg) =>
-      (typeof arg === "string" && arg?.trim().length === 0) ||
-      (typeof arg === "object" && arg?.length === 0)
+      (typeof arg === 'string' && arg?.trim().length === 0) ||
+      (typeof arg === 'object' && arg?.length === 0)
   )
 }
 type MainSelectorProps = {
   title: string // Adjust the type according to your use case
 }
 export default function Form4({ title }: MainSelectorProps) {
-  const [value, setValue] = useState<any>("")
+  const [value, setValue] = useState<any>('')
   const [keywords, setKeywords] = useState<string>()
-  const [word, setWord] = useState("")
-  const [inputValue, setInputValue] = useState("")
+  const [word, setWord] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const [postAboutCount, setPostAboutCount] = useState(0)
   const [targetAudienceCount, setTargetAudienceCount] = useState(0)
-  const [targetAudience, setTargetAudience] = useState("")
-  const [input, setInput] = useState("")
+  const [targetAudience, setTargetAudience] = useState('')
+  const [input, setInput] = useState('')
   const [_response, setResponse] = useAtom(responseAtom)
   const [_platform, setPlatform] = useAtom(platformAtom)
   const [loading, setLoading] = useState(false)
-  const [word1, setWord1] = useState<string>("")
-  const [tokensRequired, setTokensRequired] = useState<string>("")
+  const [word1, setWord1] = useState<string>('')
+  const [tokensRequired, setTokensRequired] = useState<string>('')
   let token: number = 20
   const user = auth.currentUser
   const router = useRouter()
-  const [getToken, setgetToken] = useState("")
+  const [getToken, setgetToken] = useState('')
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  const [titleInput, setTitleInput] = useState("")
-  const [description, setDescription] = useState("")
+  const [titleInput, setTitleInput] = useState('')
+  const [description, setDescription] = useState('')
   const { theme, setTheme } = useTheme()
   useEffect(() => {
     // Set the state to null on page load
 
-    setResponse("")
+    setResponse('')
   }, [setResponse])
 
   useEffect(() => {
-    const word = title.split(" ")
+    const word = title.split(' ')
     const x = TokensNeeded(title)
     const y = InputTitle(title)
     const z = Descriptions(title)
@@ -75,12 +81,11 @@ export default function Form4({ title }: MainSelectorProps) {
     setTokensRequired(x)
     setDescription(z)
     setWord1(word[1])
-    setResponse("")
-    setInput("")
-    setTargetAudience("")
-    setValue("")
-    setKeywords("")
-   
+    setResponse('')
+    setInput('')
+    setTargetAudience('')
+    setValue('')
+    setKeywords('')
   }, [setResponse, title])
   const handleKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     setWord(event.target.value)
@@ -130,20 +135,21 @@ export default function Form4({ title }: MainSelectorProps) {
     e.preventDefault()
     if (disabled(input)) return
     setLoading(true)
-    setResponse("")
+    setResponse('')
+    logEvent(analytics!, 'share')
     const tk = await getUserToken(user)
-    if (Number(tk) <  Number(tokensRequired)) {
+    if (Number(tk) < Number(tokensRequired)) {
       handleOpen()
       setLoading(false)
       return
     } else {
-      let usertk: number = Number(tk) -  Number(tokensRequired)
+      let usertk: number = Number(tk) - Number(tokensRequired)
       const prompt = setPrompt(title, input, targetAudience, value, keywords)
       await updateTokens(user, usertk)
-      const res = await fetch("/api/promptChatGPT", {
-        method: "POST",
+      const res = await fetch('/api/promptChatGPT', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           data: prompt,
@@ -170,7 +176,7 @@ export default function Form4({ title }: MainSelectorProps) {
   }
 
   useBeforeunload(
-    input !== "" || keywords !== "" || value !== "" || targetAudience !== ""
+    input !== '' || keywords !== '' || value !== '' || targetAudience !== ''
       ? (event) => event.preventDefault()
       : undefined
   )
@@ -179,11 +185,9 @@ export default function Form4({ title }: MainSelectorProps) {
     <div className="flex flex-col md:flex-row	justify-center items-center w-full h-full">
       <div className="w-full h-screen flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 flex-col">
         <h1 className=" font-sans text-2xl font-bold">
-          Generate {title.replace(/'/g, "&rsquo;")} 
+          Generate {title.replace(/'/g, '&rsquo;')}
         </h1>
-        <h3 className="text-sm  ">
-          {description}
-        </h3>
+        <h3 className="text-sm  ">{description}</h3>
         <form
           id="generate-form"
           onSubmit={(e) => e.preventDefault()}
@@ -191,7 +195,7 @@ export default function Form4({ title }: MainSelectorProps) {
         >
           <div className="relative">
             <h3 className=" text-lg mt-3 mb-1 dark:text-[#D2D2D2]">
-             {titleInput}
+              {titleInput}
               <span className="text-red-500">*</span>
             </h3>
             <input
@@ -233,34 +237,34 @@ export default function Form4({ title }: MainSelectorProps) {
             id="controllable-states-demo"
             options={options}
             className=" dark:bg-[#1B1D21] bg-white rounded-xl"
-            sx={{ width: "100%" }}
+            sx={{ width: '100%' }}
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Select Tone"
                 InputLabelProps={{
                   style: {
-                    fontSize: "15px",
-                    color: "#7D818B",
-                    outlineStyle: "none",
+                    fontSize: '15px',
+                    color: '#7D818B',
+                    outlineStyle: 'none',
                   },
                 }}
                 InputProps={{
                   ...params.InputProps,
                   style: {
-                    fontSize: "15px",
-                    outlineStyle: "none",
-                    color:  `${theme==="light"?"black":"white"}`,
+                    fontSize: '15px',
+                    outlineStyle: 'none',
+                    color: `${theme === 'light' ? 'black' : 'white'}`,
                   },
                 }}
               />
             )}
           />
-          {inputValue === "Describe a tone" ? <TextInput /> : null}
+          {inputValue === 'Describe a tone' ? <TextInput /> : null}
 
           <div className="relative">
             <h3 className=" text-lg mt-3 mb-1 dark:text-[#D2D2D2]">
-              Target audience{" "}
+              Target audience{' '}
             </h3>
             <input
               className="outline-none w-full px-2 py-4 rounded-lg  dark:bg-[#1B1D21] bg-[#FFFFFF] placeholder-[#7D818B]"
@@ -280,12 +284,14 @@ export default function Form4({ title }: MainSelectorProps) {
             disabled={disabled(input)}
             onClick={generateResponse}
             className={`w-full h-10 bg-black mt-10 rounded-lg bg-gradient-to-l from-[#00C5D7] to-[#0077BE] ${
-              disabled(input) && "cursor-not-allowed"
+              disabled(input) && 'cursor-not-allowed'
             }`}
           >
             <h1 className="text-white">
-              {" "}
-              {loading ? "Genarating..." : `Generate (${tokensRequired} Tokens)`}
+              {' '}
+              {loading
+                ? 'Genarating...'
+                : `Generate (${tokensRequired} Tokens)`}
             </h1>
           </button>
           {/* <div className="flex w-full h-4 items-center justify-center my-2">
