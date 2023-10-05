@@ -68,20 +68,20 @@ const HeaderMenu = (props: Props) => {
       {user && user.uid ? (
         <LoginNavBar></LoginNavBar>
       ) : (
-        <div className="bg-[#3247CF] flex justify-between px-[7%] items-center h-10 py-10 w-12/12">
+        <div className="bg-transparent z-10 absolute flex justify-between pl-[7%] pr-10 items-center h-10 py-10 w-screen">
           <div className="flex flex-row px-2 gap-x-2 items-center">
             <Link href={"/"}>
               <Image className="w-8 h-8" src={DashBoard} alt="DashBoard" />
             </Link>
 
-            <h1 className="md:flex hidden font-semibold text-[20px] leading-[23px] text-white">
+            <h1 className="md:flex text-transparent hidden font-semibold text-[20px] leading-[23px]  bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200">
               <Link href={"/"}>Metridash</Link>
             </h1>
           </div>
           <ul className=" justify-center gap-x-10 md:flex hidden">
             <li
-              className={`cursor-pointer mr-4 ${
-                active === "0" ? "text-white" : "text-[#8E9CF3]"
+              className={`cursor-pointer mr-4 text-sm self-center ${
+                active === "0" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(0)}
             >
@@ -89,8 +89,8 @@ const HeaderMenu = (props: Props) => {
             </li>
 
             <li
-              className={`cursor-pointer mr-4 ${
-                active === "1" ? "text-white" : "text-[#8E9CF3]"
+              className={`cursor-pointer mr-4 text-sm self-center ${
+                active === "1" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(1)}
             >
@@ -98,22 +98,22 @@ const HeaderMenu = (props: Props) => {
             </li>
 
             <li
-              className={`cursor-pointer mr-4 ${
-                active === "2" ? "text-white" : "text-[#8E9CF3]"
+              className={`cursor-pointer mr-4 text-sm self-center ${
+                active === "2" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(2)}
             >
               <Link href="/pricing">Pricing</Link>
             </li>
 
-            {/* <li
-              className={`cursor-pointer mr-4 ${
-                active === "3" ? "text-[#fff]" : "text-[#8E9CF3]"
+            <li
+              className={`cursor-pointer mr-4 text-sm self-center ${
+                active === "3" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(3)}
             >
-              <Link href="/contact">Contact Us</Link>
-            </li> */}
+              <Link href="/about">About Us</Link>
+            </li>
 
             {/* <li
               className={`cursor-pointer mr-4 ${
@@ -124,22 +124,25 @@ const HeaderMenu = (props: Props) => {
               <Link href="/home">Dashboard</Link>
             </li> */}
 
-            <li
-              className={`cursor-pointer mr-4 ${
-                active === "4" ? "text-[#fff]" : "text-[#8E9CF3]"
+
+          </ul>
+          <div className="flex flex-row gap-x-2">
+
+            <h1
+              className={`cursor-pointer mr-4 text-md self-center ${
+                active === "4" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(4)}
             >
               <Link href="/auth/signin">Sign in</Link>
-            </li>
-
+            </h1>
             <Link
               href={"/auth/signup"}
               className="flex flex-row items-center justify-center gap-x-1 px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl"
             >
               <h1 className="font-semibold text-white ">Try for free</h1>
             </Link>
-          </ul>
+          </div>
 
           <div className="md:hidden flex relative">
             <div className="flex">

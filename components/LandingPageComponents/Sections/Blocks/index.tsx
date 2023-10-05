@@ -28,12 +28,12 @@ const Blocks = () => {
   }, [controls, inView])
 
   return (
-    <div className="bg-[#3247CF] flex md:px-0 px-3 pb-5 w-full md:flex-row flex-col items-center">
+    <div className="bg-[#3247CF] flex md:px-0 px-3 md:pb-5 pb-0 w-full md:flex-row flex-col items-center">
       <motion.div
         ref={ref}
         variants={textScrollVariants}
         initial="hidden"
-        className="flex flex-col gap-y-8 justify-center relative top-[-20px] transition-all duration-1000 w-full ease-in-out"
+        className="flex flex-col gap-y-8 md:mt-16 mt-20  justify-center relative top-[-20px] transition-all duration-1000 w-full ease-in-out"
         animate={controls}
       >
         <h1 className="font-semibold text-[48px] md:text-[64px] leading-[90%] md:w-full text-white mt-0 pt-1 md:pt-0 md:pl-14">
@@ -59,7 +59,7 @@ const Blocks = () => {
       </motion.div>
       <div
         ref={ref}
-        className="w-full mt-12 relative top-[-50px] transition-all duration-1000 ease-in-out"
+        className="w-full mt-36 relative top-[-50px] transition-all duration-1000 ease-in-out"
       >
         <Image
           className="lg:flex hidden w-full object-cover"
