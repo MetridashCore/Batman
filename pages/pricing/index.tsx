@@ -8,11 +8,16 @@ import classes from "./pricing.module.css"
 function pricing() {
   return (
     <div
-      className={`${classes.pricing} flex justify-center bg-white gap-y-5 flex-wrap`}
+      className={`${classes.pricing} bg-black flex justify-center items-center  flex-wrap`}
     >
+      <h1 className="md:text-5xl pb-2 text-3xl text-center text-transparent font-bold bg-clip-text bg-gradient-to-t from-gray-500 to-gray-200">Choose the plan that's best for you.</h1>
+      
+      <div className={` flex flex-row bg-black mt-6  justify-center items-center gap-x-4  flex-wrap`}>
+
       <FreeTrial />
-      {/* <LongForm /> */}
+      <LongForm />
       <CustomPlan />
+      </div>
     </div>
   )
 }

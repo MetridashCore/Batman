@@ -90,7 +90,7 @@ function LongForm() {
   };
 
   const handleStyle = {
-    backgroundColor: "#374151",
+    backgroundColor: "#3d82f4",
     border: "none",
     borderRadius: 20,
     width: 40,
@@ -105,7 +105,7 @@ function LongForm() {
   };
 
   const trackStyle = {
-    backgroundColor: "#4A5568",
+    backgroundColor: "#3d82f4",
     height: 5,
   };
 
@@ -113,23 +113,23 @@ function LongForm() {
     backgroundColor: "blue",
   };
   return (
-    <div className="flex flex-col w-[500px] h-[100%] py-10 pb-20 items-center rounded-[40px] border-[#6969ee] border-[3px] ">
+    <div className="group flex flex-col w-[400px]  py-10 pb-20 items-center rounded-md border-gray-800 border-2  bg-[#131313] ">
       {/* <div className='flex flex-col h-[100%] py-10 mx-3 my-10 pb-20 items-center rounded-[40px] border-[#6969ee] border-[3px]'> */}
       <div className="flex flex-col w-[100%] items-center ">
-        <h1 className="text-[#101827] font-bold text-3xl">Long-form</h1>
-        <p className="font-medium py-2 text-[#4b5563] text-[23px] w-[60%] text-center ">
+        <h1 className="text-white font-bold text-3xl">Long-form</h1>
+        <p className="font-medium py-2 text-white text-lg px-2 text-center ">
           For bloggers, freelancers & businesses
         </p>
-        <p className="w-[65%] text-[#838995] text-[20px] text-center font-medium">
+        <p className="w-[85%] text-white text-lg text-center font-medium">
           Awesome tools to help you write blog posts, books, and more.
         </p>
-        <div className="flex flex-col h-[400px] items-center">
-          <div className="pt-20 pb-10 flex flex-col gap-y-2">
-            <h1 className="text-5xl text-[#101827] font-bold">${price}</h1>
-            <p className="text-center text-[#747b88] font-normal">/month</p>
+        <div className="flex flex-col h-[200px] items-center">
+          <div className="pt-4 pb-4 flex flex-col gap-y-2">
+            <h1 className="text-4xl text-[#3d82f4] font-bold">${price}</h1>
+            <p className="text-center text-white font-normal">/month</p>
           </div>
           {/* <div className='flex text-[#374151] mb-5 text-[20px] gap-x-[180px] font-medium'> */}
-          <div className="flex text-[#374151] mb-5 text-[14px] gap-x-[180px]">
+          <div className="flex text-white mb-5 text-[14px] gap-x-[180px]">
             <p>{words.toLocaleString("en-IN")}</p>
             <p>5,00,000</p>
           </div>
@@ -155,17 +155,17 @@ function LongForm() {
             />
           </div>
 
-          <div className="flex items-center gap-x-2 py-20 flex-col">
-            <p className="text-[#101827] font-bold text-xl">
+          <div className="flex items-center gap-x-2 pt-10 flex-col">
+            <p className="text-white font-bold text-lg">
               {token.toLocaleString("en-IN")} Tokens/month
             </p>
-            <p className="text-[#101827] font-bold text-xl">
+            <p className="text-white font-bold text-lg">
               {words.toLocaleString("en-IN")} Words/month
             </p>
           </div>
         </div>
       </div>
-      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#705cf6] text-white p-5 px-10 rounded-[10px] relative top-10 ">
+      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#3d82f4] text-white p-5 px-10 rounded-[10px] relative top-20 mb-14 ">
         Upgrade
       </div>
     </div>

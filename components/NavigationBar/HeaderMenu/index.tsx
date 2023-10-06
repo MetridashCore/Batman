@@ -12,7 +12,8 @@ import { firestore } from "firebase-admin"
 import { useState, useEffect } from "react"
 import LoginNavBar from "@/components/LoginNavBar"
 import { BsArrow90DegRight } from "react-icons/bs"
-import { BsArrowRightSquare, BsArrowBarRight } from "react-icons/bs"
+import { BsArrowRightSquare, BsArrowBarRight , BsList} from "react-icons/bs"
+
 import DashBoard from "../../../public/tab-icon.png"
 interface Props {
   children: JSX.Element
@@ -126,7 +127,7 @@ const HeaderMenu = (props: Props) => {
 
 
           </ul>
-          <div className="flex flex-row gap-x-2">
+          <div className="md:flex hidden flex-row gap-x-2">
 
             <h1
               className={`cursor-pointer mr-4 text-md self-center ${
@@ -146,11 +147,11 @@ const HeaderMenu = (props: Props) => {
 
           <div className="md:hidden flex relative">
             <div className="flex">
-              <Image
-                src={menu}
-                width={20}
-                height={20}
-                alt="profile"
+              <BsList
+                // src={menu}
+                className="w-6 h-6"
+                // alt="profile"
+                
                 onClick={() => {
                   setToggleDropdown((prev) => !prev)
                 }}
@@ -187,16 +188,16 @@ const HeaderMenu = (props: Props) => {
                   >
                     Pricing
                   </Link>
-                  {/* <Link
-                    href="/profile"
+                  <Link
+                    href="/about"
                     className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false)
                       handleClick(3)
                     }}
                   >
-                    Contact Us
-                  </Link> */}
+                    About Us
+                  </Link>
                   <Link
                     href="/auth/signin"
                     className="text-white dropdown_link"
