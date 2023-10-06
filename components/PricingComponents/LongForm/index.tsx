@@ -7,7 +7,7 @@ import { set } from "firebase/database";
 import {loadStripe, Stripe} from '@stripe/stripe-js';
 import { auth } from "@/firebase";
 import { useRouter } from "next/router";
-
+import { IoCheckmark } from "react-icons/io5";
 function LongForm() {
   const [value, setValue] = useState<number[]>([10000]);
   const [price, setPrice] = useState<number>(19);
@@ -116,14 +116,50 @@ function LongForm() {
     <div className="group flex flex-col w-[400px]  py-10 pb-20 items-center rounded-md border-gray-800 border-2  bg-[#131313] ">
       {/* <div className='flex flex-col h-[100%] py-10 mx-3 my-10 pb-20 items-center rounded-[40px] border-[#6969ee] border-[3px]'> */}
       <div className="flex flex-col w-[100%] items-center ">
-        <h1 className="text-white font-bold text-3xl">Long-form</h1>
+        <h1 className="text-white font-bold text-3xl">Pro</h1>
         <p className="font-medium py-2 text-white text-lg px-2 text-center ">
-          For bloggers, freelancers & businesses
+        Take your content creation to the next level
         </p>
         <p className="w-[85%] text-white text-lg text-center font-medium">
-          Awesome tools to help you write blog posts, books, and more.
+        Pricing section for Pro
         </p>
+        <p className="w-[85%] text-white text-[22px] text-center font-medium">
+        Key Features
+        </p>
+        <div className="flex flex-col gap-y-2 mt-2 px-24 ">
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left"> All features in Starter</h1>
+            </div>
+            {/* <div className="flex flex-row  gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left"> X Words of Content (changes according to the silder)</h1>
+            </div> */}
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left">Scheduler</h1>
+            </div>
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left">Insight Engine</h1>
+            </div>
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left">Advanced Analytics</h1>
+            </div>
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left">Creator Community</h1>
+            </div>
+            <div className="flex flex-row items-center gap-x-2 ">
+              <IoCheckmark></IoCheckmark>
+              <h1 className="font-light text-left">And More</h1>
+            </div>
+            
+
+          </div>
         <div className="flex flex-col h-[200px] items-center">
+
           <div className="pt-4 pb-4 flex flex-col gap-y-2">
             <h1 className="text-4xl text-[#3d82f4] font-bold">${price}</h1>
             <p className="text-center text-white font-normal">/month</p>

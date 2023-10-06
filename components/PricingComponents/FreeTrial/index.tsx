@@ -5,13 +5,13 @@ import { auth } from "@/firebase"
 import { IoCheckmark } from "react-icons/io5"
 function FreeTrial() {
   return (
-    <div className={`group flex flex-col py-14 w-[400px] items-center hover:bg-[#3d82f4] bg-[#131313] border-2 border-gray-800 rounded-lg `}>
+    <div className={`group flex flex-col py-12 w-[400px] items-center hover:bg-[#3d82f4] bg-[#131313] border-2 border-gray-800 rounded-lg `}>
       <div className="flex flex-col  w-[100%] py-6 items-center  ">
         <h1 className="text-white font-bold text-3xl">Starter</h1>
         <p className="font-medium py-2 text-white text-[23px]  text-center ">
         Perfect for trying out Metridash
         </p>
-        <p className="w-[65%] text-white text-[20px] text-center font-medium">
+        <p className="w-[65%] text-white text-[40px] text-center font-medium">
         Free
         </p>
         <div className="flex flex-col  items-center">
