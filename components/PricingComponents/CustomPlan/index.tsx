@@ -3,18 +3,17 @@ import { BsHandbag } from "react-icons/bs"
 import classes from "./CustomPlan.module.css"
 import Link from "next/link"
 import { IoCheckmark } from "react-icons/io5"
+import { AiOutlineTeam } from "react-icons/ai"
 function CustomPlan() {
   return (
     // <div className='flex flex-col w-[500px] py-0 items-center '>
-    <div className={`${classes.free_trial} w-[400px]  group flex flex-col py-8 bg-[#131313] hover:bg-[#3d82f4] items-center border-gray-800 border-2  rounded-lg `}>
+    <div className={`${classes.free_trial} w-[400px]  group flex flex-col py-6 bg-[#131313] hover:bg-[#3d82f4] items-center border-gray-800 border-2  rounded-lg `}>
       <div className="flex flex-col w-[100%] py-10 items-center ">
         <h1 className="text-white font-bold text-3xl">Teams</h1>
         <p className="font-semibold py-2 text-white text-[23px] w-[100%] text-center ">
         When you really mean business  
         </p>
-        <p className="w-[65%] text-white text-[20px] text-center font-medium">
-        Pricing section for Teams
-        </p>
+        <AiOutlineTeam className="w-14 h-14 "></AiOutlineTeam>
         <div className="flex flex-col  items-center">
           {/* <h1 className="py-20 text-5xl text-white font-bold">$0</h1> */}
           <p className=" text-white text-[22px] text-center font-medium">

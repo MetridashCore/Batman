@@ -11,7 +11,7 @@ function FreeTrial() {
         <p className="font-medium py-2 text-white text-[23px]  text-center ">
         Perfect for trying out Metridash
         </p>
-        <p className="w-[65%] text-white text-[40px] text-center font-medium">
+        <p className="group-hover:text-white w-[65%]  text-[40px] text-center font-medium text-[#3d82f4]">
         Free
         </p>
         <div className="flex flex-col  items-center">

@@ -1,7 +1,10 @@
 import CustomPlan from "@/components/PricingComponents/CustomPlan"
 import FreeTrial from "@/components/PricingComponents/FreeTrial"
 import LongForm from "@/components/PricingComponents/LongForm"
+import CompareTable from "@/components/PricingComponents/CompareTable"
+import Faq from "@/components/PricingComponents/Faq"
 import React from "react"
+
 
 import classes from "./pricing.module.css"
 
@@ -18,6 +21,8 @@ function pricing() {
       <LongForm />
       <CustomPlan />
       </div>
+      <CompareTable></CompareTable>
+      <Faq></Faq>
     </div>
   )
 }

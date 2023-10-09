@@ -120,10 +120,49 @@ function LongForm() {
         <p className="font-medium py-2 text-white text-lg px-2 text-center ">
         Take your content creation to the next level
         </p>
-        <p className="w-[85%] text-white text-lg text-center font-medium">
-        Pricing section for Pro
-        </p>
-        <p className="w-[85%] text-white text-[22px] text-center font-medium">
+        <div className="flex flex-col h-[200px] items-center">
+
+<div className="pt-4 pb-4 flex flex-col gap-y-2">
+  <h1 className="text-4xl text-[#3d82f4] font-bold">${price}</h1>
+  <p className="text-center text-white font-normal">/month</p>
+</div>
+{/* <div className='flex text-[#374151] mb-5 text-[20px] gap-x-[180px] font-medium'> */}
+<div className="flex text-white mb-5 text-[14px] gap-x-[180px]">
+  <p>{words.toLocaleString("en-IN")}</p>
+  <p>5,00,000</p>
+</div>
+<div className="flex w-[90%] items-center justify-center">
+  <Slider
+    range
+    defaultValue={[0]}
+    min={10000}
+    max={50000}
+    step={null}
+    railStyle={railStyle}
+    handleStyle={[handleStyle, handleStyle]}
+    trackStyle={[trackStyle, trackStyle]}
+    onChange={handleSliderChange}
+    marks={{
+      10000: "10k",
+      20000: "50k",
+      30000: "100k",
+      40000: "200k",
+      50000: "500k",
+    }}
+    dotStyle={styleDot}
+  />
+</div>
+
+<div className="flex items-center gap-x-2 pt-10 flex-col">
+  <p className="text-white font-bold text-lg">
+    {token.toLocaleString("en-IN")} Tokens/month
+  </p>
+  <p className="text-white font-bold text-lg">
+    {words.toLocaleString("en-IN")} Words/month
+  </p>
+</div>
+</div>
+        <p className="w-[85%] text-white text-[22px] pt-20 text-center font-medium">
         Key Features
         </p>
         <div className="flex flex-col gap-y-2 mt-2 px-24 ">
@@ -158,50 +197,9 @@ function LongForm() {
             
 
           </div>
-        <div className="flex flex-col h-[200px] items-center">
-
-          <div className="pt-4 pb-4 flex flex-col gap-y-2">
-            <h1 className="text-4xl text-[#3d82f4] font-bold">${price}</h1>
-            <p className="text-center text-white font-normal">/month</p>
-          </div>
-          {/* <div className='flex text-[#374151] mb-5 text-[20px] gap-x-[180px] font-medium'> */}
-          <div className="flex text-white mb-5 text-[14px] gap-x-[180px]">
-            <p>{words.toLocaleString("en-IN")}</p>
-            <p>5,00,000</p>
-          </div>
-          <div className="flex w-[90%] items-center justify-center">
-            <Slider
-              range
-              defaultValue={[0]}
-              min={10000}
-              max={50000}
-              step={null}
-              railStyle={railStyle}
-              handleStyle={[handleStyle, handleStyle]}
-              trackStyle={[trackStyle, trackStyle]}
-              onChange={handleSliderChange}
-              marks={{
-                10000: "10k",
-                20000: "50k",
-                30000: "100k",
-                40000: "200k",
-                50000: "500k",
-              }}
-              dotStyle={styleDot}
-            />
-          </div>
-
-          <div className="flex items-center gap-x-2 pt-10 flex-col">
-            <p className="text-white font-bold text-lg">
-              {token.toLocaleString("en-IN")} Tokens/month
-            </p>
-            <p className="text-white font-bold text-lg">
-              {words.toLocaleString("en-IN")} Words/month
-            </p>
-          </div>
-        </div>
+      
       </div>
-      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#3d82f4] text-white p-5 px-10 rounded-[10px] relative top-20 mb-14 ">
+      <div onClick={PaymentHandler} className=" cursor-pointer text-[20px] font-bold bg-[#3d82f4] text-white p-5 px-10 rounded-[10px] relative  mt-8 ">
         Upgrade
       </div>
     </div>
