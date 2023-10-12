@@ -9,8 +9,8 @@ import checkUser from "@/utils/checkUser"
 export default function Faq() {
   const user: any = checkUser()
   return (
-    <div className='flex w-screen  px-64 pt-20 justify-center  '>
-        <div className='w-full px-40' >
+    <div className='flex w-screen  md:px-64 px-4 pt-20 justify-center  '>
+        <div className='w-full md:px-40 px-2' >
 
         <h1 className='text-4xl self-start '>FAQs</h1>
         <p className='text-gray-600'>Answers to the most frequently asked questions.</p>
@@ -95,7 +95,7 @@ export default function Faq() {
         <h1 className='text-lg text-gray-400 text-center my-6'> Start your 14-day free trial today<br></br> and unlock the full potential of Metridash!</h1>
         <Link
             href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
-            className="flex  px-4 py-2 mt-4 mx-40 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
+            className="flex  px-4 py-2 mt-4 md:mx-40 mx-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
           >
             <h1 className="text-lg font-semibold text-white">Get Started for Free</h1>
           </Link>

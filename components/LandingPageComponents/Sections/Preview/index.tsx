@@ -20,7 +20,7 @@ const Preview = () => {
     }
   }, [controls, inView])
   return (
-    <div className="bg-white flex px-3 md:px-16 items-center justify-center py-20 md:mr-[3%]">
+    <div className="bg-cover bg-center backdrop-blur-lg  flex px-3 md:px-16 items-center justify-center py-20 md:mr-[3%]">
       <motion.div
         ref={jef}
         variants={textScrollVariants}

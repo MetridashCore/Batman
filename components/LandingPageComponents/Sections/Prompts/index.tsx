@@ -9,6 +9,14 @@ import Image3 from "../../../../public/Images/ai.png"
 import Image4 from "../../../../public/Images/calender.png"
 import RImage5 from "../../../../public/Images/calender.png"
 import Check from '../../../../public/icons/check.png'
+import Ideas from '../../../../public/featureIcons/social-media.png'
+import schedule from '../../../../public/featureIcons/schedule.png'
+import insights2 from '../../../../public/featureIcons/insights.png'
+import auto from '../../../../public/featureIcons/automation.png'
+import cal from '../../../../public/featureIcons/calendar.png'
+import insight from '../../../../public/featureIcons/insight2.png'
+import audience from '../../../../public/featureIcons/audience.png'
+import Link from "next/link"
 const Prompts = () => {
   const textScrollVariants = {
     visible: { opacity: 1, right: 0 },
@@ -37,22 +45,9 @@ const Prompts = () => {
     }
   }, [controls2, inView3])
   return (
-    <div className="pb-10 bg-white">
-      <div className="bg-white md:h-[500px] flex md:pl-[7%] md:mr-[3%] md:flex-row flex-col">
-        <motion.div
-          ref={ref3}
-          variants={textScrollVariants}
-          initial="hidden"
-          className="md:w-[50%] mt-[5%]  relative md:right-[-50px] transition-all  ease-in-out md:flex hidden"
-          animate={controls2}
-        >
-          <Image
-            className="absolute w-[329px]  object-contain"
-            src={Image3}
-            alt="Preview"
-          />
-         
-        </motion.div>
+    <div className="pb-10 bg-cover bg-center w-screen backdrop-blur-lg">
+      <div className=" md:h-[600px] flex md:pl-[7%] md:mr-[3%] md:flex-row flex-col">
+
 
         <motion.div
           ref={ref3}
@@ -61,32 +56,55 @@ const Prompts = () => {
           className="md:w-[50%] flex flex-col md:gap-y-5 gap-y-0 justify-center relative md:right-[-50px] transition-all duration-1000 ease-in-out px-3"
           animate={controls2}
         >
-          <Image
-            className=" md:w-[278px]  w-[249px] h-[249px] self-center  md:ml-[10.5%] mt-[11.8%] md:hidden flex"
-            src={RImage5}
-            alt="Preview"
-          />
-          <h1 className="text-[#1E1E1E] font-semibold md:text-[48px] text-[40px] leading-[48px] mt-20 md:mt-0">
-          AI-Powered Prompts
+         
+          <h1 className="text-transparent bg-clip-text bg-gradient-to-t from-gray-500 to-gray-200 font-semibold md:text-[48px] text-[40px] leading-[48px] mt-20 md:mt-0">
+          Tailored for your<br></br> use case.
           </h1>
-          <p className="font-normal text-[16px] md:text-[20px] leading-relaxed text-justify text-[#494949] align-center my-8 md:my-0">
-          <div className="flex flex-row">
-          <Image className="flex w-6 h-6 self-center mr-1" src={Check} alt="tick"></Image>Ditch the guesswork, embrace AI magic!<br/>
-          </div>
-          <div className="flex flex-row">
-          <Image className="flex w-6 h-6 self-center mr-1" src={Check} alt="tick"></Image>Cutting-edge AI crafts perfect prompts.<br/>
-          </div>
-          <div className="flex flex-row">
-          <Image className="flex w-6 h-6 self-center mr-1" src={Check} alt="tick"></Image>Your vision takes center stage.<br/>
-          </div>
-          <div className="flex flex-row">
-          <Image className="flex w-6 h-6 self-center mr-1" src={Check} alt="tick"></Image>More time for your creative genius.<br/>
-          </div>
-
-          </p>
+         <p className="text-sm text-gray-500 w-full leading-6">At Metridash, we're your creative canvas, ready to adapt to your wildest ideas. We get it – every creator is one-of-a-kind, and so is your journey. Hook into the power of Metridash, where you call the shots and we provide the tools. No matter your passion, we've got the hooks to turn your dreams into reality. It's your story, your way with Metridash!.</p>
+        <Link href={'/features'} className="w-40 cursor-pointer flex  bg-gradient-to-r items-center justify-center rounded from-cyan-500 to-blue-500 shadow-lg ">
+              <h1 className="text-lg font-medium px-2 py-2">More Features</h1>
+        </Link>
         </motion.div>
+        <div className="flex w-full h-full flex-row gap-2 items-center justify-center">
+              <div className="flex flex-col  bg-black gap-2 ">
+                <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-t from-gray-900 shadow-lg  to-black  rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={Ideas} alt="idea"></Image>
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200 text-center"> Content Ideas</h1>
+                    <p className="text-xs font-light text-gray-400 text-center"> Break free from content block with fresh content concepts tailored to your audience.</p>
+                </div>
+                <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-b from-gray-900 shadow-lg to-black rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={auto} alt="idea"></Image>
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200 text-center"> Automated Captioning</h1>
+                    <p className="text-xs font-light text-gray-400 text-center">Simplify caption writing with AI-powered suggestions.</p>
+                </div>
+              </div>
+              <div className="flex flex-col  bg-black gap-2">
+                <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-t from-gray-900 shadow-lg to-black rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={insight} alt="idea"></Image>
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200 text-center"> Industry Insights</h1>
+                    <p className="text-xs font-light text-gray-400 text-center">Stay ahead with real-time data-driven content recommendations.</p>
+                </div>
+                <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-b from-gray-900 shadow-lg to-black rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={audience} alt="idea"></Image>  
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200 text-center"> Audience Behavior Analysis</h1>
+                    <p className="text-xs font-light text-gray-400 text-center">Understand your audience like never before.</p>
+                </div>
+              </div>
+              <div className="flex flex-col  bg-black gap-2">
+                <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-t from-gray-900 to-black rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={insights2} alt="idea"></Image>
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-500 to-gray-200 text-center"> Detailed Performance Metrics</h1>
+                    <p className="text-xs font-light text-gray-400 text-center">Dive deep into your content's performance.</p>
+                </div>
+                <div className="flex flex-col w-60 h-56   px-6 gap-y-2  py-4 bg-gradient-to-b from-gray-900 shadow-lg to-black rounded-md items-center justify-center">
+                    <Image className="w-20 h-20" src={schedule} alt="idea"></Image>
+                    <h1 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 text-center"> Content Scheduling</h1>
+                    <p className="text-xs font-light text-gray-400 text-center">Plan, schedule, and conquer with our powerful scheduler.</p>
+                </div>
+              </div>
+        </div>
       </div>
-      <div className="bg-white md:h-[500px] flex  md:px-16 md:mr-[3%]">
+      {/* <div className="bg-white md:h-[500px] flex  md:px-16 md:mr-[3%]">
       <motion.div
           ref={ref}
           variants={textScrollVariants}
@@ -135,8 +153,8 @@ const Prompts = () => {
          
         </motion.div>
       
-      </div> 
-      <div className="bg-white md:h-[500px] flex md:pl-[7%] md:mr-[3%] md:flex-row flex-col">
+      </div>  */}
+      {/* <div className="bg-white md:h-[500px] flex md:pl-[7%] md:mr-[3%] md:flex-row flex-col">
         <motion.div
           ref={ref2}
           variants={textScrollVariants}
@@ -182,7 +200,7 @@ const Prompts = () => {
            </div>
           </p>
         </motion.div>
-      </div>
+      </div> */}
     
     </div>
   )

@@ -56,7 +56,7 @@ const Journey = () => {
   }
   return (
     <>
-      <div className="bg-[#3247CF] h-[587px] flex flex-col gap-y-6 justify-center items-center">
+      <div className=" w-screen h-[537px] bg-cover backdrop-blur-lg bg-center flex flex-col gap-y-6 justify-center items-center">
         <motion.h1
           ref={ref}
           variants={textScrollVariants}

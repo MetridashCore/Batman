@@ -28,7 +28,7 @@ const Blocks = () => {
   }, [controls, inView])
 
   return (
-    <div className="bg-[#3247CF] flex md:px-0 px-3 md:pb-5 pb-0 w-full md:flex-row flex-col items-center">
+    <div className="bg-cover  bg-center h-screen backdrop-blur-lg flex md:px-0 px-3 md:pb-5 pb-0 w-full md:flex-row flex-col items-center justify-center">
       <motion.div
         ref={ref}
         variants={textScrollVariants}
@@ -36,28 +36,28 @@ const Blocks = () => {
         className="flex flex-col gap-y-8 md:mt-16 mt-20  justify-center relative top-[-20px] transition-all duration-1000 w-full ease-in-out"
         animate={controls}
       >
-        <h1 className="font-semibold text-[48px] md:text-[64px] leading-[90%] md:w-full text-white mt-0 pt-1 md:pt-0 md:pl-14">
+        <h1 className="font-semibold text-center text-[48px] md:text-[64px] leading-[90%] md:w-full text-transparent  bg-clip-text bg-gradient-to-r from-[#007BFF] to-[#57E964] mt-0 pb-4 pt-1 md:pt-0 md:pl-14">
           Never Face Creative Blocks Again!
         </h1>
-        <p className="text-white md:w-full font-normal text-[20px] leading-[28px] md:pl-14">
-          Are you tired of staring at a blank screen, struggling to come up with
-          content ideas for your social media? Look no further! Metridash is
+        <p className="text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 md:px-44 text-center md:w-full font-normal text-[20px] leading-[28px] ">
+          Are you tired of staring at a blank screen, struggling to come up with<br></br>
+          content ideas for your social media?<br></br> Look no further! <br></br> Metridash is
           here to revolutionise your creative process.
         </p>
-        <div className="btn-hero md:ml-10 flex items-start pl-[16px] justify-center flex-col gap-y-2 md:w-60 w-full">
+        <div className="btn-hero  flex items-center  justify-center flex-col gap-y-2  w-full">
           <Link
             href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
-            className="flex  px-4 py-2 mt-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
+            className="flex  px-4 py-2 mt-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md items-center justify-center"
           >
-            <h1 className="text-lg font-semibold text-white">Try for free</h1>
+            <h1 className="text-xl font-semibold text-white">Try for free</h1>
           </Link>
 
-          <h1 className="text-xs font-light text-gray-300">
+          <h1 className="text-md font-light text-gray-300">
             No credit card required.
           </h1>
         </div>
       </motion.div>
-      <div
+      {/* <div
         ref={ref}
         className="w-full mt-36 relative top-[-50px] transition-all duration-1000 ease-in-out"
       >
@@ -66,7 +66,7 @@ const Blocks = () => {
           src={DashBoard}
           alt="DashBoard"
         />
-      </div>
+      </div> */}
     </div>
   )
 }

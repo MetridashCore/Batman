@@ -15,7 +15,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className="bg-black flex flex-col bg-cover bg-center">
       <Blocks />
       <Growing />
       <Preview />
@@ -23,7 +23,7 @@ const Home = () => {
       <Testimonials/>
       <Questions/>
       <Journey />
-    </>
+    </div>
   )
 }
 
