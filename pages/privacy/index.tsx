@@ -3,7 +3,7 @@ const Privacy = () => {
     <div className="px-[7%] py-[7%] bg-black">
 
        <div>
-        <h1 className="font-semibold text-6xl leading-[92%] text-white mt-4">
+        <h1 className="font-semibold text-5xl leading-[92%] text-white mt-12">
           Privacy Policy
         </h1>
         <p className="py-5 leading-6 text-white ">

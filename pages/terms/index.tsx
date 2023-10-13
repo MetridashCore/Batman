@@ -1,7 +1,7 @@
 const Terms = () => {
   return (
     <div className="px-[7%] py-[7%] bg-black">
-      <h1 className="font-semibold text-6xl leading-[92%] text-white mt-4">
+      <h1 className="font-semibold text-5xl leading-[92%] text-white mt-12">
         Terms of Service
       </h1>
       <h2 className="font-semibold text-2xl leading-[92%] text-white py-4">
