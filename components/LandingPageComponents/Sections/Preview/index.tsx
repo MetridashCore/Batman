@@ -9,7 +9,7 @@ const Preview = () => {
   const textScrollVariants = {
     visible: { opacity: 1, right: 0 },
     hidden: { opacity: 0 },
-  }
+  }  
 
   const controls = useAnimation()
   const [jef, inView] = useInView()
