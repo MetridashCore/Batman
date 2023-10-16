@@ -22,27 +22,27 @@ function FreeTrial() {
           <div className="flex flex-col gap-y-2 mt-4 ">
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light"> 10,000 Words of Content</h1>
+              <h1 className="text-white font-light"> 10,000 Words of Content</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">AI Content Ideas</h1>
+              <h1 className="text-white font-light">AI Content Ideas</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Content Calendar</h1>
+              <h1 className="text-white font-light">Content Calendar</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Basic Analytics</h1>
+              <h1 className="text-white font-light">Basic Analytics</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Creator Community</h1>
+              <h1 className="text-white font-light">Creator Community</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">And More</h1>
+              <h1 className="text-white font-light">And More</h1>
             </div>
             
 

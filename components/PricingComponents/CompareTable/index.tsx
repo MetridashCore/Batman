@@ -43,31 +43,31 @@ export default function CompareTable() {
       <Table sx={{ minWidth: 650, backgroundColor: 'black' }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{color: '#3d82f4', fontSize: '24px', padding: '25px', fontWeight: 'bold'}}>Compare Plans
+            <TableCell sx={{color: 'white', fontSize: '24px', padding: '25px', fontWeight: 'bold'}}>Compare Plans
             
             </TableCell>
-            <TableCell sx={{color: '#3d82f4', fontSize: '24px',}} align="center">
+            <TableCell sx={{color: 'white', fontSize: '24px',}} align="center">
             
             <div className='flex w-40 py-2  rounded-lg items-center justify-center gap-y-2 flex-col'>
-                <h1 className='text-xl font-semibold'>Starter</h1>
+                <h1 className='text-xl font-semibold '>Starter</h1>
                 <div className='w-full h-4 flex cursor-pointer bg-white rounded-lg ml-10 py-4  items-center justify-center'>
-                    <h1 className='text-sm'>Get Started</h1>
+                    <h1 className='text-sm text-black'>Get Started</h1>
                 </div>
             </div>
             </TableCell>
-            <TableCell sx={{color: '#3d82f4', fontSize: '24px',}} align="center">
+            <TableCell sx={{color: 'white', fontSize: '24px',}} align="center">
             <div className='flex w-40 py-2  rounded-lg items-center justify-center gap-y-2 flex-col'>
                 <h1 className='text-xl font-semibold'> Pro</h1>
                 <div className='w-full h-4 flex cursor-pointer bg-white rounded-lg ml-10 py-4  items-center justify-center'>
-                    <h1 className='text-sm'>Get Started</h1>
+                    <h1 className='text-sm text-black'>Get Started</h1>
                 </div>
             </div>
             </TableCell>
-            <TableCell sx={{color: '#3d82f4', fontSize: '24px', }} align="center">
+            <TableCell sx={{color: 'white', fontSize: '24px', }} align="center">
             <div className='flex w-40 py-2  rounded-lg items-center justify-center gap-y-2 flex-col'>
                 <h1 className='text-xl font-semibold'> Teams</h1>
                 <div className='w-full h-4 flex cursor-pointer bg-white rounded-lg ml-10 py-4  items-center justify-center'>
-                    <h1 className='text-sm'>Get Started</h1>
+                    <h1 className='text-sm text-black'>Get Started</h1>
                 </div>
             </div>
             </TableCell>
@@ -79,14 +79,14 @@ export default function CompareTable() {
             <TableRow
               key={row.name}
              
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0.2 } }}
             >
-              <TableCell sx={{color: '#3d82f4', fontSize: '18px', padding: '16px'}}  component="th" scope="row">
+              <TableCell sx={{color: 'white', fontSize: '18px', padding: '16px', borderWidth: '0.5px'}}  component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell sx={{color: 'white', alignSelf: 'center', fontSize: '18px'}} align="center">{row.calories}</TableCell>
-              <TableCell sx={{color: 'white',  alignSelf: 'center', fontSize: '18px'}} align="center">{row.fat}</TableCell>
-              <TableCell sx={{color: 'white',  alignSelf: 'center',  fontSize: '18px'}} align="center">{row.carbs}</TableCell>
+              <TableCell sx={{color: 'white', alignSelf: 'center', fontSize: '18px', borderWidth: '0.5px'}} align="center">{row.calories}</TableCell>
+              <TableCell sx={{color: 'white',  alignSelf: 'center', fontSize: '18px', borderWidth: '0.5px'}} align="center">{row.fat}</TableCell>
+              <TableCell sx={{color: 'white',  alignSelf: 'center',  fontSize: '18px', borderWidth: '0.5px'}} align="center">{row.carbs}</TableCell>
               
             </TableRow>
           ))}

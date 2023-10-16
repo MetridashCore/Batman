@@ -14,6 +14,7 @@ import TwitterImage from '../../../../public/platformIcons/twitter.png'
 import InstaImage from '../../../../public/platformIcons/instagram.png'
 import DiscordImage from '../../../../public/platformIcons/discord.png'
 import LinkedinImage from '../../../../public/platformIcons/linkedin.png'
+import FacebookImage from '../../../../public/platformIcons/facebook.png'
  
 const Journey = () => {
   const [email, setEmail] = useState("")
@@ -110,8 +111,8 @@ const Journey = () => {
             </Link>
     
         </motion.div>
-        <div className="flex w-screen h-20 flex-row gap-x-4 my-10 justify-center">
-          <a href="https://www.google.com/" target="_blank" className="flex w-10 h-10 bg-gray-600 rounded-lg items-center justify-center">
+        <div className="flex w-screen h-20 flex-row gap-x-4 my-10 justify-center ">
+          <a href="https://twitter.com/metridash" target="_blank" className="flex w-10 h-10 bg-gray-600 rounded-lg items-center justify-center">
             <Image src={TwitterImage} alt="Twitter"></Image>
 
           </a >
@@ -119,12 +120,16 @@ const Journey = () => {
             <Image src={InstaImage} alt="Instagram"></Image>
 
           </a >
-          <a href="https://discord.com/invite/UEa2QUMH" target="_blank"  className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
+          <a href="https://discord.gg/btNneYZH" target="_blank"  className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
             <Image src={DiscordImage} alt="Discord"></Image>
 
           </a >
           <a href="https://www.linkedin.com/company/metridash/mycompany/" target="_black" className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
             <Image src={LinkedinImage} alt="LinkedIn"></Image>
+
+          </a >
+          <a href="https://www.facebook.com/people/Metridash/61551354080600/" target="_black" className="flex w-8 h-8 bg-gray-600 rounded-full items-center justify-center">
+            <Image src={FacebookImage} alt="LinkedIn"></Image>
 
           </a >
         </div>

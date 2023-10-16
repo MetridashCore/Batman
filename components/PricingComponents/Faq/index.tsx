@@ -12,7 +12,7 @@ export default function Faq() {
     <div className='flex w-screen  md:px-64 px-4 pt-20 justify-center  '>
         <div className='w-full md:px-40 px-2' >
 
-        <h1 className='text-4xl self-start '>FAQs</h1>
+        <h1 className='text-4xl self-start text-white'>FAQs</h1>
         <p className='text-gray-600'>Answers to the most frequently asked questions.</p>
 
         <div className='flex w-full mt-10 flex-col gap-y-1'>

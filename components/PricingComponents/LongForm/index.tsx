@@ -168,31 +168,31 @@ function LongForm() {
         <div className="flex flex-col gap-y-2 mt-2 px-24 ">
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left"> All features in Starter</h1>
+              <h1 className="text-white font-light text-left"> All features in Starter</h1>
             </div>
             {/* <div className="flex flex-row  gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left"> X Words of Content (changes according to the silder)</h1>
+              <h1 className="text-white font-light text-left"> X Words of Content (changes according to the silder)</h1>
             </div> */}
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Scheduler</h1>
+              <h1 className="text-white font-light text-left">Scheduler</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Insight Engine</h1>
+              <h1 className="text-white font-light text-left">Insight Engine</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Advanced Analytics</h1>
+              <h1 className="text-white font-light text-left">Advanced Analytics</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Creator Community</h1>
+              <h1 className="text-white font-light text-left">Creator Community</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">And More</h1>
+              <h1 className="text-white font-light text-left">And More</h1>
             </div>
             
 

@@ -22,31 +22,31 @@ function CustomPlan() {
           <div className="flex flex-col gap-y-2 mt-2 ">
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">  All features in Pro</h1>
+              <h1 className="text-white font-light">  All features in Pro</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Custom Words of Content</h1>
+              <h1 className="text-white font-light">Custom Words of Content</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Custom Models</h1>
+              <h1 className="text-white font-light">Custom Models</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Team Collaboration</h1>
+              <h1 className="text-white font-light">Team Collaboration</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Customized Reporting</h1>
+              <h1 className="text-white font-light">Customized Reporting</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">Custom Workflows</h1>
+              <h1 className="text-white font-light">Custom Workflows</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light">And More</h1>
+              <h1 className="text-white font-light">And More</h1>
             </div>
 
           </div>
