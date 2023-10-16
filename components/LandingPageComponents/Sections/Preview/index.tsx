@@ -32,24 +32,24 @@ const Preview = () => {
         className="md:w-[100%] flex flex-col gap-y-5 items-center justify-center relative md:right-[-50px] transition-all duration-1000 ease-in-out"
         animate={controls}
       >
-       <ol className="list-none relative border-l-2 border-gray-800">               
-    <li className=" mb-10 ml-20">
+       <ol className="list-none relative border-l-2 border-gray-800 md:px-0 px-4 md:ml-0 ml-6">               
+    <li className=" mb-10 md:ml-20 ml-4 ">
         <div className="absolute w-10 h-10 bg-[#2e80fb] rounded-full mt-1.5 -left-5  items-center justify-center flex "><h1 className="text-lg">1</h1></div>
 
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Step 1: Input Your Ideas</h3>
-        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Share your content ideas and preferences with Metridash.</p>
+        <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Step 1: Input Your Ideas</h3>
+        <p className="mb-4 text-base font-normal text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Share your content ideas and preferences with Metridash.</p>
         <Image className="w-[600px] h-[360px] " src={First} alt="step 1"></Image>
     </li>
-    <li className="mb-10 ml-20">
+    <li className="mb-10 md:ml-20 ml-4">
         <div className="absolute w-10 h-10 bg-[#2e80fb] rounded-full mt-1.5 -left-5  items-center justify-center flex  "><h1 className="text-lg">2</h1></div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Step 2: Get Inspired</h3>
-        <p className="text-base font-normal text-gray-500 dark:text-gray-400">Metridash generates personalized content ideas and suggestions for you.</p>
+        <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Step 2: Get Inspired</h3>
+        <p className="mb-4 text-base font-normal text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Metridash generates personalized content ideas and suggestions for you.</p>
         <Image className="w-[600px] h-[360px] " src={First} alt="step 1"></Image>
     </li>
-    <li className="ml-20">
+    <li className=" md:ml-20 ml-4">
         <div className="absolute w-10 h-10 bg-[#2e80fb] rounded-full mt-1.5 -left-5 items-center justify-center flex   "><h1 className="text-lg">3</h1></div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Step 3: Create and Post</h3>
-        <p className="text-base font-normal text-gray-500 dark:text-gray-400">Use Metridash's ideas and optimization tips to create and schedule content easily.</p>
+        <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Step 3: Create and Post</h3>
+        <p className="mb-4 text-base font-normal text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">Use Metridash's ideas and optimization tips to create and schedule content easily.</p>
         <Image className="w-[600px] h-[360px] " src={First} alt="step 1"></Image>
     </li>
 </ol>

@@ -11,10 +11,14 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'pack-train': "url('../public/backgroundBottom.jpeg')",
+        'pack-train': "url('../public/Images/bg-circle.png')",
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      textColor:{
+        'text-grad': 'text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400'
+      },
+    
     },
     
   },

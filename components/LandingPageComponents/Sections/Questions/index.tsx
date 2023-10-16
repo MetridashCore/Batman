@@ -24,7 +24,7 @@ export default function Questions() {
           Have Questions?
         </span>
       </h1>
-      <h1 className="text-lg my-2 text-white ">
+      <h1 className="text-lg my-2 text-transparent bg-clip-text bg-gradient-to-t from-gray-300 to-gray-500 ">
         Explore our FAQs or contact our support team. We're here to help.
       </h1>
       <div className='flex w-full mt-10 flex-col gap-y-1'>

@@ -53,19 +53,19 @@ const Prompts = () => {
           ref={ref3}
           variants={textScrollVariants}
           initial="hidden"
-          className="md:w-[50%] flex flex-col md:gap-y-5 gap-y-0 justify-center relative md:right-[-50px] transition-all duration-1000 ease-in-out px-3"
+          className="md:w-[50%] flex flex-col md:gap-y-5 gap-y-0 md:items-start items-center justify-center relative md:right-[-50px] transition-all duration-1000 ease-in-out px-3"
           animate={controls2}
         >
          
-          <h1 className="text-transparent bg-clip-text bg-gradient-to-t from-gray-500 to-gray-200 font-semibold md:text-[48px] text-[40px] leading-[48px] mt-20 md:mt-0">
+          <h1 className="text-transparent bg-clip-text md:text-left text-center bg-gradient-to-t from-gray-500 to-gray-200 font-semibold md:text-[48px] text-[40px] leading-[48px] mt-20 md:mt-0 md:mb-0 mb-4">
           Tailored for your<br></br> use case.
           </h1>
-         <p className="text-sm text-gray-500 w-full leading-6">At Metridash, we're your creative canvas, ready to adapt to your wildest ideas. We get it – every creator is one-of-a-kind, and so is your journey. Hook into the power of Metridash, where you call the shots and we provide the tools. No matter your passion, we've got the hooks to turn your dreams into reality. It's your story, your way with Metridash!.</p>
+         <p className="text-sm md:text-left text-center md:mb-0 mb-4 text-gray-500 w-full leading-6">At Metridash, we're your creative canvas, ready to adapt to your wildest ideas. We get it – every creator is one-of-a-kind, and so is your journey. Hook into the power of Metridash, where you call the shots and we provide the tools. No matter your passion, we've got the hooks to turn your dreams into reality. It's your story, your way with Metridash!.</p>
         <Link href={'/features'} className="w-40 cursor-pointer flex  bg-gradient-to-r items-center justify-center rounded from-cyan-500 to-blue-500 shadow-lg ">
               <h1 className="text-lg font-medium px-2 py-2">More Features</h1>
         </Link>
         </motion.div>
-        <div className="flex w-full h-full flex-row gap-2 items-center justify-center">
+        <div className="flex w-full h-full md:flex-row flex-col gap-2 items-center justify-center">
               <div className="flex flex-col  bg-black gap-2 ">
                 <div className="flex flex-col w-60 h-56  px-6 gap-y-2  py-4 bg-gradient-to-t from-gray-900 shadow-lg  to-black  rounded-md items-center justify-center">
                     <Image className="w-20 h-20" src={Ideas} alt="idea"></Image>
