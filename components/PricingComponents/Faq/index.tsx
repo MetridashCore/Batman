@@ -12,8 +12,8 @@ export default function Faq() {
     <div className='flex w-screen  md:px-64 px-4 pt-20 justify-center  '>
         <div className='w-full md:px-40 px-2' >
 
-        <h1 className='text-4xl self-start text-white'>FAQs</h1>
-        <p className='text-gray-600'>Answers to the most frequently asked questions.</p>
+        <h1 className='title-style'>FAQs</h1>
+        <p className='text-para'>Answers to the most frequently asked questions.</p>
 
         <div className='flex w-full mt-10 flex-col gap-y-1'>
       <Accordion sx={{backgroundColor: '#131313'}}>
@@ -91,11 +91,11 @@ export default function Faq() {
     </div>
 
     <div className='flex flex-col mt-40 w-full '>
-        <h1 className='text-xl text-gray-200 text-center'>Ready to elevate your content creation game?</h1>
+        <h1 className='title-third text-center'>Ready to elevate your content creation game?</h1>
         <h1 className='text-lg text-gray-400 text-center my-6'> Start your 14-day free trial today<br></br> and unlock the full potential of Metridash!</h1>
         <Link
             href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
-            className="flex  px-4 py-2 mt-4 md:mx-40 mx-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
+            className="flex  px-4 py-2 mt-4 md:mx-40 mx-4 button-gradient  items-center justify-center"
           >
             <h1 className="text-lg font-semibold text-white">Get Started for Free</h1>
           </Link>

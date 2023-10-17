@@ -60,8 +60,8 @@ const Prompts = () => {
           <h1 className="text-transparent bg-clip-text md:text-left text-center bg-gradient-to-t from-gray-500 to-gray-200 font-semibold md:text-[48px] text-[40px] leading-[48px] mt-20 md:mt-0 md:mb-0 mb-4">
           Tailored for your<br></br> use case.
           </h1>
-         <p className="text-sm md:text-left text-center md:mb-0 mb-4 text-gray-500 w-full leading-6">At Metridash, we're your creative canvas, ready to adapt to your wildest ideas. We get it – every creator is one-of-a-kind, and so is your journey. Hook into the power of Metridash, where you call the shots and we provide the tools. No matter your passion, we've got the hooks to turn your dreams into reality. It's your story, your way with Metridash!.</p>
-        <Link href={'/features'} className="w-40 cursor-pointer flex  bg-gradient-to-r items-center justify-center rounded from-cyan-500 to-blue-500 shadow-lg ">
+         <p className="text-sm md:text-left text-center md:mb-0 mb-4  text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 w-full leading-6">At Metridash, we're your creative canvas, ready to adapt to your wildest ideas. We get it – every creator is one-of-a-kind, and so is your journey. Hook into the power of Metridash, where you call the shots and we provide the tools. No matter your passion, we've got the hooks to turn your dreams into reality. It's your story, your way with Metridash!.</p>
+        <Link href={'/features'} className="w-40  flex  button-gradient shadow-lg ">
               <h1 className="text-lg font-medium px-2 py-2">More Features</h1>
         </Link>
         </motion.div>

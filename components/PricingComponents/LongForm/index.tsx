@@ -116,7 +116,7 @@ function LongForm() {
     <div className="group flex flex-col w-[400px]  py-10 pb-20 items-center rounded-md border-gray-800 border-2  bg-[#131313] ">
       {/* <div className='flex flex-col h-[100%] py-10 mx-3 my-10 pb-20 items-center rounded-[40px] border-[#6969ee] border-[3px]'> */}
       <div className="flex flex-col w-[100%] items-center ">
-        <h1 className="text-white font-bold text-3xl">Pro</h1>
+        <h1 className="title-style">Pro</h1>
         <p className="font-medium py-2 text-white text-lg px-2 text-center ">
         Take your content creation to the next level
         </p>
