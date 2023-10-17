@@ -1,12 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 interface CardPropsType {
-  icon: string;
-  title: string;
-  text: string;
-  bgColor: string;
-  titleColor: string;
-  textColor: string
-  bgIcon: string
+  icon?: ReactNode;
+  title?: string;
+  text?: ReactNode;
+  bgColor?: string;
+  titleColor?: string;
+  textColor?: string
+  bgIcon?: string
 }
 
 export default function Card({ icon, bgColor, titleColor, textColor, title, bgIcon, text }: CardPropsType) {

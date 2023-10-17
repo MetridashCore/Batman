@@ -77,7 +77,7 @@ export default function AllFeatures() {
               <div className="grid col-span-2 gap-6">
                 <Card
                   icon={ <Image src={ TwitterIcon } alt='Twitter Logo' className="text-slate-300" /> }
-                  title={ "Craft Tweets That Spark Conversations" }
+                  title={ `Craft Tweets That Spark Conversations` }
                   text={ <><span>Whether it's 280 characters or less,</span><br /><span>you'll tweet like a pro.</span></> }
                   bgColor={ `bg-[#1a1f40]` }
                   titleColor={ `text-white` }
