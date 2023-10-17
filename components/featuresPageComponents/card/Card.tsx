@@ -1,12 +1,15 @@
 import React from "react";
-import { CardPropsType } from "./types";
-import Image from "next/image";
+interface CardPropsType {
+  icon: string;
+  title: string;
+  text: string;
+  bgColor: string;
+  titleColor: string;
+  textColor: string
+  bgIcon: string
+}
 
-// interface CardPropsContainer {
-//   cardPropsValues: CardPropsType
-// }
-
-export default function Card({ icon, bgColor, titleColor, textColor, title, bgIcon, text }) {
+export default function Card({ icon, bgColor, titleColor, textColor, title, bgIcon, text }: CardPropsType) {
   return (
     <div className={ `${bgColor} rounded-xl` }>
       <div className="flex flex-col items-start p-6 gap-3">
