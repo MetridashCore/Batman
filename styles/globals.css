@@ -155,3 +155,18 @@
     margin-top: 38rem;
   }
 }
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: grey !important;
+  color: white !important;
+}
+
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: grey!important;
+  color: white !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff !important;
+}
+.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff !important;
+}
