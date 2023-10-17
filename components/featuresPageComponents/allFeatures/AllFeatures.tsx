@@ -23,7 +23,7 @@ export default function AllFeatures() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="grid auto-rows-auto gap-6">
               <Card
-                icon={ <Image src={ Youtubeicon } width={ 50 } height={ 50 } alt='Youtube Logo' className="text-slate-300 col-span-12" /> }
+                icon={ <Image src={ Youtubeicon } alt='Youtube Logo' className="text-slate-300 col-span-12" /> }
                 title={ `YouTube Video Ideas` }
                 text={ <><span>Break free from content block with fresh video</span><br /><span>concepts tailored to your audience.</span></> }
                 bgColor={ `bg-[#1a1f40]` }
