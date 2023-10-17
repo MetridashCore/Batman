@@ -116,7 +116,7 @@ function LongForm() {
     <div className="group flex flex-col w-[400px]  py-10 pb-20 items-center rounded-md border-gray-800 border-2  bg-[#131313] ">
       {/* <div className='flex flex-col h-[100%] py-10 mx-3 my-10 pb-20 items-center rounded-[40px] border-[#6969ee] border-[3px]'> */}
       <div className="flex flex-col w-[100%] items-center ">
-        <h1 className="text-white font-bold text-3xl">Pro</h1>
+        <h1 className="title-style">Pro</h1>
         <p className="font-medium py-2 text-white text-lg px-2 text-center ">
         Take your content creation to the next level
         </p>
@@ -168,31 +168,31 @@ function LongForm() {
         <div className="flex flex-col gap-y-2 mt-2 px-24 ">
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left"> All features in Starter</h1>
+              <h1 className="text-white font-light text-left"> All features in Starter</h1>
             </div>
             {/* <div className="flex flex-row  gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left"> X Words of Content (changes according to the silder)</h1>
+              <h1 className="text-white font-light text-left"> X Words of Content (changes according to the silder)</h1>
             </div> */}
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Scheduler</h1>
+              <h1 className="text-white font-light text-left">Scheduler</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Insight Engine</h1>
+              <h1 className="text-white font-light text-left">Insight Engine</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Advanced Analytics</h1>
+              <h1 className="text-white font-light text-left">Advanced Analytics</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">Creator Community</h1>
+              <h1 className="text-white font-light text-left">Creator Community</h1>
             </div>
             <div className="flex flex-row items-center gap-x-2 ">
               <IoCheckmark></IoCheckmark>
-              <h1 className="font-light text-left">And More</h1>
+              <h1 className="text-white font-light text-left">And More</h1>
             </div>
             
 

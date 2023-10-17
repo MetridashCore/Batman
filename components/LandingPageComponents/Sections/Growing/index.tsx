@@ -29,16 +29,16 @@ const Growing = () => {
       </h1>
       <div className="flex md:flex-row flex-col w-full h-40  items-center justify-center gap-x-24">
           <div className="flex flex-col h-full px-2 items-center justify-center">
-                <h1 className="text-xl font-bold ">⌚ Time Saver</h1>
-                <h2 className="text-sm font-light text-gray-300">More Time for What You Love </h2>
+                <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400 "><span className="text-xl text-white">⌚</span> Time Saver</h1>
+                <h2 className="text-sm font-light text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400">More Time for What You Love </h2>
           </div>
           <div className="flex flex-col h-full px-2 items-center justify-center">
-                <h1 className="text-xl font-bold ">💆Endless Content Ideas </h1>
-                <h2 className="text-sm font-light text-gray-300"> Never Run Out of Ideas</h2>
+                <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400 "><span className="text-xl text-white">💆</span> Endless Content Ideas </h1>
+                <h2 className="text-sm font-light text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400"> Never Run Out of Ideas</h2>
           </div>
           <div className="flex flex-col h-full px-2 items-center justify-center">
-                <h1 className="text-xl font-bold "> 🧑🏻‍🤝‍🧑🏼Know Your Audience</h1>
-                <h2 className="text-sm font-light text-gray-300"> Connect on a Deeper Level</h2>
+                <h1 className="text-xl font-bold  text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400"> <span className="text-xl text-white">🧑🏻‍🤝‍🧑🏼</span> Know Your Audience</h1>
+                <h2 className="text-sm font-light text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400"> Connect on a Deeper Level</h2>
           </div>
       </div>
     </motion.div>

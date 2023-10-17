@@ -67,7 +67,7 @@ export default function About() {
         <h1 className='text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]'>Ready to Master Your Content?</h1>
         <Link
             href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
-            className="flex  px-4 py-2 mt-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
+            className="  px-4 py-2 mt-8 button-gradient"
           >
             <h1 className="text-lg font-semibold text-white">Explore Metridash Today</h1>
           </Link>

@@ -10,6 +10,12 @@ import Image8 from "../../../../public/Images/8.png"
 import Image9 from "../../../../public/Images/9.png"
 import Image10 from "../../../../public/Images/10.png"
 import Rocket from "../../../../public/homepageIcons/rocket.png"
+import TwitterImage from '../../../../public/platformIcons/twitter.png'
+import InstaImage from '../../../../public/platformIcons/instagram.png'
+import DiscordImage from '../../../../public/platformIcons/discord.png'
+import LinkedinImage from '../../../../public/platformIcons/linkedin.png'
+import FacebookImage from '../../../../public/platformIcons/facebook.png'
+
 const Journey = () => {
   const [email, setEmail] = useState("")
   const [response, setResponse] = useState("")
@@ -56,38 +62,34 @@ const Journey = () => {
   }
   return (
     <>
-      <div className=" w-screen h-[537px] bg-cover backdrop-blur-lg bg-center flex flex-col gap-y-6 justify-center items-center">
+      <div className=" w-screen  h-[737px] bg-cover backdrop-blur-lg bg-center flex flex-col gap-y-6 justify-center items-center">
         <motion.h1
           ref={ref}
           variants={textScrollVariants}
           initial="hidden"
-          className="font-semibold text-[48px] text-white leading-[48px] text-center md:w-[425px] relative md:right-[-50px] transition-all duration-1000 ease-in-out"
+          className="font-semibold text-[48px] leading-[54px] text-center text-transparent bg-clip-text bg-gradient-to-t from-gray-300 to-gray-700 pb-2 ease-in-out mt-12"
           animate={controls}
         >
-        Ready to Get Started?
+          Where we're going
         </motion.h1>
         <motion.div
           ref={ref}
           variants={textScrollVariants}
           initial="hidden"
-          className=" relative transition-all duration-1000 ease-in-out"
+          className=" relative transition-all  bg-pack-train bg-contain duration-1000 ease-in-out flex w-60 h-40 bg-center"
           animate={controls}
         >
-          <Image
-            src={Rocket}
-            alt="Preview"
-            className="flex w-24 h-24 object-contain"
-           
-          />
+
         </motion.div>
         <motion.p
           ref={ref}
           variants={textScrollVariants}
           initial="hidden"
-          className="text-xl leading-6 font-light text-white mt-6 w-[280px] text-center relative md:right-[200px] transition-all duration-1000 ease-in-out"
+          className="text-md leading-6 font-light text-transparent bg-clip-text bg-gradient-to-l from-gray-400 to-gray-600  mt-6 w-full md:px-80 px-4 text-center relative  transition-all duration-1000 ease-in-out"
           animate={controls}
         >
-         Join thousands of creators who have already unlocked their potential with Metridash.
+          Metridash is more than a platform; it's a vision for the future of content creation. We're committed to pushing boundaries, harnessing the power of AI to not only meet your needs today but anticipate and exceed them tomorrow. From visual and video AI to the ultimate scheduler and insight engine, Metridash is your all-in-one social media hub. Our journey is one of continuous improvement, embracing advanced AI features, and striving to be the best. Join us in revolutionizing content creation, simplifying social media management, and unlocking limitless possibilities for creators and businesses worldwide. The future is bright with Metridash.
+
         </motion.p>
         {response && <p className="text-center">{response}</p>}
         <motion.div
@@ -97,18 +99,40 @@ const Journey = () => {
           className="flex gap-x-5 relative md:right-[-50px] transition-all duration-1000 ease-in-out md:flex-row flex-col"
           animate={controls}
         >
-          
-            <Link href={'/auth/signup'}
-              
-              className={`w-full bg-[#1E1E1E] px-4 py-2 flex justify-center items-center  rounded-lg mt-5 `}
-              type="submit"
-            >
-              <p className="text-white text-xl underline underline-offset-auto">
-                Try for free
-              </p>
-            </Link>
-    
+
+          <Link href={'/auth/signup'}
+
+            className={`w-full  px-4 py-2  button-gradient   rounded-lg mt-5 `}
+            type="submit"
+          >
+            <p className=" text-xl text-white font-semibold  ">
+              Try for free
+            </p>
+          </Link>
+
         </motion.div>
+        <div className="flex w-screen h-20 flex-row gap-x-4 my-10 justify-center ">
+          <a href="https://twitter.com/metridash" target="_blank" className="flex w-10 h-10 bg-gray-600 rounded-lg items-center justify-center">
+            <Image src={TwitterImage} alt="Twitter"></Image>
+
+          </a >
+          <a href="https://www.instagram.com/metridash/" target="_blank" className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
+            <Image src={InstaImage} alt="Instagram"></Image>
+
+          </a >
+          <a href="https://discord.gg/btNneYZH" target="_blank" className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
+            <Image src={DiscordImage} alt="Discord"></Image>
+            
+          </a >
+          <a href="https://www.linkedin.com/company/metridash/mycompany/" target="_black" className="flex w-10 h-10 bg-gray-600 rounded-full items-center justify-center">
+            <Image src={LinkedinImage} alt="LinkedIn"></Image>
+
+          </a >
+          <a href="https://www.facebook.com/people/Metridash/61551354080600/" target="_black" className="flex w-8 h-8 bg-gray-600 rounded-full items-center justify-center">
+            <Image src={FacebookImage} alt="LinkedIn"></Image>
+
+          </a >
+        </div>
       </div>
       <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800 mt-5">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">

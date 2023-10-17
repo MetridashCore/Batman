@@ -47,7 +47,7 @@ const Blocks = () => {
         <div className="btn-hero  flex items-center  justify-center flex-col gap-y-2  w-full">
           <Link
             href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
-            className="flex  px-4 py-2 mt-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md items-center justify-center"
+            className="  px-4 py-2 mt-2  button-gradient "
           >
             <h1 className="text-xl font-semibold text-white">Try for free</h1>
           </Link>
