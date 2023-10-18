@@ -57,23 +57,23 @@ export default function Contact() {
       <div
         className={`${classes.contact_confirm} bg-black flex flex-col items-center pt-14 px-5`}
       >
-        <h1 className="font-medium text-3xl text-white">
+        <h1 className="font-medium title-style">
           Ready to create some awesome content?
         </h1>
-        <p className="text-white py-5 text-left text-lg">
+        <p className="text-para py-5 text-left text-lg">
           We&apos;d love to hear back from you and help you to generate the best
           content. Please get in touch with us by dropping an email or filling
           out the form.
         </p>
         <div className="flex flex-row self-start">
           <EmailIcon color="primary" className="self-start mr-2"></EmailIcon>
-          <p className=" underline  text-white">info@metridash.com</p>
+          <p className=" underline  text-para">info@metridash.com</p>
         </div>
       </div>
       <div
         className={`${classes.contact__form} items-center bg-black text-left`}
       >
-        <h1 className="font-medium text-2xl text-white mb-4">Contact Us</h1>
+        <h1 className="font-medium text-para mb-4">Contact Us</h1>
         <form onSubmit={doSubmit}>
           <TextField
             sx={{
