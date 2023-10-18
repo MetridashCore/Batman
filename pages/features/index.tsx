@@ -18,6 +18,8 @@ import Bottom from "@/components/featuresPageComponents/Bottom"
 import featuresbg from '../../public/Images/festuresbg.png'
 import { motion, AnimatePresence } from "framer-motion"
 import Footer from "@/components/Footer"
+import AllFeatures from "@/components/featuresPageComponents/allFeatures/AllFeatures"
+
 const Features = () => {
   const textScrollVariants = {
     visible: { opacity: 1, top: 0 },
@@ -34,27 +36,22 @@ const Features = () => {
   }, [controls, inView])
 
   return (
-    <div className="flex w-screen   flex-col  ">
+    <div className="flex w-screen flex-col overflow-x-hidden bg-black">
       <motion.div 
       initial={{ opacity: 0}} 
       animate={{ opacity: 1, y: 0 }} 
       exit={{ opacity: 0}} 
       transition={{ delay: 0.25 }} 
-      className="flex w-full h-screen bg-[#00061A]   transition-all duration-1000 ease-in-out flex-col items-center justify-center   md:gap-y-0 gap-y-4">
+      className="flex w-full h-screen transition-all duration-1000 ease-in-out flex-col items-center justify-center md:gap-y-0 gap-y-4">
 
         <Image className="w-[900px] object-contain mb-4" src={featuresbg} alt="features"></Image>
         <h1 className="text-center font-normal text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 tracking-widest ">FEATURES</h1>
-        <h1 className=" mt-2 text-center font-bold text-4xl text-white ">Elevate Your Content Creation with<br></br> Metridash</h1>
-        <h1 className="text-center font-semibold text-3xl text-white"> Where Imagination Meets Strategy</h1>
+        <h1 className=" mt-2 text-center font-bold text-4xl title-style">Elevate Your Content Creation with<br></br> Metridash</h1>
+        <h1 className="text-center font-semibold text-3xl title-style"> Where Imagination Meets Strategy</h1>
         <h1 className="mt-4 text-white font-thin text-center">Welcome to the future of content creation.<br></br> Metridash is your all-in-one toolkit designed to fuel your creativity and revolutionize your content strategy.<br></br> Let&apos;s dive into the world of possibilities</h1>
       </motion.div>
-      <YoutubeComp></YoutubeComp>
-      <FbLinkedIn></FbLinkedIn>
-      <InstaTiktok></InstaTiktok>
-      <Contents></Contents>
-      <Copy></Copy>
+      <AllFeatures />
       <Bottom></Bottom>
-
     </div>
   )
 }
