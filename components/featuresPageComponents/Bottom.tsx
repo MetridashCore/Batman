@@ -11,7 +11,7 @@ export default function Bottom() {
       <span>Ready to make content magic?</span>
       <Link
         href={ `${user && user.uid ? "/homepage" : "/auth/signup"}` }
-        className="flex px-4 py-2 mt-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl items-center justify-center"
+        className="button-gradient px-4 py-2 mt-4"
       >
         <button className="text-lg font-semibold text-white">Try for free</button>
       </Link>
