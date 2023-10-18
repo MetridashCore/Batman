@@ -6,7 +6,11 @@ import { signInWithEmail } from "../../../auth"
 import Typewriter from "typewriter-effect"
 import LeftImage from "../../../public/Images/LeftImage.jpeg"
 import checkUser from "@/utils/checkUser"
-
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
+import { color } from "framer-motion"
 const SignIn = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -82,38 +86,53 @@ const SignIn = () => {
         </div>
       </div>
 
-      <div className=" bg-gradient-to-t from-[#0C0C0C] to-[#090947] flex flex-col items-center justify-center md:px-28 px-10 w-full  md:w-1/2 h-full">
-        <h1 className="text-left font-sans mb-10 font-semibold text-[30px] leading-[23px] text-white self-start">
-          🙌 Welcome Back!
+      <div className=" bg-black flex flex-col items-center justify-center md:px-28 px-10 w-full  md:w-1/2 h-full">
+        <h1 className="hero-second">
+        Log in
         </h1>
-        <div className="flex flex-row items-start justify-start self-start mb-2">
-          <h1 className="self-start text-white ">📧 Email</h1>
-          <h1 className="text-pink text-blue-500">*</h1>
+        <p className="text-para-top mb-4 mt-2">Metridash: Your Ultimate Content Creation Companion</p>
+        <div className="flex flex-row items-start justify-start self-start mb-2 mt-6">
+          <h1 className="self-start text-para-top ">Email Address</h1>
+          
         </div>
         <input
-          className=" mb-6 px-4 py-2 w-full rounded-md"
+          className=" mb-4 px-4 py-2 w-full rounded-lg border-b-[1px] bg-[#171717] border-[#C1C7CD]"
           type="email"
-          placeholder="Enter your email"
+          placeholder=""
           value={email}
           onChange={handleEmailChange}
         />
         <div className="flex flex-row items-start justify-start self-start mb-2">
-          <h1 className="self-start text-white">🔑 Password</h1>
-          <h1 className="text-pink text-blue-500">*</h1>
+          <h1 className="self-start text-para-top">Password</h1>
+          
         </div>
         <input
-          className=" mb-6 px-4 py-2 w-full rounded-md"
+          className="  px-4 py-2 w-full rounded-lg border-b-[1px] bg-[#171717] border-[#C1C7CD]"
           type="password"
-          placeholder="Enter your password"
+          placeholder=""
           value={password}
           onChange={handlePasswordChange}
         />
+        <div className="w-full mt-2 h-10 flex-row flex  justify-between items-center mb-10">
+          <div className="w-1/2 h-full flex-row flex  items-center">
+              <Checkbox sx={{ color: 'white'}} />
+              <p className="text-para-top">Remember me</p>
+          </div>
+         
+          <p className="text-para-top">Forgot password? Reset</p>
+        </div>
         <button
-          className="bg-gradient-to-l from-[#009FFD] to-[#2A2A72] rounded-md px-4 py-2 mb-6 text-white w-full"
+          className="button-gradient rounded-md px-4 py-2 mb-6 text-white w-1/2"
           onClick={handleSignIn}
         >
           Sign In
         </button>
+        
+        
+
+        <Divider flexItem sx={{color: 'white'}}>or</Divider>
+        
+       
         {message && <p className="text-white">{message}</p>}
         <p className="text-white">
           Don&apos;t have an account?{" "}
