@@ -55,32 +55,32 @@ export default function Contact() {
   return (
     <div className={`${classes.contact__container} bg-gray-50`}>
       <div
-        className={`${classes.contact_confirm} bg-gray-200 flex flex-col items-center pt-14 px-5`}
+        className={`${classes.contact_confirm} bg-black flex flex-col items-center pt-14 px-5`}
       >
-        <h1 className="font-medium text-3xl text-blue-800">
+        <h1 className="font-medium title-style">
           Ready to create some awesome content?
         </h1>
-        <p className="text-gray-500 py-5 text-left text-lg">
+        <p className="text-para py-5 text-left text-lg">
           We&apos;d love to hear back from you and help you to generate the best
           content. Please get in touch with us by dropping an email or filling
           out the form.
         </p>
         <div className="flex flex-row self-start">
           <EmailIcon color="primary" className="self-start mr-2"></EmailIcon>
-          <p className=" underline  text-gray-600">info@metridash.com</p>
+          <p className=" underline  text-para">info@metridash.com</p>
         </div>
       </div>
       <div
-        className={`${classes.contact__form} items-center bg-white text-left`}
+        className={`${classes.contact__form} items-center bg-black text-left`}
       >
-        <h1 className="font-medium text-2xl text-blue-800 mb-4">Contact Us</h1>
+        <h1 className="font-medium text-para mb-4">Contact Us</h1>
         <form onSubmit={doSubmit}>
           <TextField
             sx={{
-              marginTop: 1,
+              marginTop: 3,
             }}
             id="outlined-controlled"
-            className="w-8/12"
+            className="w-10/12"
             label="Name"
             value={name}
             onChange={(event) => {
@@ -90,10 +90,10 @@ export default function Contact() {
           />
           <TextField
             sx={{
-              marginTop: 1,
+              marginTop: 3,
             }}
             id="outlined-controlled"
-            className="w-8/12 rounded-xl"
+            className="w-10/12 rounded-xl "
             label="Email"
             type="email"
             value={email}
@@ -104,7 +104,7 @@ export default function Contact() {
           />
           <TextField
             sx={{
-              marginTop: 1,
+              marginTop: 3,
               marginBottom: 1,
               display: "block",
             }}
@@ -114,20 +114,20 @@ export default function Contact() {
             rows={4}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            className="w-8/12 my-1"
+            className="w-10/12 my-1"
             fullWidth
             // defaultValue="Default Value"
           />
           <Button
             type="submit"
-            className={classes.contact_btn}
+            className="button-gradient py-8 px-8 flex self-center"
             variant="contained"
             disabled={disabled()}
           >
-            Submit
+            <p className="text-white font-semibold">Submit</p>
           </Button>
         </form>
-        {response && <p className="text-green-700 mt-5">{response}</p>}
+        {response && <p className="text-white mt-5">{response}</p>}
       </div>
     </div>
   )

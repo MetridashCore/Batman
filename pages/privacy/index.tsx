@@ -3,10 +3,10 @@ const Privacy = () => {
     <div className="px-[7%] py-[7%] bg-black">
 
        <div>
-        <h1 className="font-semibold text-5xl leading-[92%] text-white mt-12">
+        <h1 className="font-semibold title-style leading-[92%] text-white mt-12">
           Privacy Policy
         </h1>
-        <p className="py-5 leading-6 text-white ">
+        <p className="py-5 leading-6 text-white text-para">
           This Privacy Policy governs the manner in which ElsaRaelyn Pvt Ltd.
           d/b/a Metridash (“Metridash”) collects, uses, maintains and discloses
           information collected from users (each, a “User”) of the
@@ -18,11 +18,11 @@ const Privacy = () => {
       </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white  mt-1">
+        <h2 className="font-semibold title-second leading-[92%] text-white  mt-1">
           Personal identification information
         </h2>
-        <h3 className="text-1xl leading-[92%] py-3 font-semibold text-white ">Users</h3>
-        <ul className="list-disc text-white">
+        <h3 className="title-third  leading-[92%] py-3 font-semibold text-white ">Users</h3>
+        <ul className="list-disc text-white text-para">
           <li className="py-1 leading-6">
             We may collect personal identification information from Users in a
             variety of ways, including, but not limited to, when Users visit our
@@ -48,15 +48,15 @@ const Privacy = () => {
       </div>
 
       <div>
-        <h3 className="text-1xl leading-[92%] py-3 font-semibold text-white ">Social Media Authors</h3>
-        <p className="py-2 text-white ">
+        <h3 className="title-third  leading-[92%] py-3 font-semibold text-white ">Social Media Authors</h3>
+        <p className="py-2 text-white text-para">
           Metridash receives personal data from third parties such as Facebook,
           Twitter(X), Instagram, and YouTube for our legitimate interests of
           serving our customers. We are fully compliant with their public terms
           and conditions and trust them to protect Social Media Authors through
           their robust privacy policies.
         </p>
-        <ul className="list-disc text-white">
+        <ul className="list-disc text-white text-para">
           <li>
             Metridash collects, uses, processes and stores information that has
             been made publicly available on the Social Media platforms listed
@@ -87,13 +87,13 @@ const Privacy = () => {
       </div>
 
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white  mt-1 py-5">
+        <h2 className="font-semibold title-second leading-[92%] text-white  mt-1 py-5">
           Rights of Users and Social Media Authors
         </h2>
-        <p className="text-white ">
+        <p className="text-white text-para ">
           At any time, you may contact info@metridash.com and request that we:
         </p>
-        <ul className="list-disc text-white">
+        <ul className="list-disc text-white text-para">
           <li>Rectify personal data Metridash has collected</li>
           <li>Provide you with a copy of your personal data</li>
           <li>
@@ -105,10 +105,10 @@ const Privacy = () => {
       </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white  mt-1 py-5">
+        <h2 className="font-semibold title-second leading-[92%] text-white  mt-1 py-5">
           Non-personal identification information
         </h2>
-        <p className="text-white ">
+        <p className="text-white text-para">
           We may collect non-personal identification information about Users
           whenever they interact with our Site. Non-personal identification
           information may include the browser name, the type of computer and
@@ -119,10 +119,10 @@ const Privacy = () => {
       </div>
 
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white  mt-1 py-5">
+        <h2 className="font-semibold title-second leading-[92%] text-white  mt-1 py-5">
           Web browser cookies
         </h2>
-        <p className="text-white ">
+        <p className="text-white text-para">
           Our Site may use “cookies” to enhance User experience. Users’ web
           browsers place cookies on their hard drive for record-keeping purposes
           and sometimes to track information about them. The User may choose to
@@ -143,15 +143,15 @@ const Privacy = () => {
       </div>
 
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white  mt-1 py-2">
+        <h2 className="font-semibold title-second leading-[92%] text-white  mt-1 py-2">
           How we use collected information
         </h2>
-        <h2 className="text-1xl leading-[92%] py-3 font-semibold text-white ">Users</h2>
-        <p className="text-white ">
+        <h2 className="title-third  leading-[92%] py-3 font-semibold text-white ">Users</h2>
+        <p className="text-white text-para">
           Metridash may collect and use Users personal information for the
           following purposes:
         </p>
-        <ul className="list-disc text-white ">
+        <ul className="list-disc text-white text-para">
           <li >
             To improve customer service. Information you provide helps us respond
             to your customer service requests and support needs more efficiently.
@@ -196,16 +196,16 @@ const Privacy = () => {
       </div>
 
        <div>
-        <h2 className="text-1xl leading-[92%] py-3 font-semibold text-white ">Social Media Authors</h2>
-        <p className="text-white ">
+        <h2 className="title-third  leading-[92%] py-3 font-semibold text-white ">Social Media Authors</h2>
+        <p className="text-white text-para">
         The legal basis for the data that we collect and process is pursuant to
         our legitimate interests in providing our Services to our customers.
       </p>
       </div>
 
       <div>
-        <p className="text-1xl leading-[92%] py-3 font-semibold text-white ">Your information is also used in the following ways:</p>
-        <ul className="text-white ">
+        <p className="title-third  leading-[92%] py-3 font-semibold text-white ">Your information is also used in the following ways:</p>
+        <ul className="text-white text-para">
         <li>
           To allow our customers to learn more about their brand, customers, and
           competitors;
@@ -215,26 +215,26 @@ const Privacy = () => {
       </div>
 
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%] text-white mt-1 py-3">
           How we protect your information
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           We adopt appropriate data collection, storage and processing practices
           and security measures to protect against unauthorized access,
           alteration, disclosure or destruction of your personal information,
           username, password, transaction information and data stored on our Site.
         </p>
-        <p className="text-white">
+        <p className="text-white text-para">
           In compliance with our company’s values and GDPR laws, you will always
           be immediately notified in the unlikely event of data breach.
         </p>
      </div>
 
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%] text-white mt-1 py-3">
           Sharing your personal information
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           We do not sell, trade, or rent Users’ personal identification
           information to others. We may share generic aggregated demographic
           information not linked to any personal identification information
@@ -249,18 +249,18 @@ const Privacy = () => {
       </div>
    
       <div>
-        <h2 className="text-1xl leading-[92%] py-3 font-semibold text-white">Social Media Authors</h2>
-        <p className="text-white">
+        <h2 className="title-third  leading-[92%] py-3 font-semibold text-white">Social Media Authors</h2>
+        <p className="text-white text-para">
           We share your data with our Customers in the ways outlined in Personal
           identification information.
         </p>
      </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%] text-white mt-1 py-3">
           Third party websites
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           Users may find advertising or other content on our Site that link to the
           sites and services of our partners, suppliers, advertisers, sponsors,
           licensors and other third parties. We do not control the content or
@@ -275,10 +275,10 @@ const Privacy = () => {
     </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%]text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%]text-white mt-1 py-3">
           Changes to this privacy policy
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           Metridash has the discretion to update this privacy policy at any time.
           When we do, we will revise the updated date at the bottom of this page.
           We encourage Users to frequently check this page for any changes to stay
@@ -290,10 +290,10 @@ const Privacy = () => {
      </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%] text-white mt-1 py-3">
           Your acceptance of these terms
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           By using this Site, you signify your acceptance of this policy. If you
           do not agree to this policy, please do not use our Site. Your continued
           use of the Site following the posting of changes to this policy will be
@@ -302,10 +302,10 @@ const Privacy = () => {
      </div>
       
       <div>
-        <h2 className="font-semibold text-2xl leading-[92%] text-white mt-1 py-3">
+        <h2 className="font-semibold title-second leading-[92%] text-white mt-1 py-3">
           Contacting Us
         </h2>
-        <p className="text-white">
+        <p className="text-white text-para">
           If you have any questions about this Privacy Policy, the practices of
           this site, or your dealings with this site, please contact us at:
           Metridash Pvt Ltd. <br /> https://metridash.com/ <br /> 181 Nethaji
