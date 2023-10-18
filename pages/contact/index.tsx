@@ -74,50 +74,44 @@ export default function Contact() {
         className={`${classes.contact__form} items-center bg-black text-left`}
       >
         <h1 className="font-medium text-para mb-4">Contact Us</h1>
-        <form onSubmit={doSubmit}>
-          <TextField
-            sx={{
-              marginTop: 3,
-            }}
-            id="outlined-controlled"
-            className="w-10/12"
-            label="Name"
-            value={name}
-            onChange={(event) => {
-              setName(event.target.value)
-            }}
-            fullWidth
-          />
-          <TextField
-            sx={{
-              marginTop: 3,
-            }}
-            id="outlined-controlled"
-            className="w-10/12 rounded-xl "
-            label="Email"
-            type="email"
-            value={email}
-            fullWidth
-            onChange={(event) => {
-              setEmail(event.target.value)
-            }}
-          />
-          <TextField
-            sx={{
-              marginTop: 3,
-              marginBottom: 1,
-              display: "block",
-            }}
-            id="outlined-multiline-static"
-            label="Message"
-            multiline
-            rows={4}
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-            className="w-10/12 my-1"
-            fullWidth
-            // defaultValue="Default Value"
-          />
+        <form onSubmit={doSubmit} className="w-96">
+          <div>
+            <label className="text-sm font-sans not-italic font-normal leading-6">Name</label><br/>
+            <input
+              id="outlined-controlled"
+              className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
+              placeholder="Name"
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value)
+              }}
+            />
+          </div>
+          <div className="my-3">
+            <label className="text-sm font-sans not-italic font-normal leading-6">Email</label><br />
+            <input
+              id="outlined-controlled"
+              className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
+              placeholder="email"
+              type="email"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value)
+              }}
+            />
+          </div> 
+          <div className="my-3">
+            <label className="text-sm font-sans not-italic font-normal leading-6">Message</label><br />
+            <textarea
+              id="outlined-multiline-static"
+              placeholder="Message"
+              // multiline
+              rows={4}
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
+              className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
+            />
+          </div>
           <div className="flex items-center justify-center">
             <Button
               type="submit"
