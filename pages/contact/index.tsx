@@ -118,14 +118,16 @@ export default function Contact() {
             fullWidth
             // defaultValue="Default Value"
           />
-          <Button
-            type="submit"
-            className="button-gradient py-8 px-8 flex self-center"
-            variant="contained"
-            disabled={disabled()}
-          >
-            <p className="text-white font-semibold">Submit</p>
-          </Button>
+          <div className="flex items-center justify-center">
+            <Button
+              type="submit"
+              className="button-gradient"
+              variant="contained"
+              disabled={disabled()}
+            >
+              <p className="text-white font-semibold">Submit</p>
+            </Button>
+        </div>
         </form>
         {response && <p className="text-white mt-5">{response}</p>}
       </div>
