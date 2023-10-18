@@ -308,8 +308,9 @@ const Privacy = () => {
         <p className="text-white text-para">
           If you have any questions about this Privacy Policy, the practices of
           this site, or your dealings with this site, please contact us at:
-          Metridash Pvt Ltd. <br /> https://metridash.com/ <br /> 181 Nethaji
-          Road, Kokkirakulam <br /> Tirunelveli, Tamil Nadu <br /> India <br />{" "}
+          Metridash Pvt Ltd.
+          <br /> https://metridash.com/ <br />
+          181 Nethaji Road, Kokkirakulam <br /> Tirunelveli, Tamil Nadu <br /> India <br />{" "}
           +91 9994412727 <br /> info@metridash.com <br />
           This document was last updated on Sep 7th, 2023
         </p></div> 

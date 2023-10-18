@@ -93,7 +93,7 @@ export default function Contact() {
               marginTop: 3,
             }}
             id="outlined-controlled"
-            className="w-10/12 rounded-xl "
+            className="w-10/12 rounded-xl"
             label="Email"
             type="email"
             value={email}
