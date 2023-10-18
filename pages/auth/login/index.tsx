@@ -66,7 +66,7 @@ const SignUp = () => {
                         <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 left-1/2 dark:text-white dark:bg-black">or</span>
                     </div>
                     <div className="flex justify-center my-5">
-                        <button type="button" className="w-60 text-black bg-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                        <button type="button" className="w-60 text-black bg-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 focus-visible:none">
                             <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_17_233)">
                                     <path d="M10.516 21.5003C16.3238 21.5003 21.032 16.7993 21.032 11.0003C21.032 5.20131 16.3238 0.500305 10.516 0.500305C4.70817 0.500305 0 5.20131 0 11.0003C0 16.7993 4.70817 21.5003 10.516 21.5003Z" fill="#2C2C2C" />
