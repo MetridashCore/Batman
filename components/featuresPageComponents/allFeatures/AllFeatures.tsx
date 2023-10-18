@@ -11,10 +11,10 @@ import Card from '../card/Card'
 export default function AllFeatures() {
   return (
     <>
-      <div className="flex flex-col items-center bg-[#00062a] py-8">
+      <div className="flex flex-col items-center py-8">
         <div className="flex flex-col items-center gap-3">
-          <h1 className="text-[2.5rem] font-bold">All our features</h1>
-          <div className="flex flex-col items-center pb-16 text-slate-300 text-lg">
+          <h1 className="text-[2.5rem] font-bold title-style">All our features</h1>
+          <div className="flex flex-col items-center pb-16 text-para text-lg">
             <span>The breakdown of our features</span>
             <span>and some upcoming ones</span>
           </div>
@@ -90,8 +90,8 @@ export default function AllFeatures() {
                 />
                 <Card
                   icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
-                  title={ `Collaborative Creation` }
-                  text={ <><span>Facilitate teamwork with real-time</span><br /><span>collaboration features.</span></> }
+                  title={ `Master Your Content Calendar` }
+                  text={ <><span>Stay organized and on point</span><br /><span>with Metridash's content calendar.</span></> }
                 />
               </div>
               <div className='grid gap-6'>
@@ -112,8 +112,8 @@ export default function AllFeatures() {
                 />
                 <Card
                   icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
-                  title={ `Master Your Content Calendar` }
-                  text={ <><span>Stay organized and on point</span><br /><span>with Metridash's content calendar.</span></> }
+                  title={ `Collaborative Creation` }
+                  text={ <><span>Facilitate teamwork with real-time</span><br /><span>collaboration features.</span></> }
                 />
               </div>
               <div className="grid col-span-2">
