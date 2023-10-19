@@ -10,7 +10,7 @@ const SignUp = () => {
                 </div>
                 <form className="w-100 my-14">
                     <div>
-                        <label className="text-sm font-sans not-italic font-normal leading-6">Name</label><br />
+                        <label className="text-sm font-sans not-italic font-normal leading-6 text-white">Name</label><br />
                         <input
                             id="outlined-controlled"
                             className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
@@ -18,7 +18,7 @@ const SignUp = () => {
                         />
                     </div>
                     <div className="my-3">
-                        <label className="text-sm font-sans not-italic font-normal leading-6">Email Address</label><br />
+                        <label className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label><br />
                         <input
                             id="outlined-controlled"
                             className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
@@ -27,7 +27,7 @@ const SignUp = () => {
                         />
                     </div> 
                     <div className="my-3">
-                        <label className="text-sm font-sans not-italic font-normal leading-6">Password</label><br />
+                        <label className="text-sm font-sans not-italic font-normal leading-6text-white text-white">Password</label><br />
                         <input
                             id="outlined-controlled"
                             className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
@@ -37,7 +37,7 @@ const SignUp = () => {
                         <p className="text-white font-sans not-italic text-xs font-normal">It must be a combination of minimum 8 letters, numbers, and symbols.</p>
                     </div> 
                     <div className="my-3">
-                        <label className="text-sm font-sans not-italic font-normal leading-6"> Confirm Password</label><br />
+                        <label className="text-sm font-sans not-italic font-normal leading-6 text-white"> Confirm Password</label><br />
                         <input
                             id="outlined-controlled"
                             className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"

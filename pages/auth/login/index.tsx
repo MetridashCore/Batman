@@ -10,7 +10,7 @@ const SignUp = () => {
                 </div>
                 <form className="w-3/12 my-14">
                     <div>
-                        <label id="input-group-1" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address</label>
+                        <label id="input-group-1" className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label>
                         <div className="relative mb-6">
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -22,7 +22,7 @@ const SignUp = () => {
                         </div>
                    </div>
                     <div className=" my-3">
-                        <label className="text-sm font-sans not-italic font-normal leading-6">Password</label><br />
+                        <label className="text-sm font-sans not-italic font-normal leading-6 text-white">Password</label><br />
                         <div className="relative mb-6">
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
