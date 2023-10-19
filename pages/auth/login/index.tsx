@@ -1,6 +1,39 @@
+import { useState, ChangeEvent, useEffect } from "react"
 import Button from "@mui/material/Button"
 import Link from "next/link";
-const SignUp = () => {
+import { useRouter } from "next/router"
+import checkUser from "@/utils/checkUser";
+import { signInWithEmail } from "@/auth";
+const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [message, setMessage] = useState("")
+
+    const router = useRouter()
+
+    const user: any = checkUser()
+
+    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value)
+    }
+
+    const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setPassword(event.target.value)
+    }
+
+    const handleSignIn = async () => {
+        try {
+            await signInWithEmail(email, password)
+            setMessage("User signed in successfully")
+            window.location.href = "/homepage"
+        } catch (error) {
+            setMessage(`Error signing in: ${error}`)
+        }
+    }
+
+    if (user && user.uid) {
+        window.location.href = "/homepage"
+    }
     return (
         <div className='h-screen bg-black' >
             <div className="flex-1 flex flex-col justify-start items-center py-40 sm:py-20 px-8 sm:px-10 md:px-12 lg:flex-none lg:px-20 xl:px-14">
@@ -18,7 +51,11 @@ const SignUp = () => {
                                     <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
                                 </svg>
                             </div>
-                            <input type="text" id="input-group-1" className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
+                            <input type="text"
+                                id="input-group-1"
+                                value={email}
+                                onChange={handleEmailChange}
+                                className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
                         </div>
                    </div>
                     <div className=" my-3">
@@ -38,7 +75,12 @@ const SignUp = () => {
                                 </svg>
 
                             </div>
-                            <input type="password" id="input-group-1" className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
+                            <input
+                                type="password"
+                                id="input-group-1"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
                         </div>
                     </div>
                     <div className="flex items-center justify-between">
@@ -57,6 +99,7 @@ const SignUp = () => {
                             type="submit"
                             className="button-gradient w-60"
                             variant="contained"
+                            onClick={handleSignIn}
                         >
                             <p className="text-white font-semibold">Log in</p>
                         </Button>
@@ -65,6 +108,7 @@ const SignUp = () => {
                         <hr className="w-full h-px my-8 bg-gray-200 border-0" />
                         <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 left-1/2 dark:text-white dark:bg-black">or</span>
                     </div>
+                    {message && <p className="text-white">{message}</p>}
                     <div className="flex justify-center my-5">
                         <button type="button" className="w-60 text-black bg-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 focus-visible:none">
                             <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,10 +149,10 @@ const SignUp = () => {
                             <p className="px-3">Continue with Google</p>
                         </button>
                     </div>
-                    <p className="text-white font-sans not-italic text-xs font-normal text-center">No account yet? <Link href='/' className="text-[#007ABF]">Sign Up</Link></p>
+                    <p className="text-white font-sans not-italic text-xs font-normal text-center">No account yet? <Link href='/auth/createaccount' className="text-[#007ABF]">Sign Up</Link></p>
                 </form>
             </div>
         </div>
     )
 }
-export default SignUp;
+export default Login;
