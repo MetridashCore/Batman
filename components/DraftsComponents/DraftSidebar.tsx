@@ -137,7 +137,7 @@ export default function DraftSidebar() {
   }
 
   return (
-    <div className="flex h-full w-full dark:bg-[#141414] bg-[#F2F2F2] px-4 py-4 flex-col">
+    <div className="flex h-full w-full dark:bg-[#141414] bg-[#F2F2F2] px-4 pb-4 pt-24 flex-col">
       <div className="flex w-2/5 h-8 dark:bg-[#232529] bg-white rounded-lg flex-row items-center px-2">
         <IoSearch></IoSearch>
         <input

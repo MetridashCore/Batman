@@ -9,7 +9,7 @@ import GPTResponse from "@/components/GPTRespone"
 import { auth } from "@/firebase"
 import { updateTokens, readTokens, getUserToken } from "../../auth"
 import { useAtom } from "jotai"
-import { responseAtom, platformAtom } from "@/utils/store"
+import { responseAtom, platformAtom, loadingAtom } from "@/utils/store"
 import { Modal, Box } from "@mui/material"
 import { StyleModal } from "@/components/modalStyle"
 import PopUpCard from "@/components/PopUpCard"
@@ -47,6 +47,7 @@ const post = [
 
 export default function Form2({ title }: MainSelectorProps) {
   const [value, setValue] = useState<string | null>()
+  const [loading] = useAtom(loadingAtom)
   const [value1, setValue1] = useState<string | null>()
   const [value2, setValue2] = useState<string | null>()
   const [keywords, setKeywords] = useState<string>()
@@ -58,8 +59,9 @@ export default function Form2({ title }: MainSelectorProps) {
   const [targetAudienceCount, setTargetAudienceCount] = useState(0)
   const [targetAudience, setTargetAudience] = useState("")
   const [_response, setResponse] = useAtom(responseAtom)
+  const [_loading, setLoading] = useAtom(loadingAtom)
   const [input, setInput] = useState("")
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -201,8 +203,8 @@ export default function Form2({ title }: MainSelectorProps) {
   )
 
   return (
-    <div className="flex justify-center items-cente h-screen w-screen">
-      <div className=" h-full flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 py-14 flex-col overflow-scroll">
+    <div className="flex justify-center items-cente h-full w-full">
+      <div className=" h-full  flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 py-14 flex-col overflow-scroll">
         <h1 className="font-sans text-2xl font-bold">
           Generate {title.replace(/'/g, "&rsquo;")} 
         </h1>

@@ -6,4 +6,5 @@ interface Draft {
   }
 export const responseAtom = atom("");
 export const platformAtom = atom("")
+export const loadingAtom = atom<Boolean>(false)
 export const draftAtom = atom<Draft | null>(null);
