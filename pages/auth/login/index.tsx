@@ -91,7 +91,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <p className="text-white font-sans not-italic text-xs font-normal text-center">Forgot password? <Link href='/' className="text-[#007ABF]">Reset</Link></p>
+                            <p className="text-white font-sans not-italic text-xs font-normal text-center">Forgot password? <Link href='/auth/passwordreset' className="text-[#007ABF]">Reset</Link></p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-9">

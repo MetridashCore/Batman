@@ -102,7 +102,7 @@ const SignUp = () => {
                             <p className="px-3">Sign in with Google</p>
                         </button>
                     </div>
-                    <p className="text-white font-sans not-italic text-xs font-normal text-center">Already have an account? <Link href='/' className="text-[#007ABF]">Login</Link></p>
+                    <p className="text-white font-sans not-italic text-xs font-normal text-center">Already have an account? <Link href='/auth/login' className="text-[#007ABF]">Login</Link></p>
                 </form>
            </div>
         </div>
