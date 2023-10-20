@@ -3,12 +3,13 @@ import Image, { StaticImageData } from "next/image"
 import { useAtom } from "jotai"
 import ClickAwayListener from "@mui/material/ClickAwayListener"
 import Tooltip from "@mui/material/Tooltip"
-import Button from "@mui/material/Button"
+// import Button from "@mui/material/Button"
 import { responseAtom, platformAtom, loadingAtom } from "@/utils/store"
 import { auth } from "@/firebase"
 import { generateRealTimeToken } from "../auth"
+import ButtonGroup from '@mui/material/ButtonGroup';
 import tokens from "../public/icons/coins.png"
-import { Modal } from "@mui/material"
+import { Button, Modal } from "@mui/material"
 import { PlatformModal } from "@/components/modalStyle"
 import TwitterTime from "public/bestTimes/twitter.webp"
 import FacebookTime from "public/bestTimes/facebook.webp"
@@ -184,6 +185,42 @@ export default function GPTResponse({
 
   return (
     <div className="dark:bg-[#232529] bg-[#F2F2F2] w-full md:px-10 px-2 md:pt-24 pt-6 pb-10 mt-20 md:mt-0  items-center  flex flex-col h-full ">
+      {response?
+      <div className="flex flex-row w-full h-10 items-center justify-end mb-2 gap-x-2">
+      {/* <ButtonGroup  variant="contained" aria-label="outlined primary button group" color="primary"> */}
+        <Button
+                    onClick={async() =>await NewResponse("expand", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Expand
+                  </Button>
+                  <Button 
+                    onClick={async() =>await NewResponse("Shorten", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Shorten
+                  </Button>
+                  <Button
+                    onClick={async() =>await NewResponse("Exemplify", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Exemplify
+                  </Button>
+                  <Button
+                    onClick={async() =>await NewResponse("Simplify", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Simplify
+                  </Button>
+        {/* </ButtonGroup> */}
+      </div>
+      : null
+      
+    }
       <div className="flex flex-col items-center h-full w-full dark:bg-[#1B1D21] pb-6 bg-white rounded-md overflow-scroll">
         <div>
           {response ? (
@@ -235,30 +272,7 @@ export default function GPTResponse({
                     <SaveTwoToneIcon></SaveTwoToneIcon>
                   </Button>
                 </Tooltip>
-                <Button
-                    onClick={async() =>await NewResponse("expand", response)}
-                    className="mr-2"
-                  >
-                    Expand
-                  </Button>
-                  <Button
-                    onClick={async() =>await NewResponse("Shorten", response)}
-                    className="mr-2"
-                  >
-                    Shorten
-                  </Button>
-                  <Button
-                    onClick={async() =>await NewResponse("Exemplify", response)}
-                    className="mr-2"
-                  >
-                    Exemplify
-                  </Button>
-                  <Button
-                    onClick={async() =>await NewResponse("Simplify", response)}
-                    className="mr-2"
-                  >
-                    Simplify
-                  </Button>
+               
                 <Snackbar
                   anchorOrigin={{
                     vertical: "bottom",
