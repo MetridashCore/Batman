@@ -8,7 +8,7 @@ interface CardPropsType {
 
 export default function Card({ icon, title, text }: CardPropsType) {
   return (
-    <div className="bg-[#1a1f40] rounded-xl">
+    <div className="bg-[#131313] border-gray-800 border-1 rounded-md">
       <div className="flex flex-col items-start p-6 gap-3">
         <div className="w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center">
           { icon }
