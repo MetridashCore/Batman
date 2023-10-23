@@ -72,7 +72,7 @@ export default function DraftEditor() {
   }
 
   return (
-    <div className="flex w-full h-full dark:bg-[#1C1C1C] bg-white px-20 pt-10 pb-28">
+    <div className="flex w-full h-full dark:bg-[#1C1C1C] bg-white px-20 pt-28 pb-14">
       <div className="flex flex-col dark:bg-[#1B1D21] bg-[#F2F2F2] h-full w-full border dark:border-[#33363C] rounded">
         <textarea
           value={data}

@@ -9,7 +9,7 @@ import Autocomplete from "@mui/material/Autocomplete"
 import GPTResponseVideo from "@/components/GPTResponseVideo"
 import { useAtom } from "jotai"
 import { updateTokens, readTokens, getUserToken } from "../../auth"
-import { platformAtom, responseAtom } from "@/utils/store"
+import { platformAtom, responseAtom, loadingAtom } from "@/utils/store"
 import { auth } from "@/firebase"
 import { Modal, Box, OutlinedInput } from "@mui/material"
 import { StyleModal } from "@/components/modalStyle"
@@ -37,6 +37,7 @@ type MainSelectorProps = {
 }
 export default function Form4({ title }: MainSelectorProps) {
   const [value, setValue] = useState<any>("")
+  const [loading] = useAtom(loadingAtom)
   const [keywords, setKeywords] = useState<string>()
   const [word, setWord] = useState("")
   const [inputValue, setInputValue] = useState("")
@@ -46,7 +47,7 @@ export default function Form4({ title }: MainSelectorProps) {
   const [input, setInput] = useState("")
   const [_response, setResponse] = useAtom(responseAtom)
   const [_platform, setPlatform] = useAtom(platformAtom)
-  const [loading, setLoading] = useState(false)
+  const [_loading, setLoading] = useAtom(loadingAtom)
   const [word1, setWord1] = useState<string>("")
   const [tokensRequired, setTokensRequired] = useState<string>("")
   let token: number = 20
@@ -177,7 +178,7 @@ export default function Form4({ title }: MainSelectorProps) {
 
   return (
     <div className="flex flex-col md:flex-row	justify-center items-center w-full h-full">
-      <div className="w-full h-screen flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 flex-col">
+      <div className="w-full h-full flex dark:bg-[#232529] bg-[#F2F2F2] md:px-10 px-4 pt-12 flex-col">
         <h1 className=" font-sans text-2xl font-bold">
           Generate {title.replace(/'/g, "&rsquo;")} 
         </h1>
@@ -222,6 +223,7 @@ export default function Form4({ title }: MainSelectorProps) {
 
           <h3 className=" text-lg mt-3 mb-1 dark:text-[#D2D2D2]">Tone </h3>
           <Autocomplete
+            
             value={value}
             onChange={(event: any, newValue: string | null) => {
               setValue(newValue)
@@ -232,25 +234,31 @@ export default function Form4({ title }: MainSelectorProps) {
             }}
             id="controllable-states-demo"
             options={options}
-            className=" dark:bg-[#1B1D21] bg-white rounded-xl"
+            className=" dark:bg-[#1B1D21] bg-white rounded-xl  "
             sx={{ width: "100%" }}
+            
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Select Tone"
+                className="no-border"
                 InputLabelProps={{
                   style: {
                     fontSize: "15px",
                     color: "#7D818B",
                     outlineStyle: "none",
+                    border: "none"
                   },
                 }}
                 InputProps={{
                   ...params.InputProps,
+                  
                   style: {
                     fontSize: "15px",
                     outlineStyle: "none",
                     color:  `${theme==="light"?"black":"white"}`,
+                    border: "none"
+                    
                   },
                 }}
               />

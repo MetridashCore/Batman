@@ -3,12 +3,13 @@ import Image, { StaticImageData } from "next/image"
 import { useAtom } from "jotai"
 import ClickAwayListener from "@mui/material/ClickAwayListener"
 import Tooltip from "@mui/material/Tooltip"
-import Button from "@mui/material/Button"
-import { responseAtom, platformAtom } from "@/utils/store"
+// import Button from "@mui/material/Button"
+import { responseAtom, platformAtom, loadingAtom } from "@/utils/store"
 import { auth } from "@/firebase"
 import { generateRealTimeToken } from "../auth"
+import ButtonGroup from '@mui/material/ButtonGroup';
 import tokens from "../public/icons/coins.png"
-import { Modal, Box } from "@mui/material"
+import { Button, Modal } from "@mui/material"
 import { PlatformModal } from "@/components/modalStyle"
 import TwitterTime from "public/bestTimes/twitter.webp"
 import FacebookTime from "public/bestTimes/facebook.webp"
@@ -24,6 +25,8 @@ import { addDraft } from "../auth"
 import Snackbar from "@mui/material/Snackbar"
 import Alert from "@mui/material/Alert"
 import Stack from "@mui/material/Stack"
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 type StaticImport = StaticImageData | string
 
 export default function GPTResponse({
@@ -32,6 +35,7 @@ export default function GPTResponse({
   platform?: string | string[] | undefined
 }) {
   const [response] = useAtom(responseAtom)
+  const [loading] = useAtom(loadingAtom)
   const [platformAt] = useAtom(platformAtom)
   const [token, setToken] = useState(0)
   const [color, setColor] = useState("gray-400")
@@ -40,9 +44,11 @@ export default function GPTResponse({
   const [openModal, setOpenModal] = useState(false)
   const [Pdata, setData] = useState<String>("")
   const [index, setIndex] = useState<Number>(0)
-  const [_response, setResponse] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [_response, setResponse] = useAtom(responseAtom)
+  const [_loading, setLoading] = useAtom(loadingAtom)
   const [fullData, setFullData] = useState("")
+  const [prevResp, setprevResp] = useState<String>("")
+  const [title, setTitle] = useState<String>("Response goes here")
   const currentUser = auth.currentUser
   let finalToken = 20
   const handleOpen = () => {
@@ -77,6 +83,7 @@ export default function GPTResponse({
       const tk = await generateRealTimeToken(user)
       setToken(Number(tk))
       setFullData(response)
+      
     })()
   }, [response, user])
 
@@ -88,28 +95,36 @@ export default function GPTResponse({
     }, 2000)
   }
 
-  const generateResponse = async (value: String) => {
+  const NewResponse = async(value: String, resp: String)=>{
+      loading?setTitle("Generating"):setTitle("response shows here")
+      await setprevResp(value)
+      setResponse("")
+      await generateResponse(value, resp)
+
+  }
+
+  const generateResponse = async (value: String, resp: String) => {
     setLoading(true)
     const tk = await getUserToken(user)
     if (Number(tk) < finalToken) {
       setLoading(false)
       return
     } else {
-      let usertk: number = Number(tk) - Number(finalToken)
+      // let usertk: number = Number(tk) - Number(finalToken)
       // e.preventDefault();
-      setResponse("")
-
-      await updateTokens(user, usertk)
+      
+      // setResponse("")
+      // await updateTokens(user, usertk)
       const res = await fetch("/api/promptChatGPT", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: `generate script for video ${value} `,
+          data: `${value} this ${resp} and give out the response in same format `,
         }),
       })
-
+      
       if (!res.ok) throw new Error(res.statusText)
 
       const data = res.body
@@ -169,7 +184,43 @@ export default function GPTResponse({
   }
 
   return (
-    <div className="dark:bg-[#232529] bg-[#F2F2F2] w-full px-10 pt-10 pb-20 mt-20 md:mt-0  items-center flex flex-col h-screen ">
+    <div className="dark:bg-[#232529] bg-[#F2F2F2] w-full md:px-10 px-2 md:pt-24 pt-6 pb-10 mt-20 md:mt-0  items-center  flex flex-col h-full ">
+      {response?
+      <div className="flex flex-row w-full h-10 items-center justify-end mb-2 gap-x-2">
+      {/* <ButtonGroup  variant="contained" aria-label="outlined primary button group" color="primary"> */}
+        <Button
+                    onClick={async() =>await NewResponse("expand", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Expand
+                  </Button>
+                  <Button 
+                    onClick={async() =>await NewResponse("Shorten", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Shorten
+                  </Button>
+                  <Button
+                    onClick={async() =>await NewResponse("Exemplify", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Exemplify
+                  </Button>
+                  <Button
+                    onClick={async() =>await NewResponse("Simplify", response)}
+                    className="bg-red-400"
+                    sx={{ backgroundColor: '#d0d8f5', color: '#1f388b'}}
+                  >
+                    Simplify
+                  </Button>
+        {/* </ButtonGroup> */}
+      </div>
+      : null
+      
+    }
       <div className="flex flex-col items-center h-full w-full dark:bg-[#1B1D21] pb-6 bg-white rounded-md overflow-scroll">
         <div>
           {response ? (
@@ -195,7 +246,7 @@ export default function GPTResponse({
               })
           ) : (
             <div className="flex w-full h-full items-center justify-center mt-40">
-              <p className="text-[#D2D2D2]  text-center">Response shows here</p>
+              <p className="text-[#D2D2D2]  text-center">{loading?"Generating":"Response shows here"}</p>
             </div>
           )}
         </div>
@@ -221,7 +272,7 @@ export default function GPTResponse({
                     <SaveTwoToneIcon></SaveTwoToneIcon>
                   </Button>
                 </Tooltip>
-
+               
                 <Snackbar
                   anchorOrigin={{
                     vertical: "bottom",
@@ -248,7 +299,12 @@ export default function GPTResponse({
           </div>
         ) : null}
       </div>
-
+      {loading?
+           <Box sx={{ width: '100%' }}>
+           <LinearProgress  />
+         </Box>:null
+      }
+     
       <Modal
         open={openModal}
         onClose={handleClose}

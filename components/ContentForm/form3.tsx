@@ -162,7 +162,7 @@ export default function Form3({ title }: MainSelectorProps) {
   );
   return (
     <div className="flex flex-col md:flex-row justify-center items-center">
-      <div className="md:w-full h-screen flex  dark:bg-[#232529]  bg-[#F2F2F2] md:px-10 px-4 pt-12 py-16 flex-col">
+      <div className="md:w-full h-full flex  dark:bg-[#232529]  bg-[#F2F2F2] md:px-10 px-4 pt-12 py-16 flex-col">
         <h1 className="font-sans text-2xl font-bold">
           Generate {title.replace(/'/g, "&rsquo;")} 
         </h1>

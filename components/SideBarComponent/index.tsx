@@ -39,7 +39,7 @@ export default function SideBar() {
     setFocusedItem(item)
   }
   return (
-    <div className="flex w-full bg-black h-full ">
+    <div className="flex w-full bg-black h-full pt-20 ">
       <div className="flex md:w-1/3 w-1/4 h-full dark:bg-[#1B1D21] bg-[#FFFFFF] flex-col overflow-scroll">
         <div className=" md:flex hidden h-8  flex-row mt-4 w-11/12 self-center dark:bg-[#232529] bg-[#F2F2F2] rounded-md mb-2">
           <SearchIcon htmlColor="#A8AAB0" className=" my-1 ml-2" />
@@ -134,7 +134,7 @@ export default function SideBar() {
           </List>
         ))}
       </div>
-      <div className="flex md:w-2/3 w-3/4 dark:bg-[#232529] bg-[#F2F2F2]">
+      <div className="flex h-full md:w-2/3 w-3/4 dark:bg-[#232529] bg-[#F2F2F2]">
         <MainSelector platform={option} />
       </div>
     </div>
