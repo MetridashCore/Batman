@@ -100,7 +100,7 @@ const Journey = () => {
           animate={controls}
         >
 
-          <Link href={'/auth/signup'}
+          <Link href={'/auth/createaccount'}
 
             className={`w-full  px-4 py-2  button-gradient   rounded-lg mt-5 `}
             type="submit"
