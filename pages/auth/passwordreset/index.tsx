@@ -9,7 +9,7 @@ const SignUp = () => {
                         Forgotten your password?</h1>
                     <p className="text-white font-sans not-italic text-sm font-normal content-center">There is nothing to worry about, we'll send you a message to help you reset your password.</p>
                 </div>
-                <form className="w-4/12 my-14">
+                <form className="md:w-3/12 my-14 w-full">
                     <div>
                         <label htmlFor="input-group-2" className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label>
                         <div className="relative mb-6">

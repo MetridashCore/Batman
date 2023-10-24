@@ -85,7 +85,7 @@ const Login = () => {
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form noValidate autoComplete="off" className="w-3/12 my-14">
+                        <Form noValidate autoComplete="off" className="md:w-3/12 my-14 w-full">
                             <div>
                                 <label htmlFor="input-group-1" className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label>
                                 <div className="relative mb-6">

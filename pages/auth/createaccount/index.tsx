@@ -8,7 +8,7 @@ const SignUp = () => {
                     <h1 className="text-transparent bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD] text-5xl font-sans not-italic font-bold leading-loose flex justify-center">Sign up</h1>
                     <p className="text-white font-sans not-italic text-sm font-normal content-center">Metridash: Your Ultimate Content Creation Companion</p>
                 </div>
-                <form className="w-100 my-14">
+                <form className="md:w-3/12 my-14 w-full w-100">
                     <div>
                         <label className="text-sm font-sans not-italic font-normal leading-6 text-white">Name</label><br />
                         <input
@@ -59,8 +59,8 @@ const SignUp = () => {
                         </Button>
                     </div>
                     <div className="inline-flex items-center justify-center w-full">
-                        <hr className="w-full h-px my-8 bg-gray-200 border-0"/>
-                            <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 left-1/2 dark:text-white dark:bg-black">or</span>
+                        <hr className="w-full h-px my-8 bg-gray-200 border-0" />
+                        <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">or</span>
                     </div>
                     <div className="flex justify-center my-5">
                         <button type="button" className="w-60 text-black bg-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
