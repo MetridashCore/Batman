@@ -11,9 +11,9 @@ const SignUp = () => {
                 </div>
                 <form className="w-4/12 my-14">
                     <div>
-                        <label id="input-group-1" className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label>
+                        <label htmlFor="input-group-2" className="text-sm font-sans not-italic font-normal leading-6 text-white">Email Address</label>
                         <div className="relative mb-6">
-                            <input type="text" id="input-group-1" className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
+                            <input type="text" id="input-group-2" className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2 placeholder= name@flowbite.com" />
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-9">
