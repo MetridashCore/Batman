@@ -1,21 +1,24 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
-import {
-  createUserWithEmail,
-  signInWithEmail,
-  signInWithGoogle,
-} from '../../auth.js';
+// import { useRouter } from 'next/router';
+// import {
+//   createUserWithEmail,
+//   signInWithEmail,
+//   signInWithGoogle,
+// } from '../../auth.js';
 
 
 const AuthPage = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
@@ -23,7 +26,7 @@ const AuthPage = () => {
  
   const handleSignUp = async () => {
     try {
-      await createUserWithEmail(email, password);
+      await createUserWithEmail(name,email, password);
       setMessage('User signed up successfully');
     } catch (error) {
       setMessage(`Error signing up: ${error.message}`);
@@ -53,6 +56,7 @@ const AuthPage = () => {
       <h1>Authentication</h1>
       <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
       <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+      <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
       <button onClick={handleSignUp}>Sign Up</button>
       <button onClick={handleSignIn}>Sign In</button>
       <button onClick={handleGoogleSignIn}>Sign In with Google</button>
