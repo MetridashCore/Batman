@@ -135,10 +135,10 @@ const HeaderMenu = (props: Props) => {
               }`}
               onClick={() => handleClick(4)}
             >
-              <Link href="/auth/signin">Sign in</Link>
+              <Link href="/auth/login">Sign in</Link>
             </h1>
             <Link
-              href={"/auth/signup"}
+              href={"/auth/createaccount"}
               className="button-gradient flex-row  gap-x-1 px-4 py-1 "
             >
               <h1 className="font-semibold text-white ">Try for free</h1>
@@ -199,7 +199,7 @@ const HeaderMenu = (props: Props) => {
                     About Us
                   </Link>
                   <Link
-                    href="/auth/signin"
+                    href="/auth/login"
                     className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false)
@@ -209,7 +209,7 @@ const HeaderMenu = (props: Props) => {
                     Sign in
                   </Link>
                   <Link
-                    href="/auth/signup"
+                    href="/auth/createaccount"
                     className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false)

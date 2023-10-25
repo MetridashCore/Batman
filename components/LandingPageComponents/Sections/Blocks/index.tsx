@@ -46,7 +46,7 @@ const Blocks = () => {
         </p>
         <div className="btn-hero  flex items-center  justify-center flex-col gap-y-2  w-full">
           <Link
-            href={`${user && user.uid ? "/homepage" : "/auth/signup"}`}
+            href={`${user && user.uid ? "/homepage" : "/auth/createaccount"}`}
             className="  px-4 py-2 mt-2  button-gradient "
           >
             <h1 className="text-xl font-semibold text-white">Try for free</h1>

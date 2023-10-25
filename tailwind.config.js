@@ -18,9 +18,12 @@ module.exports = {
       textColor:{
         'text-grad': 'text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-400'
       },
-    
+      colors: {
+        'inputf': '#171717'
+      },
     },
     
   },
   plugins: [],
 }
+

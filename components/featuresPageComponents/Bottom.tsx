@@ -10,7 +10,7 @@ export default function Bottom() {
       <span>with Metridash.</span>
       <span>Ready to make content magic?</span>
       <Link
-        href={ `${user && user.uid ? "/homepage" : "/auth/signup"}` }
+        href={ `${user && user.uid ? "/homepage" : "/auth/createaccount"}` }
         className="button-gradient px-4 py-2 mt-4"
       >
         <button className="text-lg font-semibold text-white">Try for free</button>
