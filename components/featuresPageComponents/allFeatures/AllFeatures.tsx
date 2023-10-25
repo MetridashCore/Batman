@@ -6,6 +6,17 @@ import TikTokIcon from '../../../public/platformIcons/tiktokHQ.png'
 import Youtubeicon from '../../../public/platformIcons/youtubeHQ.png'
 import TwitterIcon from '../../../public/platformIcons/twitterx2.png'
 import PlaceHolder from '../../../public/platformIcons/twitterHQ.png'
+import Schedule from '../../../public/icons/schedule.png'
+import Automated from '../../../public/icons/automated.png'
+import ContentT from '../../../public/icons/content-taylored.png'
+import Craft from '../../../public/icons/craftbio.png'
+import Insight from '../../../public/icons/insight.png'
+import Calender from '../../../public/icons/calenderCont.png'
+import CSE from '../../../public/icons/cse.png'
+import Behaviour from '../../../public/icons/behaviour.png'
+import Optim from '../../../public/icons/optimization.png'
+import Multi from '../../../public/icons/multi.png'
+import Collab from '../../../public/icons/collab.png'
 import Card from '../card/Card'
 
 export default function AllFeatures() {
@@ -57,12 +68,12 @@ export default function AllFeatures() {
                     text={ <><span>Whether it's 280 characters or less,</span><br /><span>you'll tweet like a pro.</span></> }
                   />
                   <Card
-                    icon={ <Image src={ PlaceHolder } alt="Twitter Logo" /> }
+                    icon={ <Image src={ Schedule } alt="Twitter Logo" /> }
                     title={ `Content Scheduling` }
                     text={ <><span>Plan, schedule, and conquer with</span><br /><span>our powerful scheduler.</span></> }
                   />
                   <Card
-                    icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                    icon={ <Image src={ Automated } alt="Instagram Logo" /> }
                     title={ `Automated Captioning` }
                     text={ <><span>Simplify caption writing with</span><br /><span>AI-powered suggestions.</span></> }
                   />
@@ -72,53 +83,53 @@ export default function AllFeatures() {
             <div className='grid grid-cols-2 auto-rows-auto items-start gap-6'>
               <div className='grid gap-6'>
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ ContentT } alt="Instagram Logo" /> }
                   title={ `Content Tailored to You` }
                   text={ <><span>Metridash understands your</span><br /><span>style and audience demographics.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Craft } alt="Instagram Logo" /> }
                   title={ `Craft Engaging Bios` }
                   text={ <><span>Create compelling profiles
                   </span><br /><span>across platforms.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Insight } alt="Instagram Logo" /> }
                   title={ `Industry Insights:` }
                   text={ <><span>Stay ahead with real-time
                   </span><br /><span>data-driven content recommendations.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Calender } alt="Instagram Logo" /> }
                   title={ `Master Your Content Calendar` }
                   text={ <><span>Stay organized and on point</span><br /><span>with Metridash's content calendar.</span></> }
                 />
               </div>
               <div className='grid gap-6'>
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Behaviour } alt="Instagram Logo" /> }
                   title={ `Audience Behavior Analysis` }
                   text={ <><span>Understand your audience</span><br /><span>like never before.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Optim } alt="Instagram Logo" /> }
                   title={ `Optimization Recommendations` }
                   text={ <><span>Fine-tune your strategy</span><br /><span>with data-backed insights.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Multi } alt="Instagram Logo" /> }
                   title={ `Multichannel Insights:` }
                   text={ <><span>Expand your reach with</span><br /><span>cross-platform analytics.</span></> }
                 />
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ Collab } alt="Instagram Logo" /> }
                   title={ `Collaborative Creation` }
                   text={ <><span>Facilitate teamwork with real-time</span><br /><span>collaboration features.</span></> }
                 />
               </div>
               <div className="grid col-span-2">
                 <Card
-                  icon={ <Image src={ PlaceHolder } alt="Instagram Logo" /> }
+                  icon={ <Image src={ CSE } alt="Instagram Logo" /> }
                   title={ `Copy, Save, Edit—Your Content, Your Way` }
                   text={ <><span>Take control of your content with Metridash.</span><br /><span>Copy, save drafts, and edit effortlessly.</span></> }
                 />
