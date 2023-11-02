@@ -7,6 +7,6 @@ build:
     - npm run build
 
 run:
-  command: npm run dev
+  command: npm start
   runtime: nodejs12
   port: 3000
