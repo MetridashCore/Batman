@@ -23,7 +23,7 @@ import { updateDoc } from "firebase/firestore"
 import Alert from "@mui/material/Alert"
 
 // import { db } from './firebaseConfig';
-import { app } from "./firebaseConfig"
+import { app } from "./firebase"
 const auth = getAuth(app)
 
 const firestore = getFirestore(app)
