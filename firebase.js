@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getFirestore } from "firebase/firestore";
 import { getRemoteConfig } from "firebase/remote-config";
+console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -30,4 +31,4 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 const db = getFirestore(app);
-export { auth, database, db, firebaseConfig, remoteConfig };
+export { auth, database, db, firebaseConfig, remoteConfig, app };
