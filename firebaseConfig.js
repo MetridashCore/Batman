@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getFirestore } from "firebase/firestore";
 import { firebaseConfig } from "./firebase";
-
+console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
 const app = initializeApp(firebaseConfig);
 
 let remoteConfigVar;
