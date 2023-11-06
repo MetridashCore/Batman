@@ -24,11 +24,11 @@ const HeaderMenu = (props: Props) => {
   const [active, setActive] = useState<string>("0")
   const [showLogin, setShowLogin] = useState<boolean>(false)
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false)
-  useEffect(() => {
-    ;(async () => {
-      await getConfigValue(FirebaseParameters.SHOW_LOGIN, setShowLogin, true)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     await getConfigValue(FirebaseParameters.SHOW_LOGIN, setShowLogin, true)
+  //   })()
+  // }, [])
 
   const handleLogout = async () => {
     try {
