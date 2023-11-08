@@ -5,7 +5,7 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
 import { responseAtom } from "@/utils/store";
-import { auth } from "@/firebase";
+import { auth } from "@/firebase";    
 import { generateRealTimeToken } from "../auth";
 import tokens from "../public/icons/coins.png";
 import { updateTokens, readTokens, getUserToken } from "../auth";
