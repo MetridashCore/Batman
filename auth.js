@@ -189,29 +189,41 @@ export const Logout = async () => {
 }
 
 export const signInWithGoogle = async () => {
-  const googleProvider = new GoogleAuthProvider()
-  const { user } = await signInWithPopup(auth, googleProvider)
+  try {
+    await runTransaction(firestore, async (transaction) => {
+      const googleProvider = new GoogleAuthProvider()
+      const { user } = await signInWithPopup(auth, googleProvider)
 
-  const userRef = collection(db, 'users')
-  const q = query(userRef, where('email', '==', user.email))
+      const userRef = collection(db, 'users')
+      const q = query(userRef, where('email', '==', user.email))
 
-  const querySnapshot = await getDocs(q)
-  let checkUser = []
-  querySnapshot.forEach((doc) => {
-    checkUser.push({ id: doc.id, ...doc.data() })
-  })
+      const querySnapshot = await getDocs(q)
+      let checkUser = []
+      querySnapshot.forEach((doc) => {
+        checkUser.push({ id: doc.id, ...doc.data() })
+      })
 
-  if (checkUser.length > 0) return
+      if (checkUser.length > 0) {
+        return
+      }
 
-  const userData = {
-    email: user.email,
-    tokens: 100,
-    model: 'text-davinci-002',
-    isNewUser: true,
-    uid: user.uid,
+      const userData = {
+        email: user.email,
+        tokens: 100,
+        model: 'text-davinci-002',
+        isNewUser: true,
+        uid: user.uid,
+      }
+
+      transaction.set(doc(firestore, 'users', user.uid), userData, {
+        merge: true,
+      })
+    })
+
+    return user
+  } catch (error) {
+    console.error('failed:', error)
   }
-  await setDoc(doc(firestore, 'users', user.uid), userData, { merge: true })
-  return user
 }
 
 export const onUserSignedIn = async (user, router) => {
