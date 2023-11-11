@@ -143,6 +143,9 @@ export const fetchUserDrafts = async (user) => {
 
 export const createUserWithEmail = async (email, password) => {
   try {
+    const res = await fetch('https://api64.ipify.org?format=json')
+    const data = await res.json()
+    const location = data.ip
     await runTransaction(firestore, async (transaction) => {
       const { user } = await createUserWithEmailAndPassword(
         auth,
@@ -158,6 +161,7 @@ export const createUserWithEmail = async (email, password) => {
           isNewUser: true,
           uid: user.uid,
           drafts: [],
+          location,
         }
         transaction.set(doc(firestore, 'users', user.uid), userData)
       }
@@ -190,6 +194,9 @@ export const Logout = async () => {
 
 export const signInWithGoogle = async () => {
   try {
+    const res = await fetch('https://api64.ipify.org?format=json')
+    const data = await res.json()
+    const location = data.ip
     await runTransaction(firestore, async (transaction) => {
       const googleProvider = new GoogleAuthProvider()
       const { user } = await signInWithPopup(auth, googleProvider)
@@ -213,6 +220,7 @@ export const signInWithGoogle = async () => {
         model: 'text-davinci-002',
         isNewUser: true,
         uid: user.uid,
+        location,
       }
 
       transaction.set(doc(firestore, 'users', user.uid), userData, {
