@@ -31,6 +31,12 @@ const firestore = db
 
 const googleProvider = new GoogleAuthProvider()
 
+export const getUserLocation = async () => {
+  const res = await fetch('https://api64.ipify.org?format=json')
+  const data = await res.json()
+  return data.ip
+}
+
 export const readTokens = async (user) => {
   const userRef = doc(firestore, 'users', user.uid)
   const userDoc = await userRef.get()
@@ -143,9 +149,7 @@ export const fetchUserDrafts = async (user) => {
 
 export const createUserWithEmail = async (email, password) => {
   try {
-    const res = await fetch('https://api64.ipify.org?format=json')
-    const data = await res.json()
-    const location = data.ip
+    const location = await getUserLocation()
     await runTransaction(firestore, async (transaction) => {
       const { user } = await createUserWithEmailAndPassword(
         auth,
@@ -194,9 +198,7 @@ export const Logout = async () => {
 
 export const signInWithGoogle = async () => {
   try {
-    const res = await fetch('https://api64.ipify.org?format=json')
-    const data = await res.json()
-    const location = data.ip
+    const location = await getUserLocation()
     await runTransaction(firestore, async (transaction) => {
       const googleProvider = new GoogleAuthProvider()
       const { user } = await signInWithPopup(auth, googleProvider)
