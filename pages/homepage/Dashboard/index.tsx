@@ -9,7 +9,7 @@ export default function Dashboard() {
     return
   }
   return (
-    <h3 className="font-semibold  text-5xl flex justify-center mt-64 min-h-[calc(100vh-8rem)]">
+    <h3 className="font-semibold  text-5xl flex justify-center  min-h-screen items-center">
       Coming Soon...
     </h3>
   )
