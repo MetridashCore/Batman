@@ -100,7 +100,7 @@ const Journey = () => {
           animate={controls}
         >
 
-          <Link href={'/auth/createaccount'}
+          {/* <Link href={'/auth/createaccount'}
 
             className={`w-full  px-4 py-2  button-gradient   rounded-lg mt-5 `}
             type="submit"
@@ -108,7 +108,7 @@ const Journey = () => {
             <p className=" text-xl text-white font-semibold  ">
               Try for free
             </p>
-          </Link>
+          </Link> */}
 
         </motion.div>
         <div className="flex w-screen h-20 flex-row gap-x-4 my-10 justify-center ">

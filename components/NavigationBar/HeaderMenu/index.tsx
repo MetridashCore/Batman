@@ -98,14 +98,14 @@ const HeaderMenu = (props: Props) => {
               <Link href="/features">Features</Link>
             </li>
 
-            <li
+            {/* <li
               className={`cursor-pointer mr-4 text-sm self-center ${
                 active === "2" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(2)}
             >
               <Link href="/pricing">Pricing</Link>
-            </li>
+            </li> */}
 
             <li
               className={`cursor-pointer mr-4 text-sm self-center ${
@@ -127,7 +127,7 @@ const HeaderMenu = (props: Props) => {
 
 
           </ul>
-          <div className="md:flex hidden flex-row gap-x-2">
+          {/* <div className="md:flex hidden flex-row gap-x-2">
 
             <h1
               className={`cursor-pointer mr-4 text-md self-center ${
@@ -143,7 +143,7 @@ const HeaderMenu = (props: Props) => {
             >
               <h1 className="font-semibold text-white ">Try for free</h1>
             </Link>
-          </div>
+          </div> */}
 
           <div className="md:hidden flex relative">
             <div className="flex">
@@ -178,7 +178,7 @@ const HeaderMenu = (props: Props) => {
                   >
                     Features
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/pricing"
                     className="text-white dropdown_link"
                     onClick={() => {
@@ -187,7 +187,7 @@ const HeaderMenu = (props: Props) => {
                     }}
                   >
                     Pricing
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/about"
                     className="text-white dropdown_link"
@@ -198,7 +198,7 @@ const HeaderMenu = (props: Props) => {
                   >
                     About Us
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/auth/login"
                     className="text-white dropdown_link"
                     onClick={() => {
@@ -217,7 +217,7 @@ const HeaderMenu = (props: Props) => {
                     }}
                   >
                     Sign up
-                  </Link>
+                  </Link> */}
                 </div>
               )}
             </div>
