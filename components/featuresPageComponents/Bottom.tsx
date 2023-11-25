@@ -9,12 +9,12 @@ export default function Bottom() {
       <span>Unleash your creative genius and power up your content strategy</span>
       <span>with Metridash.</span>
       <span>Ready to make content magic?</span>
-      <Link
+      {/* <Link
         href={ `${user && user.uid ? "/homepage" : "/auth/createaccount"}` }
         className="button-gradient px-4 py-2 mt-4"
       >
         <button className="text-lg font-semibold text-white">Try for free</button>
-      </Link>
+      </Link> */}
     </div>
   )
 }

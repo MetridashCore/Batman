@@ -7,7 +7,8 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 import { db } from "@/firebase"
 import DashBoard from "../../../../public/Images/Desktop.png"
 import checkUser from "@/utils/checkUser"
-
+import google from "@/public/icons/google-play.png"
+import apple from "@/public/icons/apple-logo.png"
 const Blocks = () => {
   const textScrollVariants = {
     visible: { opacity: 1, top: 0 },
@@ -45,16 +46,16 @@ const Blocks = () => {
           here to revolutionise your creative process.
         </p>
         <div className="btn-hero  flex items-center  justify-center flex-col gap-y-2  w-full">
-          <Link
-            href={`${user && user.uid ? "/homepage" : "/auth/createaccount"}`}
-            className="  px-4 py-2 mt-2  button-gradient "
-          >
-            <h1 className="text-xl font-semibold text-white">Try for free</h1>
-          </Link>
-
-          <h1 className="text-md font-light text-gray-300">
-            No credit card required.
-          </h1>
+          <div className="flex inline-flex justify-center items-center gap-x-3  ">
+            <Link href="/" className="inline-flex items-center px-4 py-2 mt-2 button-gradient text-xl text-white">
+              <Image src={google} alt="google play logo" width={20} height={20} />
+              Download on Google Play
+            </Link>
+            <Link href="/" className="inline-flex items-center px-4 py-2 mt-2 button-gradient text-xl text-white">
+              <Image src={apple} alt="google play logo" width={20} height={20} />
+              Download on Apple Store
+            </Link>
+        </div>
         </div>
       </motion.div>
       {/* <div
