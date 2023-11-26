@@ -140,7 +140,15 @@ export default function Contact() {
                         variant="contained"
                         disabled={disabled()}
                     >
-                        Submit {loading && <CircularProgress color="inherit" />}
+                        Submit{' '}
+                        {loading && (
+                            <CircularProgress
+                                sx={{ marginLeft: 2 }}
+                                color="inherit"
+                                size={20}
+                                thickness={4}
+                            />
+                        )}
                     </Button>
                 </form>
                 {response && <p className="text-green-700 mt-5">{response}</p>}
