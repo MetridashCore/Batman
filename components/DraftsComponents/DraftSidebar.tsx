@@ -20,11 +20,16 @@ export default function DraftSidebar() {
     const [searchText, setSearchText] = useState<string>('')
     const [user, setUser] = useState<any>(null)
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setUser(user)
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user)
+            }
+        })
+        return () => {
+            unsubscribe()
         }
-    })
+    }, [user])
 
     useEffect(() => {
         fetchUserDrafts(user)
