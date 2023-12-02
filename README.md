@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Self-Host Docker Deployment
 
 1. checkout source git clone `https://github.com/MetridashCore/Batman` 
-2. got into new source dir: `cd elk`
+2. got into new source dir: `cd Batman`
 3. COPY the `.env.example` to `.env` and fill the env variables
 4. RUN `docker-compose up -d`
 
