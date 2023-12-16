@@ -46,14 +46,14 @@ const Blocks = () => {
           here to revolutionise your creative process.
         </p>
         <div className="btn-hero  flex items-center  justify-center flex-col gap-y-2  w-full">
-          <div className="flex inline-flex justify-center items-center gap-x-3  ">
-            <Link href="/" className="inline-flex items-center px-4 py-2 mt-2 button-gradient text-xl text-white">
+          <div className=" inline-flex justify-center items-center gap-x-3  ">
+            <Link href="/" className="inline-flex items-center px-4 gap-x-2 py-2 mt-2 button-gradient text-xl text-white">
               <Image src={google} alt="google play logo" width={20} height={20} />
-              Download on Google Play
+              <h3 className="font-light text-base text-transparent bg-clip-text bg-gradient-to-t from-gray-300 to-gray-100">Google Play (Coming Soon)</h3>
             </Link>
-            <Link href="/" className="inline-flex items-center px-4 py-2 mt-2 button-gradient text-xl text-white">
+            <Link href="/" className="inline-flex items-center px-4 gap-x-2 py-2 mt-2 button-gradient text-xl text-white">
               <Image src={apple} alt="google play logo" width={20} height={20} />
-              Download on Apple Store
+              <h3 className="font-light text-base text-transparent bg-clip-text bg-gradient-to-t from-gray-300 to-gray-100">Apple store (Coming Soon)</h3>
             </Link>
         </div>
         </div>
