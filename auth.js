@@ -119,6 +119,19 @@ export const addDraft = async (user, data, platform) => {
   }
 }
 
+export const addToWaitList = async ( email) => {
+  db.collection("waitList").add({
+    email: email,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+}
+
 export const fetchUserDrafts = async (user) => {
   const userRef = doc(firestore, "users", user.uid)
 
