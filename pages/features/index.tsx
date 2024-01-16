@@ -97,6 +97,7 @@ const Features = () => {
               
                 <AllFeatures />
                 <div className='flex flex-col items-center justify-center py-12'>
+                    <h1 className='title-style mt-20'>Join the Waitlist</h1>
                     <div className='w-72 h-10 mt-8  bg-black'>
                         <input onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
                     </div>
