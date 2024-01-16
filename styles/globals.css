@@ -10,6 +10,14 @@
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
 }
 
+.glowing-image {
+   transition: box-shadow 0.3s ease-in-out;
+}
+
+.glowing-image:hover {
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 1);
+}
+
 .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }

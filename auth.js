@@ -17,6 +17,7 @@ import {
   query,
   where,
   arrayUnion,
+  addDoc
 } from "firebase/firestore"
 import { db } from "./firebase"
 import { updateDoc } from "firebase/firestore"
@@ -29,6 +30,16 @@ const auth = getAuth(app)
 const firestore = getFirestore(app)
 
 const googleProvider = new GoogleAuthProvider()
+
+
+export const waitList=async(email)=>{
+   await addDoc(collection(firestore, "waitList"), {
+    email: email,
+    createdAt: new Date().toDateString()
+  });
+  
+
+}
 
 export const readTokens = async (user) => {
   const userRef = doc(firestore, "users", user.uid)
@@ -117,6 +128,19 @@ export const addDraft = async (user, data, platform) => {
     alert("Error:", error)
     console.log(error)
   }
+}
+
+export const addToWaitList = async ( email) => {
+  db.collection("waitList").add({
+    email: email,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
 }
 
 export const fetchUserDrafts = async (user) => {
