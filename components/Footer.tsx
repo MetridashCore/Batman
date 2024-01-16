@@ -11,17 +11,17 @@ const Footer = () => {
       className={`${
         
         router.pathname === "/features"
-          ? "bg-white rounded-lg shadow m-4 dark:bg-black  md:mt-5"
+          ? " rounded-lg shadow m-4 bg-black  md:mt-5"
           : router.pathname === "/"
           
           ? "hidden"
           : router.pathname === "/waitList"
-          ? "bg-white rounded-lg shadow m-4 dark:bg-black mt-[800px] md:mt-10"
+          ? " rounded-lg shadow m-4 bg-black  md:mt-5"
           : router.pathname === "/auth/signin"
-          ? "bg-white rounded-lg shadow m-4 dark:bg-black mb-[-50px]"
-          : router.pathname === "/auth/signup"
-          ? "bg-white rounded-lg shadow m-4 dark:bg-black mb-[-50px]"
-          : "bg-white rounded-lg shadow m-4 dark:bg-black mt-[200px] md:mt-5"
+          ? " rounded-lg shadow m-4 bg-black mb-[-50px]"
+          : router.pathname === "/about"
+          ? " rounded-lg shadow m-4 bg-black  md:mt-5"
+          : " rounded-lg shadow m-4 bg-black mt-[200px] md:mt-5"
           
           
       }  `}

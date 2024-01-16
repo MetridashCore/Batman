@@ -162,14 +162,14 @@ const HeaderMenu = (props: Props) => {
               {toggleDropdown && (
                 <div className="dropdown">
                   <Link
-                    href="/"
+                    href="/waitList"
                     className="text-white dropdown_link"
                     onClick={() => {
                       setToggleDropdown(false)
                       handleClick(0)
                     }}
                   >
-                    Home
+                    Join the Waitlist
                   </Link>
                   <Link
                     href="/features"
@@ -201,16 +201,7 @@ const HeaderMenu = (props: Props) => {
                   >
                     About Us
                   </Link>
-                  <Link
-                    href="/waitList"
-                    className="text-white dropdown_link"
-                    onClick={() => {
-                      setToggleDropdown(false)
-                      handleClick(3)
-                    }}
-                  >
-                    Join the Waitlist
-                  </Link>
+                 
                   {/* <Link
                     href="/auth/login"
                     className="text-white dropdown_link"
