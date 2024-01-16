@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import checkUser from '@/utils/checkUser'
@@ -7,14 +7,18 @@ import Logo from '../../public/tab-icon.png'
 import { useInView } from 'react-intersection-observer'
 import { useAnimation } from 'framer-motion'
 import { motion, AnimatePresence } from 'framer-motion'
+import { waitList } from '@/auth'
+
 export default function About() {
     const user: any = checkUser()
     const textScrollVariants = {
         visible: { opacity: 1, top: 0 },
         hidden: { opacity: 0 },
     }
-
+    const [email, setEmail] = useState<any>(null)
     const controls = useAnimation()
+    const [color, setColor] = useState('red-500')
+    const[alert, setAlert] = useState<any>(null)
     const [ref, inView] = useInView()
 
     useEffect(() => {
@@ -22,6 +26,21 @@ export default function About() {
             controls.start('visible')
         }
     }, [controls, inView])
+
+
+    const addWaitlist=async()=>{
+
+        if (email==null){
+            setColor('red-500')
+            setAlert("Please enter your email")
+            return
+        }
+        console.log("*****************"+email)
+            await waitList(email).then((res)=>{console.log("data added"+res)}).catch((err)=>{console.log(err)})
+            setColor('green-600')
+            setAlert("You have been added to the waitlist")
+    }
+
     return (
         <>
             <Head>
@@ -70,7 +89,7 @@ export default function About() {
                         different platforms. We saw an opportunity to provide a
                         comprehensive solution that simplifies the content
                         creation journey and empowers creators to make
-                        data-driven decisions.
+                        data-driven decisions. 
                     </p>
                     <h1 className="text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         One Dashboard to Rule Them All
@@ -152,16 +171,10 @@ export default function About() {
                     <h1 className="text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Ready to Master Your Content?
                     </h1>
-                    <Link
-                        href={`${
-                            user && user.uid ? '/homepage' : '/auth/signup'
-                        }`}
-                        className="  px-4 py-2 mt-8 button-gradient"
-                    >
-                        <h1 className="text-lg font-semibold text-white">
-                            Explore Metridash Today
-                        </h1>
-                    </Link>
+                   <h1 className='title-style mt-20'>Join the Waitlist</h1>
+                   <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-2 mt-6 bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
+                   <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
+                    <button onClick={()=>addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
                 </motion.div>
             </div>
         </>

@@ -115,6 +115,16 @@ const HeaderMenu = (props: Props) => {
             >
               <Link href="/about">About Us</Link>
             </li>
+           
+            <li
+              className={`cursor-pointer mr-4 text-sm self-center ${
+                active === "4" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
+              }`}
+              onClick={() => handleClick(4)}
+            >
+              <Link href="/waitList">Join the Waitlist</Link>
+            </li>
+           
 
             {/* <li
               className={`cursor-pointer mr-4 ${
@@ -197,6 +207,16 @@ const HeaderMenu = (props: Props) => {
                     }}
                   >
                     About Us
+                  </Link>
+                  <Link
+                    href="/waitList"
+                    className="text-white dropdown_link"
+                    onClick={() => {
+                      setToggleDropdown(false)
+                      handleClick(3)
+                    }}
+                  >
+                    Join the Waitlist
                   </Link>
                   {/* <Link
                     href="/auth/login"

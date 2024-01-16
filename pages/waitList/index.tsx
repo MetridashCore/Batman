@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button, TextField } from '@mui/material'
 import { addToWaitList } from '@/auth'
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
-
+ 
 import { waitList } from '@/auth'
 const Waitlist = () => {
     const [email, setEmail] = useState<any>(null)
