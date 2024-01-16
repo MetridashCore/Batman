@@ -37,7 +37,7 @@ const Waitlist = () => {
             ></Image>
             <h1 className={`text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 text-4xl font-medium tracking-wide  `}>Join our waitlist to</h1>
             <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4`}>start your content creation journey.</h1>
-            <h1 className='text-sm font-normal mt-6'>Metridash is currently invite-only.<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#037ADE] to-[#03E5B7]'> Sign up to get early access!</span></h1>
+                <h1 className='text-sm font-normal mt-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0]'>Metridash is currently invite-only.<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#037ADE] to-[#03E5B7]'> Sign up to get early access!</span></h1>
             <div className='w-72 h-10 mt-8  bg-black'>
                 <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
             </div>
@@ -45,10 +45,8 @@ const Waitlist = () => {
             <button onClick={()=>addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
             </div>
             <div className='mt-2 '>
-                <div className='flex justify-center  gap-x-12'>
-                    <div className="max-w-sm p-6 bg-gradient-to-r from-[#000000] to-[#000133]  border border-gray-900 rounded-lg shadow ">
-                        
-                            
+                <div className='flex justify-center gap-x-12 flex-col md:flex-row'>
+                    <div className="max-w-sm p-6 bg-gradient-to-r from-[#000000] to-[#000133]  border border-gray-900 rounded-lg shadow mb-4 md:mb-0 ">    
                         <a href="#">
                             <h5 className="mb-2 text-lg font-normal tracking-tight title-third "><span className="text-xl text-white">⌚</span> Time Saver</h5>
                         </a>
@@ -61,7 +59,7 @@ const Waitlist = () => {
                         </a>
                     </div>
 
-                    <div className="max-w-sm p-6 bg-gradient-to-t from-[#000000] to-[#000133]  border border-gray-800 rounded-lg shadow ">
+                    <div className="max-w-sm p-6 bg-gradient-to-t from-[#000000] to-[#000133]  border border-gray-800 rounded-lg shadow mb-4 md:mb-0">
                         
                             
                         <a href="#">
@@ -76,7 +74,7 @@ const Waitlist = () => {
                         </a>
                     </div>
 
-                    <div className="max-w-sm p-6 bg-gradient-to-t from-[#000000] to-[#130F40]  border border-gray-800 rounded-lg shadow ">
+                    <div className="max-w-sm p-6 bg-gradient-to-t from-[#000000] to-[#130F40]  border border-gray-800 rounded-lg shadow mb-4 md:mb-0">
                         
                             
                         <a href="#">
