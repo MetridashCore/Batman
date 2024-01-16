@@ -17,6 +17,7 @@ import {
   query,
   where,
   arrayUnion,
+  addDoc
 } from "firebase/firestore"
 import { db } from "./firebase"
 import { updateDoc } from "firebase/firestore"
@@ -29,6 +30,16 @@ const auth = getAuth(app)
 const firestore = getFirestore(app)
 
 const googleProvider = new GoogleAuthProvider()
+
+
+export const waitList=async(email)=>{
+   await addDoc(collection(firestore, "waitList"), {
+    email: email,
+    createdAt: new Date().toDateString()
+  });
+  
+
+}
 
 export const readTokens = async (user) => {
   const userRef = doc(firestore, "users", user.uid)
