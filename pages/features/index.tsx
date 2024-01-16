@@ -94,14 +94,15 @@ const Features = () => {
                         possibilities
                     </h1>
                 </motion.div>
-                <div className='flex flex-col items-center justify-center'>
+              
+                <AllFeatures />
+                <div className='flex flex-col items-center justify-center py-12'>
                     <div className='w-72 h-10 mt-8  bg-black'>
                         <input onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
                     </div>
                     <h1 className={`text-${color}`}>{alert}</h1>
                     <button onClick={() => addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
                 </div>
-                <AllFeatures />
                 <Bottom></Bottom>
             </div>
         </>

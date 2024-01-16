@@ -36,8 +36,8 @@ const Waitlist = () => {
                 alt="features"
             ></Image>
             <h1 className={`text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 text-4xl font-medium tracking-wide  `}>Join our waitlist to</h1>
-            <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4`}>start your content creation journey.</h1>
-                <h1 className='text-sm font-normal mt-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0]'>Metridash is currently invite-only.<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#037ADE] to-[#03E5B7]'> Sign up to get early access!</span></h1>
+            <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4 text-center`}>start your content creation journey.</h1>
+                <h1 className='text-sm font-normal mt-6 text-white text-center wrap'>Metridash is currently invite-only.<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#037ADE] to-[#03E5B7]'> Sign up to get early access!</span></h1>
             <div className='w-72 h-10 mt-8  bg-black'>
                 <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
             </div>
