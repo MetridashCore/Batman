@@ -69,7 +69,7 @@ const Features = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="flex w-full transition-all duration-1000 ease-in-out flex-col items-center justify-center md:gap-y-0 gap-y-4"
+                    className=" flex w-full h-screen transition-all duration-1000 ease-in-out flex-col items-center justify-center md:gap-y-0 gap-y-4"
                 >
                     <Image
                         className="w-[900px] object-contain mb-4"
@@ -96,14 +96,15 @@ const Features = () => {
                 </motion.div>
               
                 <AllFeatures />
-                <div className='flex flex-col items-center justify-center py-12'>
+                <div className='flex flex-col items-center justify-center py-6'>
                     <h1 className='title-style mt-20'>Join the Waitlist</h1>
                     <div className='w-72 h-10 mt-8  bg-black'>
                         <input onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
                     </div>
-                    <h1 className={`text-${color}`}>{alert}</h1>
+                    <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
                     <button onClick={() => addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
                 </div>
+
                 <Bottom></Bottom>
             </div>
         </>

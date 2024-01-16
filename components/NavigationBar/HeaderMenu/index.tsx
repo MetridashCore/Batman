@@ -80,13 +80,13 @@ const HeaderMenu = (props: Props) => {
             </h1>
           </div>
           <ul className=" justify-center gap-x-10 md:flex hidden">
-            <li
+          <li
               className={`cursor-pointer mr-4 text-sm self-center ${
                 active === "0" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
               }`}
               onClick={() => handleClick(0)}
             >
-              <Link href="/">Home</Link>
+              <Link href="/waitList">Join the Waitlist</Link>
             </li>
 
             <li
@@ -116,14 +116,7 @@ const HeaderMenu = (props: Props) => {
               <Link href="/about">About Us</Link>
             </li>
            
-            <li
-              className={`cursor-pointer mr-4 text-sm self-center ${
-                active === "4" ? "text-transparent  bg-clip-text bg-gradient-to-l from-[#1E9AFE] to-[#60DFCD]" : "text-[#a0a2ae]"
-              }`}
-              onClick={() => handleClick(4)}
-            >
-              <Link href="/waitList">Join the Waitlist</Link>
-            </li>
+           
            
 
             {/* <li

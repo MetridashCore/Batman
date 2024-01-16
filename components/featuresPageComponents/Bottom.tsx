@@ -5,8 +5,8 @@ import Link from 'next/link'
 export default function Bottom() {
   const user = auth.currentUser
   return (
-    <div className="flex flex-col items-center py-[7rem] text-para text-2xl">
-      <span>Unleash your creative genius and power up your content strategy</span>
+    <div className="flex flex-col items-center pt-6 pb-16 text-para text-2xl">
+      <span className='text-center'>Unleash your creative genius and power up your content strategy</span>
       <span>with Metridash.</span>
       <span>Ready to make content magic?</span>
       {/* <Link
