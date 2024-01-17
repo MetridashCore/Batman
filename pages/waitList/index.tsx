@@ -32,19 +32,20 @@ const Waitlist = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    transition={{ delay: 0.25 }} className='flex flex-col items-center justify-center h-screen w-full  '>
+                    transition={{ delay: 0.25 }} className='flex flex-col items-center justify-center p-20 mt-20 h-full w-full  '>
             <Image
                 className="shadow-[0_0_2px_#009FFD,inset_0_0_2px_#2A2A72,0_0_5px_#009FFD,0_0_15px_#2A2A72,0_0_30px_#009FFD]
                 w-28 h-28 object-contain mb-8   transition-shadow duration-300 ease-in-out hover:shadow-lg "
                 src={MainLogo}
                 alt="features"
             ></Image>
-            <h1 className={`text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 text-4xl font-medium tracking-wide  `}>Join our waitlist to</h1>
-            <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4 text-center`}>start your content creation journey.</h1>
+            <h1 className={`text-center text-transparent bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200 text-4xl font-medium tracking-wide  `}>Join our waitlist to</h1>
+            <h1 className={`text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] md:text-4xl font-medium tracking-wide mt-4 text-center`}>start your content creation journey.</h1>
                 <h1 className='text-sm font-normal mt-6 text-white text-center wrap'>Metridash is currently invite-only.<span className='text-transparent bg-clip-text bg-gradient-to-r from-[#037ADE] to-[#03E5B7]'> Sign up to get early access!</span></h1>
             <div className='w-72 h-10 mt-8  bg-black'>
                 <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
             </div>
+
             <motion.h1  initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
@@ -52,11 +53,14 @@ const Waitlist = () => {
             <button onClick={()=>addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
             </motion.div>
             <div className='mt-2 '>
+            <h1 className="m-10 font-semibold md:text-[48px] text-4xl leading-[54px] text-center text-transparent bg-clip-text bg-gradient-to-r from-[#009FFD] to-[#2A2A72] ">
+        Why Creators love Metridash?
+      </h1>
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    transition={{ delay: 0.25 }} className='flex justify-center gap-x-12 flex-col md:flex-row'>
+                    transition={{ delay: 0.25 }} className='flex justify-center gap-x-12 flex-col md:flex-row md:px-0 px-10'>
                     <div className="max-w-sm p-6 bg-gradient-to-r from-[#000000] to-[#000133]  border border-gray-900 rounded-lg shadow mb-4 md:mb-0 ">    
                         <a href="#">
                             <h5 className="mb-2 text-lg font-normal tracking-tight title-third "><span className="text-xl text-white">⌚</span> Time Saver</h5>
