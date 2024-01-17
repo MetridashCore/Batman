@@ -171,7 +171,7 @@ export default function About() {
                     <h1 className="text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Ready to Master Your Content?
                     </h1>
-                   <h1 className='title-style mt-20'>Join the Waitlist</h1>
+                   <h1 className='title-style mt-10'>Join the Waitlist</h1>
                    <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-2 mt-6 bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
                    <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
                     <button onClick={()=>addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
