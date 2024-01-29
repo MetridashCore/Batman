@@ -66,7 +66,6 @@ const Waitlist = () => {
                         <div className="bg-white p-6 rounded-md">
                             <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4 text-center`}>Welcome to Metridash Waitlist</h1>
                             <p className="mt-4 text-black font-thin text-center break-words">Exciting news! You've secured your spot on the Metridash Waitlist. <br/>To join our vibrant community, connect on Discord now:</p>
-                            {/* Add any additional content for the modal */}
                             <div className='flex justify-center'>
                                 <Link href='https://discord.gg/2fmn7AnRuZ' target='_blank' className="mt-4 bg-blue-500 text-white px-8 py-3 rounded-md ">
                                     Join 
