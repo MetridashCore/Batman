@@ -43,6 +43,9 @@
 .hero-second{
   @apply  text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] font-semibold text-3xl
 }
+.hero-third{
+  @apply  text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] font-semibold text-xl
+}
 
 .card {
   width: 100px;

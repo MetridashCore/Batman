@@ -18,7 +18,7 @@ export default function About() {
     const [email, setEmail] = useState<any>(null)
     const controls = useAnimation()
     const [color, setColor] = useState('red-500')
-    const[alert, setAlert] = useState<any>(null)
+    const [alert, setAlert] = useState<any>(null)
     const [ref, inView] = useInView()
 
     useEffect(() => {
@@ -27,18 +27,22 @@ export default function About() {
         }
     }, [controls, inView])
 
-
-    const addWaitlist=async()=>{
-
-        if (email==null){
+    const addWaitlist = async () => {
+        if (email == null) {
             setColor('red-500')
-            setAlert("Please enter your email")
+            setAlert('Please enter your email')
             return
         }
-        console.log("*****************"+email)
-            await waitList(email).then((res)=>{console.log("data added"+res)}).catch((err)=>{console.log(err)})
-            setColor('green-600')
-            setAlert("You have been added to the waitlist")
+        console.log('*****************' + email)
+        await waitList(email)
+            .then((res) => {
+                console.log('data added' + res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        setColor('green-600')
+        setAlert('You have been added to the waitlist')
     }
 
     return (
@@ -89,7 +93,7 @@ export default function About() {
                         different platforms. We saw an opportunity to provide a
                         comprehensive solution that simplifies the content
                         creation journey and empowers creators to make
-                        data-driven decisions. 
+                        data-driven decisions.
                     </p>
                     <h1 className="text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         One Dashboard to Rule Them All
@@ -129,7 +133,7 @@ export default function About() {
                         community of creators who support and uplift each other.{' '}
                     </p>
 
-                    <h1 className="text-xl text-transparent font-semibold  bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
+                    <h1 className="text-xl text-transparent mt-8 font-semibold  bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Challenging the Status Quo
                     </h1>
                     <p className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-left text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
@@ -171,10 +175,27 @@ export default function About() {
                     <h1 className="text-xl text-transparent font-semibold mt-8 bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Ready to Master Your Content?
                     </h1>
-                   <h1 className='title-style mt-20'>Join the Waitlist</h1>
-                   <input onChange={(e)=>setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-2 mt-6 bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
-                   <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
-                    <button onClick={()=>addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
+                    <h1 className="title-style mt-10">Join the Waitlist</h1>
+                    <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email."
+                        className="w-72 h-full pl-2 py-2 mt-6 bg-black border-gray-800 border-spacing-14 border-2 rounded "
+                    ></input>
+                    <h1
+                        className={`text-transparent bg-clip-text bg-gradient-to-r ${
+                            color === `red-500`
+                                ? `from-[#EE5A24] to-[#EA2027]`
+                                : `from-[#A2D240] to-[#1B8B00]`
+                        } `}
+                    >
+                        {alert}
+                    </h1>
+                    <button
+                        onClick={() => addWaitlist()}
+                        className="w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full"
+                    >
+                        Join Waitlist
+                    </button>
                 </motion.div>
             </div>
         </>
