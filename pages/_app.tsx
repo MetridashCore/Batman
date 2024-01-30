@@ -12,9 +12,7 @@ import LoginNavBar from '@/components/LoginNavBar'
 
 export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {}, [pageProps.session])
-    useReportWebVitals((metric) => {
-        console.log(metric)
-    })
+    useReportWebVitals((metric) => {})
     return (
         <>
             <Head>
