@@ -21,11 +21,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Footer from '@/components/Footer'
 import AllFeatures from '@/components/featuresPageComponents/allFeatures/AllFeatures'
 import { waitList } from '@/auth'
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from "yup";
+import Link from 'next/link'
 
 const Features = () => {
     const [email, setEmail] = useState<any>(null)
     const [color, setColor] = useState('red-500')
     const [alert, setAlert] = useState<any>(null)
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const textScrollVariants = {
         visible: { opacity: 1, top: 0 },
         hidden: { opacity: 0 },
@@ -40,23 +44,16 @@ const Features = () => {
         }
     }, [controls, inView])
  
-       
+    const JoinWaitingSchema = Yup.object().shape({
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Required'),
+    });
+    // Initialize Cloud Firestore and get a reference to the service
 
-
-        // Initialize Cloud Firestore and get a reference to the service
-        const addWaitlist = async () => {
-
-            if (email == null) {
-                setAlert("Please enter your email")
-                return
-            }
-            console.log("*****************" + email)
-            await waitList(email).then((res) => { console.log("data added" + res) }).catch((err) => { console.log(err) })
-            setColor('green-600')
-            setAlert("You have been added to the waitlist")
-        }
-
-      console.log(email)
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <>
@@ -98,11 +95,44 @@ const Features = () => {
                 <AllFeatures />
                 <div className='flex flex-col items-center justify-center py-6'>
                     <h1 className='title-style mt-10'>Join the Waitlist</h1>
-                    <div className='w-72 h-10 mt-8  bg-black'>
-                        <input onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
-                    </div>
-                    <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
-                    <button onClick={() => addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
+                    <Formik
+                        initialValues={{
+                            email: '',
+                        }}
+                        validationSchema={JoinWaitingSchema}
+                        onSubmit={values => {
+                            console.log("*****************" + values.email)
+                            waitList(values.email).then((res) => { console.log("data added" + res) }).catch((err) => { console.log(err) })
+                            setColor('green-600')
+                            setAlert("You have been added to the waitlist")
+                            setIsModalOpen(true);
+                        }}
+                    >
+                        <Form>
+                            <div className='w-72 h-10 mt-8  bg-black' >
+                                <Field name="email" type="text" placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded text-white' />
+                            </div>
+                            <div className='flex flex-col items-center justify-center text-[#E02424]'>
+                                <ErrorMessage name="email" />
+                            </div>
+                            <button type='submit' className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
+                        </Form>
+                        {/* )} */}
+                    </Formik>
+                    {isModalOpen && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={closeModal}>
+                            <div className="bg-white p-6 rounded-md">
+                                <h1 className={`text-transparent bg-clip-text bg-gradient-to-r from-[#00C1D6] to-[#007DC0] text-4xl font-medium tracking-wide mt-4 text-center`}>Welcome to Metridash Waitlist</h1>
+                                <p className="mt-4 text-black font-thin text-center break-words">Exciting news! You've secured your spot on the Metridash Waitlist. <br />To join our vibrant community, connect on Discord now:</p>
+                                <div className='flex justify-center'>
+                                    <Link href='https://discord.gg/2fmn7AnRuZ' target='_blank' className="mt-4 bg-blue-500 text-white px-8 py-3 rounded-md ">
+                                        Join
+                                    </Link>
+                                </div>
+                                <p className="mt-4 text-black font-thin text-center break-words">Let the anticipation begin! We can't wait to share the Metridash journey with you. See you there! </p>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 <Bottom></Bottom>
