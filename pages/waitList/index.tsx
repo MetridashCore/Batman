@@ -138,17 +138,37 @@ const Waitlist = () => {
                     </div>
                 </motion.div>
                 <motion.div>
-                    <div className='flex items-center justify-center flex-col px-20 gap-3 py-10 mt-20'>
-                        <h1 className='hero-third'>What's Inside:</h1>
-                        <h1 className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">Get ready to access a treasure trove of premium content designed to fuel your growth and elevate your influence. From insider strategies and expert insights to actionable tips and tutorials, our curated collection covers every aspect of social media success.</h1>
+                    <div className="flex items-center justify-center flex-col px-5 md:px-20 gap-3 py-10 mt-20">
+                        <h1 className="hero-third">What's Inside:</h1>
+                        <h1 className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
+                            Get ready to access a treasure trove of premium
+                            content designed to fuel your growth and elevate
+                            your influence. From insider strategies and expert
+                            insights to actionable tips and tutorials, our
+                            curated collection covers every aspect of social
+                            media success.
+                        </h1>
                     </div>
-                    <div className='flex items-center justify-center flex-col px-20 gap-3 py-10'>
-                        <h1 className='hero-third'>Why Wait?</h1>
-                        <p className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">By joining our waitlist, you'll secure early access to our exclusive content library before it's available to the public. Plus, you'll be first in line for special offers, discounts, and events reserved exclusively for our waitlist members.</p>
+                    <div className="flex items-center justify-center flex-col px-5 md:px-20 gap-3 py-10">
+                        <h1 className="hero-third">Why Wait?</h1>
+                        <p className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
+                            By joining our waitlist, you'll secure early access
+                            to our exclusive content library before it's
+                            available to the public. Plus, you'll be first in
+                            line for special offers, discounts, and events
+                            reserved exclusively for our waitlist members.
+                        </p>
                     </div>
-                    <div className='flex items-center justify-center flex-col px-20 gap-3 py-10'>
-                        <h1 className='hero-third'>Who's It For:</h1>
-                        <h1 className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">Whether you're an aspiring influencer, a content creator looking to expand your reach, or a business owner aiming to harness the power of social media, our platform is tailor-made for you. No matter where you are on your journey, we're here to support you every step of the way.</h1>
+                    <div className="flex items-center justify-center flex-col px-5 md:px-20 gap-3 py-10">
+                        <h1 className="hero-third">Who's It For:</h1>
+                        <h1 className="md:px-32 px-0   text-lg font-light leading-8 mt-6 text-center text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
+                            Whether you're an aspiring influencer, a content
+                            creator looking to expand your reach, or a business
+                            owner aiming to harness the power of social media,
+                            our platform is tailor-made for you. No matter where
+                            you are on your journey, we're here to support you
+                            every step of the way.
+                        </h1>
                     </div>
                 </motion.div>
             </div>

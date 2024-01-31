@@ -62,7 +62,7 @@ export default function Contact() {
             <Head>
                 <title>Metridash - Contact Us</title>
             </Head>
-            <div className={`${classes.contact__container} bg-gray-50`}>
+            <div className={`${classes.contact__container} bg-black`}>
                 <div
                     className={`${classes.contact_confirm} bg-black flex flex-col items-center pt-14 px-5`}
                 >
@@ -87,8 +87,8 @@ export default function Contact() {
                 <div
                     className={`${classes.contact__form} items-center bg-black text-left`}
                 >
-                    <h1 className="font-medium text-para mb-4">Contact Us</h1>
-                    <form onSubmit={doSubmit} className="w-96">
+                    <h1 className="font-medium title-style">Contact Us</h1>
+                    <form onSubmit={doSubmit} className="w-96 px-6 md:px-0">
                         <div>
                             <label className="text-sm font-sans not-italic font-normal leading-6">
                                 Name
@@ -112,7 +112,7 @@ export default function Contact() {
                             <input
                                 id="outlined-controlled"
                                 className="w-full bg-inputf rounded-lg focus-visible:outline-none border-b-2 border-b-white py-2 px-2 my-2"
-                                placeholder="email"
+                                placeholder="Email"
                                 type="email"
                                 value={email}
                                 onChange={(event) => {
