@@ -56,16 +56,16 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="transition-all duration-1000  ease-in-out gap-y-4 flex w-full border-b-2  border-gray-800 pt-44 pb-20  md:px-60 px-10 items-center justify-center flex-col"
+                    className="transition-all duration-1000  ease-in-out gap-y-4 flex w-full border-b-2  border-gray-800 pt-44 pb-20  lg:px-40 px-10 items-center justify-center flex-col"
                 >
                     <h1 className="text-7xl text-transparent mb-1  font-semibold  bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Metridash
                     </h1>
-                    <h1 className="text-5xl pb-2  font-bold  text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ">
+                    <h1 className="text-5xl pb-2 text-center  font-bold  text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ">
                         We exist to help creators grow{' '}
                     </h1>
 
-                    <p className="md:px-32 px-0   text-lg font-md leading-8 mt-4 text-left text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
+                    <p className="md:px-32 px-0 text-center  text-lg font-md leading-8 mt-4 text-left text-transparent  bg-clip-text bg-gradient-to-l from-gray-500 to-gray-200">
                         Born from a deep understanding of the challenges that
                         social media creators face, we are on a mission to
                         transform the way content is conceptualized, crafted,
@@ -77,7 +77,7 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="flex transition-all duration-1000  ease-in-out w-screen  md:px-60 px-6 items-center gap-y-4 py-20 flex-col"
+                    className="flex transition-all duration-1000  ease-in-out w-screen  lg:px-40 px-6 items-center gap-y-4 py-20 flex-col"
                 >
                     <h1 className="text-xl text-transparent font-semibold  bg-clip-text bg-gradient-to-r from-[#1E9AFE] to-[#60DFCD]">
                         Our Vision
