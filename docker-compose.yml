@@ -1,0 +1,9 @@
+services:
+    metridash:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - './app-storage:/app/data'
+        ports:
+            - 5314:5314
