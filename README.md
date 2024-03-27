@@ -12,6 +12,11 @@ RUN `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Docker Setup 
+
+```bash
+docker-compose up -d
+```
 ## Stack
 
 - [Next.js](https://nextjs.org/) - The React Framework for the Web
