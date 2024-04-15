@@ -1,0 +1,20 @@
+{
+    "name": "metridash-devcontainer",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "github.vscode-github-actions",
+                "dbaeumer.vscode-eslint",
+                "dsznajder.es7-react-js-snippets"
+            ]
+        }
+    },
+    "forwardPorts": [5314],
+    "postStartCommand": "npm install && npm run dev",
+    "mounts": ["type=volume,target=${containerWorkspaceFolder}/node_modules"]
+}
