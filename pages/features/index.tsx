@@ -23,9 +23,9 @@ import AllFeatures from '@/components/featuresPageComponents/allFeatures/AllFeat
 import { waitList } from '@/auth'
 
 const Features = () => {
-    const [email, setEmail] = useState<any>(null)
-    const [color, setColor] = useState('red-500')
-    const [alert, setAlert] = useState<any>(null)
+    const [email, setEmail] = useState<string>('')
+    const [color, setColor] = useState<string>('red-500')
+    const [alert, setAlert] = useState<string>('')
     const textScrollVariants = {
         visible: { opacity: 1, top: 0 },
         hidden: { opacity: 0 },
