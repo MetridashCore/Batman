@@ -31,10 +31,9 @@ export default function DraftSidebar() {
         fetchUserDrafts(user)
             .then((userDrafts) => {
                 setDrafts(userDrafts)
-                console.log('These are the drafts', drafts)
             })
             .catch((error) => {
-                console.log('Cannot get Drafts', error)
+                console.log(error)
             })
     }, [drafts, user])
 

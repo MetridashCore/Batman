@@ -29,7 +29,6 @@ const Waitlist = () => {
         setAlert('You have been added to the waitlist')
     }
 
-    console.log(email)
     return (
         <div className="flex flex-col items-center pb-20 justify-center h-full w-screen   bg-black">
             <motion.div

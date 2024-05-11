@@ -33,7 +33,6 @@ export default function About() {
             setAlert('Please enter your email')
             return
         }
-        console.log('*****************' + email)
         await waitList(email)
             .then((res) => {
                 console.log('data added' + res)

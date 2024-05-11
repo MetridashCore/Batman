@@ -5,7 +5,7 @@ import caption from '../../public/icons/caption.png'
 import hashtag from '../../public/icons/hashtag.png'
 import thumbnail from '../../public/icons/thumbnail.png'
 import magic from '../../public/icons/magic.png'
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import classes from './features.module.css'
@@ -39,24 +39,24 @@ const Features = () => {
             controls.start('visible')
         }
     }, [controls, inView])
- 
-       
 
-
-        // Initialize Cloud Firestore and get a reference to the service
-        const addWaitlist = async () => {
-
-            if (email == null) {
-                setAlert("Please enter your email")
-                return
-            }
-            console.log("*****************" + email)
-            await waitList(email).then((res) => { console.log("data added" + res) }).catch((err) => { console.log(err) })
-            setColor('green-600')
-            setAlert("You have been added to the waitlist")
+    // Initialize Cloud Firestore and get a reference to the service
+    const addWaitlist = async () => {
+        if (email == null) {
+            setAlert('Please enter your email')
+            return
         }
 
-      console.log(email)
+        await waitList(email)
+            .then((res) => {
+                console.log('data added' + res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        setColor('green-600')
+        setAlert('You have been added to the waitlist')
+    }
 
     return (
         <>
@@ -94,15 +94,32 @@ const Features = () => {
                         possibilities
                     </h1>
                 </motion.div>
-              
+
                 <AllFeatures />
-                <div className='flex flex-col items-center justify-center py-6'>
-                    <h1 className='title-style mt-10'>Join the Waitlist</h1>
-                    <div className='w-72 h-10 mt-8  bg-black'>
-                        <input onChange={(e) => setEmail(e.target.value)} placeholder='Enter your email.' className='w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded '></input>
+                <div className="flex flex-col items-center justify-center py-6">
+                    <h1 className="title-style mt-10">Join the Waitlist</h1>
+                    <div className="w-72 h-10 mt-8  bg-black">
+                        <input
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your email."
+                            className="w-72 h-full pl-2 py-4  bg-black border-gray-800 border-spacing-14 border-2 rounded "
+                        ></input>
                     </div>
-                    <h1 className={`text-transparent bg-clip-text bg-gradient-to-r ${color===`red-500`?`from-[#EE5A24] to-[#EA2027]`:`from-[#A2D240] to-[#1B8B00]`} `}>{alert}</h1>
-                    <button onClick={() => addWaitlist()} className='w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full'>Join Waitlist</button>
+                    <h1
+                        className={`text-transparent bg-clip-text bg-gradient-to-r ${
+                            color === `red-500`
+                                ? `from-[#EE5A24] to-[#EA2027]`
+                                : `from-[#A2D240] to-[#1B8B00]`
+                        } `}
+                    >
+                        {alert}
+                    </h1>
+                    <button
+                        onClick={() => addWaitlist()}
+                        className="w-72 py-2  mt-8 bg-gradient-to-r from-[#009FFD] to-[#2A2A72] text-white font-medium rounded-full"
+                    >
+                        Join Waitlist
+                    </button>
                 </div>
 
                 <Bottom></Bottom>
