@@ -8,7 +8,7 @@
         "cleanup": "rimraf --glob node_modules",
         "start": "next start",
         "lint": "next lint",
-        "postinstall": "stale-dep -u"
+        "postinstall": "ignore-dependency-scripts \"stale-dep -u\"",
     },
     "engines": {
         "node": ">=16"
