@@ -3,12 +3,11 @@
     "version": "0.1.0",
     "private": "true",
     "scripts": {
-        "dev": "stale-dep next dev",
-        "build": "stale-dep next build",
+        "dev": "next dev",
+        "build": "next build",
         "cleanup": "rimraf --glob node_modules",
         "start": "next start",
-        "lint": "next lint",
-        "postinstall": "npx --yes ignore-dependency-scripts \"stale-dep -u\""
+        "lint": "next lint"
     },
     "engines": {
         "node": ">=16"
