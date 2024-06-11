@@ -36,7 +36,7 @@ const SignIn = () => {
             setMessage('User signed in successfully')
             window.location.href = '/homepage'
         } catch (error) {
-            setMessage(`Error signing in: ${error}`)
+            setMessage(`Invalid email or password`)
         }
     }
 

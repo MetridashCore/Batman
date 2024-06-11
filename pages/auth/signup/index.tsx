@@ -33,7 +33,7 @@ const SignUp = () => {
             setMessage('User signed up successfully')
             //window.location.href = "/homepage"
         } catch (error) {
-            setMessage(`Error signing up: ${error}`)
+            setMessage(`Invalid email or password`)
         }
     }
 
