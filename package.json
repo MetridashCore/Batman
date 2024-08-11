@@ -2,7 +2,7 @@
     "name": "metridash",
     "version": "0.1.0",
     "private": "true",
-    "repository":"MetridashCore/Batman",
+    "repository": "MetridashCore/Batman",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
