@@ -4,6 +4,10 @@
     "private": "true",
     "repository": "MetridashCore/Batman",
     "homepage": "https://metridash.com/",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MetridashCore/Batman.git"
+    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
