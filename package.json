@@ -2,12 +2,9 @@
     "name": "metridash",
     "version": "0.1.0",
     "private": "true",
+    "type": "module",
     "repository": "MetridashCore/Batman",
     "homepage": "https://metridash.com/",
-    "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MetridashCore/Batman.git"
-    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
