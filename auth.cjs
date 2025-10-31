@@ -1,3 +1,4 @@
+// @ts-check
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -31,6 +32,9 @@ const firestore = getFirestore(app)
 
 const googleProvider = new GoogleAuthProvider()
 
+/**
+ * @param {string} email
+ */
 export const waitList = async (email) => {
     await addDoc(collection(firestore, 'waitList'), {
         email: email,
@@ -38,8 +42,12 @@ export const waitList = async (email) => {
     })
 }
 
+/**
+ * @param {any} user
+ */
 export const readTokens = async (user) => {
     const userRef = doc(firestore, 'users', user.uid)
+    // @ts-ignore
     const userDoc = await userRef.get()
     const userData = userDoc.data()
     if (userData) {
@@ -48,10 +56,14 @@ export const readTokens = async (user) => {
     return null
 }
 
+/**
+ * @param {any} user
+ */
 export const getRealTimeToken = async (user) => {
     let value
     const tokenRef = doc(firestore, 'users', user.uid)
-    await onSnapshot(tokenRef, (snapshot) => {
+    onSnapshot(tokenRef, (snapshot) => {
+        // @ts-ignore
         value = snapshot.data().tokens
     })
     return value
@@ -64,10 +76,13 @@ export const getRealTimeToken = async (user) => {
     // }
 }
 
-export const generateRealTimeToken = (user) => {
+/**
+ * @param {any} user
+ */
+export const generateRealTimeToken = async (user) => {
     // Get the current user's token
     if (!user) return null
-    let token = getUserToken(user)
+    let token = await getUserToken(user)
     const tokenRef = doc(firestore, 'users', user.uid)
     // Listen for changes to the token
     onSnapshot(tokenRef, (newToken) => {
@@ -81,18 +96,27 @@ export const generateRealTimeToken = (user) => {
     return token
 }
 
+/**
+ * @param {any} user
+ */
 export const getUserToken = async (user) => {
     if (!user) return null
 
     const tokenRef = doc(firestore, 'users', user.uid)
     const doc1 = await getDoc(tokenRef)
-
+    // @ts-ignore
     if (doc1.exists) {
+        // @ts-ignore
         return doc1.data().tokens
     } else {
         return null
     }
 }
+
+/**
+ * @param {any} user
+ * @param {string} newTokenValue
+ */
 
 export const updateTokens = async (user, newTokenValue) => {
     const userRef = doc(firestore, 'users', user.uid)
@@ -100,10 +124,20 @@ export const updateTokens = async (user, newTokenValue) => {
     await updateDoc(userRef, { tokens: newTokenValue })
 }
 
+/**
+ * @param {any} user
+ * @param {string} newModelValue
+ */
 export const updateModel = async (user, newModelValue) => {
     const userRef = doc(firestore, 'users', user.uid)
     await updateDoc(userRef, { model: newModelValue })
 }
+
+/**
+ * @param {any} user
+ * @param {any} data
+ * @param {string} platform
+ */
 export const addDraft = async (user, data, platform) => {
     const userRef = doc(db, 'users', user.uid)
     const newObject = { draft: data, platform: user }
@@ -127,25 +161,35 @@ export const addDraft = async (user, data, platform) => {
             alert('User document not found')
         }
     } catch (error) {
-        alert('Error:', error)
+        alert('Error occured')
         console.log(error)
     }
 }
 
+/**
+ * @param {string} email
+ */
 export const addToWaitList = async (email) => {
+    // @ts-ignore
     db.collection('waitList')
         .add({
             email: email,
+            // @ts-ignore
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
+        // @ts-ignore
         .then(function (docRef) {
             console.log('Document written with ID: ', docRef.id)
         })
+        // @ts-ignore
         .catch(function (error) {
             console.error('Error adding document: ', error)
         })
 }
 
+/**
+ * @param {any} user
+ */
 export const fetchUserDrafts = async (user) => {
     const userRef = doc(firestore, 'users', user.uid)
 
@@ -160,10 +204,15 @@ export const fetchUserDrafts = async (user) => {
             throw new Error('User document not found')
         }
     } catch (error) {
+        // @ts-ignore
         throw new Error('Error fetching drafts: ' + error.message)
     }
 }
 
+/**
+ * @param {string} email
+ * @param {string} password
+ */
 export const createUserWithEmail = async (email, password) => {
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
     if (user.email && user.uid) {
@@ -179,11 +228,16 @@ export const createUserWithEmail = async (email, password) => {
     }
 }
 
+/**
+ * @param {string} email
+ * @param {string} password
+ */
 export const signInWithEmail = async (email, password) => {
     try {
         const { user } = await signInWithEmailAndPassword(auth, email, password)
         return user
     } catch (error) {
+        // @ts-ignore
         if (error.code === 'auth/user-not-found') {
             throw new Error('User does not exist')
         } else {
@@ -226,7 +280,12 @@ export const signInWithGoogle = async () => {
     return user
 }
 
+/**
+ * @param {any} user
+ * @param {any} router
+ */
 export const onUserSignedIn = async (user, router) => {
+    // @ts-ignore
     const userDoc = await doc(firestore, 'users', user.uid).get()
     const isNewUser = userDoc.data().isNewUser
     if (isNewUser) {
