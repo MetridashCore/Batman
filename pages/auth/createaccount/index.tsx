@@ -41,7 +41,7 @@ const SignUp = () => {
                 return;
             }
 
-            await createUserWithEmail({ name, email, password });
+            await createUserWithEmail(email, password);
             setMessage("User signed up successfully");
             router.push('/homepage');
         } catch (error) {

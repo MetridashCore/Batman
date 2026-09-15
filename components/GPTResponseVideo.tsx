@@ -6,9 +6,8 @@ import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import { responseAtom } from '@/utils/store'
 import { auth } from '@/firebase'
-import { generateRealTimeToken } from '../auth.cjs'
 import tokens from '../public/icons/coins.png'
-import { updateTokens, readTokens, getUserToken } from '../auth.cjs'
+import { updateTokens, getUserToken } from '@/auth'
 import { set } from 'firebase/database'
 
 export default function GPTResponseVideo() {
@@ -38,7 +37,7 @@ export default function GPTResponseVideo() {
 
     useEffect(() => {
         ;(async () => {
-            const tk = await generateRealTimeToken(user)
+            const tk = await getUserToken(user)
             setToken(Number(tk))
         })()
     }, [response, user, loading])
@@ -159,7 +158,7 @@ export default function GPTResponseVideo() {
             </div>
             {response ? (
                 response
-                    .split('\n' || '\r\n' || '\r' || '\n\r')
+                    .split(/\r\n|\r|\n/)
                     .filter((e) => e)
                     .map((e, i) => {
                         if (e) {

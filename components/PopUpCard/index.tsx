@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import { getUserToken } from '../../auth.cjs'
 export default function PopUpCard() {
     return (
         <div className="flex flex-col items-center justify-center p-4 w-full h-full bg-white rounded-xl shadow-xl">

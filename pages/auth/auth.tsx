@@ -1,10 +1,6 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 // import { useRouter } from 'next/router';
-// import {
-//   createUserWithEmail,
-//   signInWithEmail,
-//   signInWithGoogle,
-// } from '../../auth.js';
+import { createUserWithEmail, signInWithEmail, signInWithGoogle } from '@/auth';
 
 
 const AuthPage = () => {
@@ -13,23 +9,23 @@ const AuthPage = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  const handleNameChange = (event) => {
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
- 
+
   const handleSignUp = async () => {
     try {
-      await createUserWithEmail(name,email, password);
+      await createUserWithEmail(email, password);
       setMessage('User signed up successfully');
     } catch (error) {
-      setMessage(`Error signing up: ${error.message}`);
+      setMessage(`Error signing up: ${(error as Error).message}`);
     }
   };
 
@@ -38,7 +34,7 @@ const AuthPage = () => {
       await signInWithEmail(email, password);
       setMessage('User signed in successfully');
     } catch (error) {
-      setMessage(`Error signing in: ${error.message}`);
+      setMessage(`Error signing in: ${(error as Error).message}`);
     }
   };
 
@@ -47,7 +43,7 @@ const AuthPage = () => {
       await signInWithGoogle();
       setMessage('User signed in with Google successfully');
     } catch (error) {
-      setMessage(`Error signing in with Google: ${error.message}`);
+      setMessage(`Error signing in with Google: ${(error as Error).message}`);
     }
   };
 

@@ -3,13 +3,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
-import { Logout } from "@/auth"
+import { Logout, getUserToken } from "@/auth"
 import { useTheme } from "next-themes"
 import { styled } from "@mui/material/styles"
 import { auth } from "@/firebase"
 import { useAtom } from "jotai"
 import { responseAtom } from "@/utils/store"
-import { generateRealTimeToken } from "@/auth"
 import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Switch, { SwitchProps } from "@mui/material/Switch"
@@ -29,7 +28,7 @@ export default function LoginNavBar() {
   const User = auth.currentUser
   const [toggle, setToggle] = useState(true)
   const [client, setClient] = useState<typeof User | null>(null)
-  const [token, setToken] = useState()
+  const [token, setToken] = useState<number | null>(null)
   const [response] = useAtom(responseAtom)
 
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function LoginNavBar() {
 
   useEffect(() => {
     ;(async () => {
-      const tk = await generateRealTimeToken(client)
+      const tk = await getUserToken(client)
       setToken(tk)
     })()
   }, [response, client])

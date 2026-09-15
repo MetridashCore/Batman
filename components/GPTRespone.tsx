@@ -6,7 +6,7 @@ import Tooltip from '@mui/material/Tooltip'
 // import Button from "@mui/material/Button"
 import { responseAtom, platformAtom, loadingAtom } from '@/utils/store'
 import { auth } from '@/firebase'
-import { generateRealTimeToken } from '../auth.cjs'
+import { getUserToken, addDraft } from '@/auth'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import tokens from '../public/icons/coins.png'
 import { Button, Modal } from '@mui/material'
@@ -17,11 +17,8 @@ import InstaTime from 'public/bestTimes/insta.webp'
 import YoutubeTime from 'public/bestTimes/youtube.webp'
 import SaveIcon from '@mui/icons-material/Save' // Import SaveIcon from Material-UI
 import GPTResponseVideo from './GPTResponseVideo'
-import { getUserToken } from '../auth.cjs'
 import SaveTwoToneIcon from '@mui/icons-material/SaveTwoTone'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import { updateTokens } from '../auth.cjs'
-import { addDraft } from '../auth.cjs'
 import Snackbar from '@mui/material/Snackbar'
 import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
@@ -80,7 +77,7 @@ export default function GPTResponse({
 
     useEffect(() => {
         ;(async () => {
-            const tk = await generateRealTimeToken(user)
+            const tk = await getUserToken(user)
             setToken(Number(tk))
             setFullData(response)
         })()
