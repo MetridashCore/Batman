@@ -1,8 +1,4 @@
-import {
-  ParsedEvent,
-  ReconnectInterval,
-  createParser,
-} from "eventsource-parser";
+import { createParser } from "eventsource-parser";
 
 export type ChatGPTAgent = "user" | "system" | "assistant";
 
@@ -41,8 +37,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
   const stream = new ReadableStream({
     async start(controller) {
-      function push(event: ParsedEvent | ReconnectInterval) {
-        if (event.type === "event") {
+      const parser = createParser({
+        onEvent(event) {
           const data = event.data;
 
           if (data === "[DONE]") {
@@ -64,10 +60,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
           } catch (err) {
             controller.error(err);
           }
-        }
-      }
-
-      const parser = createParser(push);
+        },
+      });
 
       for await (const chunk of res.body as any) {
         parser.feed(decoder.decode(chunk));

@@ -11,6 +11,7 @@ import { responseAtom, platformAtom } from '@/utils/store'
 import { updateTokens, getUserToken } from '@/auth'
 import { Modal, Box } from '@mui/material'
 import { StyleModal } from '@/components/modalStyle'
+import { selectFieldSlotProps } from '@/components/ContentForm/selectFieldSlotProps'
 import PopUpCard from '@/components/PopUpCard'
 import { disabled } from './form4'
 import { useTheme } from 'next-themes'
@@ -219,23 +220,17 @@ export default function Form3({ title }: MainSelectorProps) {
                             <TextField
                                 {...params}
                                 label="Select Tone"
-                                InputLabelProps={{
-                                    style: {
+                                slotProps={selectFieldSlotProps(
+                                    params,
+                                    { fontSize: '15px', color: '#7D818B' },
+                                    {
                                         fontSize: '15px',
-                                        color: '#7D818B',
-                                    },
-                                }}
-                                InputProps={{
-                                    ...params.InputProps,
-                                    style: {
-                                        fontSize: '15px',
-                                        color: `${
+                                        color:
                                             theme === 'light'
                                                 ? 'black'
-                                                : 'white'
-                                        }`,
-                                    },
-                                }}
+                                                : 'white',
+                                    }
+                                )}
                             />
                         )}
                     />

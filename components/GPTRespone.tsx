@@ -263,8 +263,10 @@ export default function GPTResponse({
                         <ClickAwayListener onClickAway={handleTooltipClose}>
                             <div>
                                 <Tooltip
-                                    PopperProps={{
-                                        disablePortal: true,
+                                    slotProps={{
+                                        popper: {
+                                            disablePortal: true,
+                                        },
                                     }}
                                     onClose={handleTooltipClose}
                                     open={open}

@@ -195,8 +195,10 @@ export default function GPTResponseVideo() {
                                         >
                                             <div className="w-10 h-5 ">
                                                 <Tooltip
-                                                    PopperProps={{
-                                                        disablePortal: true,
+                                                    slotProps={{
+                                                        popper: {
+                                                            disablePortal: true,
+                                                        },
                                                     }}
                                                     onClose={handleTooltipClose}
                                                     open={open}

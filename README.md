@@ -6,9 +6,9 @@ In today's digital landscape, social media creators face numerous challenges in 
 
 COPY the `.env.example` to `.env` and fill the env variables.
 <br />
-RUN `npm i`
+RUN `pnpm i`
 <br />
-RUN `npm run dev`
+RUN `pnpm dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

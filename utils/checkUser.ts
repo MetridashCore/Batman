@@ -1,9 +1,9 @@
-import jwt_decode from "jwt-decode"
+import { jwtDecode } from "jwt-decode"
 
 export default function checkUser() {
   const token = localStorage.getItem("token")
   if (token) {
-    const decoded = jwt_decode(token!)
+    const decoded = jwtDecode(token)
     return decoded
   }
   return null

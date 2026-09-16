@@ -3,7 +3,7 @@ import Youtubeicon from '../../public/platformIcons/youtubeHQ.png'
 import InstaIcon from '../../public/platformIcons/instagramHiQ.png'
 import Image from 'next/image'
 import { useInView } from "react-intersection-observer"
-import { MotionAdvancedProps, motion,useAnimation  } from 'framer-motion'
+import { motion,useAnimation  } from 'framer-motion'
 export default function YoutubeComp() {
 
     const controls = useAnimation()

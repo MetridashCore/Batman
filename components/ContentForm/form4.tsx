@@ -13,6 +13,7 @@ import { platformAtom, responseAtom, loadingAtom } from '@/utils/store'
 import { auth } from '@/firebase'
 import { Modal, Box, OutlinedInput } from '@mui/material'
 import { StyleModal } from '@/components/modalStyle'
+import { selectFieldSlotProps } from '@/components/ContentForm/selectFieldSlotProps'
 import PopUpCard from '@/components/PopUpCard'
 import { useTheme } from 'next-themes'
 import {
@@ -255,28 +256,24 @@ export default function Form4({ title }: MainSelectorProps) {
                                 {...params}
                                 label="Select Tone"
                                 className="no-border"
-                                InputLabelProps={{
-                                    style: {
+                                slotProps={selectFieldSlotProps(
+                                    params,
+                                    {
                                         fontSize: '15px',
                                         color: '#7D818B',
                                         outlineStyle: 'none',
                                         border: 'none',
                                     },
-                                }}
-                                InputProps={{
-                                    ...params.InputProps,
-
-                                    style: {
+                                    {
                                         fontSize: '15px',
                                         outlineStyle: 'none',
-                                        color: `${
+                                        color:
                                             theme === 'light'
                                                 ? 'black'
-                                                : 'white'
-                                        }`,
+                                                : 'white',
                                         border: 'none',
-                                    },
-                                }}
+                                    }
+                                )}
                             />
                         )}
                     />

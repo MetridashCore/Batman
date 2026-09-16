@@ -15,6 +15,6 @@
         }
     },
     "forwardPorts": [5314],
-    "postStartCommand": "npm install && npm run dev",
+    "postStartCommand": "pnpm install --frozen-lockfile && pnpm dev",
     "mounts": ["type=volume,target=${containerWorkspaceFolder}/node_modules"]
 }

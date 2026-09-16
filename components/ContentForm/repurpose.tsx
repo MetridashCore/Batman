@@ -7,6 +7,7 @@ import { platformAtom, responseAtom } from '@/utils/store'
 import { auth } from '@/firebase'
 import { Modal, Box, OutlinedInput } from '@mui/material'
 import { StyleModal } from '@/components/modalStyle'
+import { selectFieldSlotProps } from '@/components/ContentForm/selectFieldSlotProps'
 import PopUpCard from '@/components/PopUpCard'
 import { useTheme } from 'next-themes'
 import {
@@ -185,23 +186,19 @@ export default function Repurpose({ title }: MainSelectorProps) {
                         <TextField
                             {...params}
                             label="Select option"
-                            InputLabelProps={{
-                                style: {
+                            slotProps={selectFieldSlotProps(
+                                params,
+                                {
                                     fontSize: '15px',
                                     color: '#7D818B',
                                     outlineStyle: 'none',
                                 },
-                            }}
-                            InputProps={{
-                                ...params.InputProps,
-                                style: {
+                                {
                                     fontSize: '15px',
                                     outlineStyle: 'none',
-                                    color: `${
-                                        theme === 'light' ? 'black' : 'white'
-                                    }`,
-                                },
-                            }}
+                                    color: theme === 'light' ? 'black' : 'white',
+                                }
+                            )}
                         />
                     )}
                 />

@@ -12,6 +12,7 @@ import { useAtom } from 'jotai'
 import { responseAtom, platformAtom, loadingAtom } from '@/utils/store'
 import { Modal, Box } from '@mui/material'
 import { StyleModal } from '@/components/modalStyle'
+import { selectFieldSlotProps } from '@/components/ContentForm/selectFieldSlotProps'
 import PopUpCard from '@/components/PopUpCard'
 import { disabled } from './form4'
 import { useTheme } from 'next-themes'
@@ -257,23 +258,20 @@ export default function Form2({ title }: MainSelectorProps) {
                             <TextField
                                 {...params}
                                 label="Select Industry"
-                                InputLabelProps={{
-                                    style: {
+                                slotProps={selectFieldSlotProps(
+                                    params,
+                                    {
                                         fontSize: '14px',
                                         color: '#7D818B', // Change the color here
                                     },
-                                }}
-                                InputProps={{
-                                    ...params.InputProps,
-                                    style: {
+                                    {
                                         fontSize: '14px',
-                                        color: `${
+                                        color:
                                             theme === 'light'
                                                 ? 'black'
-                                                : 'white'
-                                        }`,
-                                    },
-                                }}
+                                                : 'white',
+                                    }
+                                )}
                             />
                         )}
                     />
@@ -298,19 +296,14 @@ export default function Form2({ title }: MainSelectorProps) {
                             <TextField
                                 {...params}
                                 label="Select Industry"
-                                InputLabelProps={{
-                                    style: {
+                                slotProps={selectFieldSlotProps(
+                                    params,
+                                    {
                                         fontSize: '15px',
                                         color: '#7D818B', // Change the color here
                                     },
-                                }}
-                                InputProps={{
-                                    ...params.InputProps,
-                                    style: {
-                                        fontSize: '15px',
-                                        color: 'white',
-                                    },
-                                }}
+                                    { fontSize: '15px', color: 'white' }
+                                )}
                             />
                         )}
                     />
@@ -347,19 +340,14 @@ export default function Form2({ title }: MainSelectorProps) {
                             <TextField
                                 {...params}
                                 label="Select Tone"
-                                InputLabelProps={{
-                                    style: {
+                                slotProps={selectFieldSlotProps(
+                                    params,
+                                    {
                                         fontSize: '15px',
                                         color: '#7D818B', // Change the color here
                                     },
-                                }}
-                                InputProps={{
-                                    ...params.InputProps,
-                                    style: {
-                                        fontSize: '15px',
-                                        color: 'white',
-                                    },
-                                }}
+                                    { fontSize: '15px', color: 'white' }
+                                )}
                             />
                         )}
                     />
